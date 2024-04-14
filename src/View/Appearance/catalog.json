@@ -1,0 +1,13 @@
+[
+    {
+        "code": "light",
+        "name": "Light",
+        "colorScheme": "light",
+        "isDfault": true
+    },
+    {
+        "code": "dark",
+        "name": "Dark",
+        "colorScheme": "dark"
+    }
+]

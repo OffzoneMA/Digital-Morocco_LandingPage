@@ -1,0 +1,29 @@
+{
+    "APP_NAME": "Digital Morocco",
+    "HTTP_SEREVER": "/",
+    "HTTP_DEV_SERVER": "http://localhost:8888/",
+    "BASE_API_URI": "api/",
+    "API_STATUS": {
+        "SUCCESS": {
+            "isSuccess": true,
+            "notif": "success"
+        },
+        "ERROR": {
+            "isSuccess": false,
+            "notif": "error"
+        },
+        "INCORRECT_DATA": {
+            "isSuccess": false,
+            "notif": "error"
+        },
+        "UNAUTHORIZED": {
+            "isSuccess": false,
+            "notif": "error"
+        },
+        "INSUFFICIENT_ROLE": {
+            "isSuccess": false,
+            "notif": "error"
+        }
+    },
+    "AVATAR_API_URL": "https://api.dicebear.com/5.x/avataaars/png"
+}

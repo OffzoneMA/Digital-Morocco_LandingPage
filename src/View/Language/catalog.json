@@ -1,0 +1,15 @@
+[
+    {
+        "code": "en-US",
+        "name": "English (United kingdom)",
+        "direction": "ltr",
+        "isDfault": true,
+        "flag": "uk.svg"
+    },
+    {
+        "code": "fr-FR",
+        "name": "Français (France)",
+        "direction": "ltr",
+        "flag": "fr.svg"
+    }
+]

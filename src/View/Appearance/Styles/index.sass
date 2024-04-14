@@ -1,0 +1,24 @@
+// Animation
+.animation
+    animation: element-animation 400ms
+
+    &:nth-child(even)
+        animation: element-animation-even 400ms
+
+@keyframes element-animation
+    0%
+        opacity: 0
+        transform: translateX(-10px)
+
+    100%
+        opacity: 1
+        transform: none
+
+@keyframes element-animation-even
+    0%
+        opacity: 0
+        transform: translateX(10px)
+
+    100%
+        opacity: 1
+        transform: none

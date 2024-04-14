@@ -1,0 +1,37 @@
+[
+    {
+        "image": "image1.png",
+        "title": "Monthly #FirstFridayFair Business, Data & Tech (Virtual Event)",
+        "date": "Fri, Sep 1 2023   •   11:00 AM",
+        "location": "Virtual Event [Online Only]",
+        "price": "From $0.00"
+    },
+    {
+        "image": "image2.png",
+        "title": "Women Who Network - Virtual Speed Networking Event",
+        "date": "Thu, Aug 17, 2023   •   11:00 AM",
+        "location": "Online Only",
+        "price": "Starts at $5.00"
+    },
+    {
+        "image": "image3.png",
+        "title": "Rabat Leadership: Delegation Skills for Busy Leaders - Why & How",
+        "date": "Fri, Sep 1 2023   •   11:00 AM",
+        "location": "Rabat",
+        "price": "From $24.99"
+    },
+    {
+        "image": "image4.png",
+        "title": "North Africa Dreamin' 2023",
+        "date": "Saturday, October 21   •   8am - 9pm +01",
+        "location": "Farah Hotel Casablanca",
+        "price": "From €29.00"
+    },
+    {
+        "image": "image5.png",
+        "title": "Démo Day U-Founders – 4ème cohorte",
+        "date": "Frdayi, September 22   •   8am - 9pm +01",
+        "location": "Mohammed VI Polytechnic University",
+        "price": "Free"
+    }
+]
