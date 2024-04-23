@@ -13,11 +13,11 @@ const Copyright = () => {
     return (
         <Container>
             <div id="links">
-                <a href='/'><Lang>Conditions Générales d'Utilisation</Lang></a>
-                <a href='/'><Lang>Mentions légales</Lang></a>
-                <a href='/'><Lang>Politique de Confidentialité</Lang></a>
+                <a href='/'><Lang>Terms of Use</Lang></a>
+                <a href='/'><Lang>Legal Notice</Lang></a>
+                <a href='/'><Lang>Privacy Policy</Lang></a>
             </div>
-            <p id="copyright"><Lang>Copyright © 2023 Digital Morocco, tous droits réservés.</Lang> <Lang>Par</Lang> <a rel="noreferrer" href="https://offzone.net/" target="_blank">OFFZONE</a></p>
+            <p id="copyright"><Lang>Copyright © 2023 Digital Morocco, all Rights Reserved.</Lang> <Lang>By</Lang> <a rel="noreferrer" href="https://offzone.net/" target="_blank">OFFZONE</a></p>
         </Container>
     )
 }
@@ -41,6 +41,10 @@ const Container = styled.div`
         > a {
             text-decoration: none;
             margin-inline-end: 15px;
+
+            &:hover {
+                color: var(--color-green);
+            }
         }
     }
 

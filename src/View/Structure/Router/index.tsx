@@ -19,6 +19,7 @@ const Checkout = lazy(() => import('./Checkout'))
 const Billing = lazy(() => import('./Billing'))
 const Thanks = lazy(() => import('./Thanks'))
 const Faq = lazy(() => import('./Faq'))
+const TermOfUse = lazy(()=> import('./TermsofUse'))
 const Unavailable = lazy(() => import('./404'))
 
 
@@ -34,7 +35,7 @@ const Router = () => {
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='about' element={<About />} />
-                <Route path='feature' element={<Feature />} />
+                <Route path='about/feature' element={<Feature />} />
                 <Route path='members' element={<Members />} />
                 <Route path='partners' element={<Partners />} />
                 <Route path='events' element={<Events />} />
@@ -42,11 +43,12 @@ const Router = () => {
                 <Route path='contact' element={<Contact />} />
                 <Route path='blog' element={<Blog />} />
                 <Route path='post' element={<Post />} />
-                <Route path='event' element={<Event />} />
-                <Route path='checkout' element={<Checkout />} />
-                <Route path='billing' element={<Billing />} />
+                <Route path='events/details' element={<Event />} />
+                <Route path='events/checkout' element={<Checkout />} />
+                <Route path='events/billing' element={<Billing />} />
                 <Route path='thanks' element={<Thanks />} />
                 <Route path='faq' element={<Faq />} />
+                <Route path='termOfUse' element={<TermOfUse />} />
                 <Route path='*' element={<Unavailable />} />
             </Routes>
         </Suspense>

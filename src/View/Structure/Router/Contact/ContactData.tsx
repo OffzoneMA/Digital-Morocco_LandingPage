@@ -54,11 +54,13 @@ const Container = styled.div`
             margin: 7px 0;
             font-size: 20px;
             font-weight: 100;
+            font-family: DMSans-Medium;
         }
 
         > p {
             margin: 0;
             color: rgb(21 20 57 / 40%);
+            line-height: 26px;
         }
     }
 `;

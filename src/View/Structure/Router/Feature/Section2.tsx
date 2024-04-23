@@ -71,16 +71,19 @@ const Container = styled.div`
         color: #15143966;
         max-width: 796px;
         margin: auto;
+        line-height: 32px;
     }
 
     > #features {
         display: flex;
         margin-top: 70px;
+        gap: 60px;
 
         > .item {
             display: grid;
             justify-items: center;
             text-align: center;
+            // min-width: 284px;
 
             > b {
                 color: #151439CC;
@@ -92,6 +95,7 @@ const Container = styled.div`
             > p {
                 color: #15143966;
                 font-size: 16px;
+                line-height: 25.6px;
             }
         }
 

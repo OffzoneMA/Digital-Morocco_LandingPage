@@ -89,6 +89,8 @@ const Container = styled.div`
             margin-top: 40px;
             color: #15143966;
             font-size: 16px;
+            line-height: 26px;
+
         }
 
         &:hover {

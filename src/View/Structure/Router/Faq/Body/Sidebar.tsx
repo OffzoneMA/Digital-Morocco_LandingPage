@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate ,useLocation, useSearchParams } from 'react-router-dom';
 import Button from '../../../../Components/Button';
-
+import faqsData from '../list.json'
 /**
  * Sidebar
  * 
  * @returns 
  */
 const Sidebar = () => {
+    /**
+     * Get Ids from link
+     */
+
+    const location = useLocation();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [topicId, setTopicId] = useState(searchParams.get('topic') ?? '');
+
+    useEffect(() => {
+        setTopicId(searchParams.get('topic') ?? '');
+    }, [searchParams]);
+
+    const handleLinkClick = (topicId: string , questionId: string) => {
+        setSearchParams({ topic: topicId });
+        setSearchParams({question: questionId})
+    };
 
     /**
      * Navigate
@@ -21,13 +37,11 @@ const Sidebar = () => {
         <Container>
             <p><Lang>Select Topic</Lang></p>
             <div id="links">
-                <Link to='/topic'><Lang>Account and Registration</Lang></Link>
-                <Link to='/topic'><Lang>Membership and Profiles</Lang></Link>
-                <Link to='/topic'><Lang>Networking and Connections</Lang></Link>
-                <Link to='/topic'><Lang>Becoming Investors</Lang></Link>
-                <Link to='/topic'><Lang>Events and Activities</Lang></Link>
-                <Link to='/topic'><Lang>Partnerships and Sponsorships</Lang></Link>
-                <Link to='/topic'><Lang>Billing and Payments</Lang></Link>
+            {faqsData.map((topic , index) => (
+                    <Link onClick={() => handleLinkClick(topic.id.toString() , topic.questions[0].id.toString())} key={topic.id} to={`/faq?topic=${topic.id}&question=${topic.questions[0].id}`} className={parseInt(topicId) ===topic.id ? 'selected' : ''}                    >
+                        <Lang>{topic.name}</Lang>
+                    </Link>
+                ))}
             </div>
             <div id="help">
                 <h3><Lang>Didn't find the answer you were looking for ?</Lang></h3>
@@ -69,6 +83,10 @@ const Container = styled.div`
             &:hover {
                 color: #00CDAE;
             }
+            
+        }
+        .selected {
+            color: #00CDAE;
         }
     }
 

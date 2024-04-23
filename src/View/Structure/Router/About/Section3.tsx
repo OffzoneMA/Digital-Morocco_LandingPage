@@ -22,7 +22,7 @@ const Section3 = () => {
                     <div id="content">
                         <h4><Lang>Unleashing Growth and Innovation</Lang></h4>
                         <p><Lang>Welcome to Digital Morocco, a thriving community of businesses, institutions, investors, and esteemed local and international experts in the digital field. We are united by a common goal: to foster the development of skills, advance cutting-edge technologies, and empower startups and digital projects to conquer the challenges of today's ever-evolving market.</Lang></p>
-                        <Link to='/feature'><Lang>Explore</Lang></Link>
+                        <Link to='/about/feature'><Lang>Explore</Lang></Link>
                     </div>
                     <img src={Image6} alt='' loading='lazy' />
                 </div>
@@ -30,7 +30,7 @@ const Section3 = () => {
                     <div id="content">
                         <h4><Lang>Revolutionizing the Future of Business in Morocco and Beyond</Lang></h4>
                         <p><Lang>Digital Morocco is a community comprised of businesses, institutions, investors, and local and international experts in the digital field. Our collective efforts are focused on developing skills, technologies, and qualifications for startups and digital projects, ensuring they are well-equipped to navigate market challenges and adapt to the evolving business environment in Morocco and worldwide.</Lang></p>
-                        <Link to='/feature'><Lang>Explore</Lang></Link>
+                        <Link to='/about/feature'><Lang>Explore</Lang></Link>
                     </div>
                     <img src={Image7} alt='' loading='lazy' />
                 </div>
@@ -77,6 +77,7 @@ const Container = styled.div`
                     font-weight: 500;
                     line-height: 32px;
                     margin: 0;
+                    font-family: DMSans-Medium;
                 }
     
                 > p {
@@ -97,6 +98,7 @@ const Container = styled.div`
                     text-decoration: none;
                     padding: 0;
                     margin: 0;
+                    font-family: DMSans-Medium;
 
                     &:hover {
                         color: #00CDAE;

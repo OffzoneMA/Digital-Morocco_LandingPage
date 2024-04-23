@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "name": "About Digital Morocco",
+        "questions": [
+            {
+                "id": 1,
+                "question": "What is Digital Morocco?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Account and Registration",
+        "questions": [
+            {
+                "id": 2,
+                "question": "How do I create an account?",
+                "answer": "To create an account on Digital Morocco, follow these simple steps:<br><br>1. Go to the Digital Morocco website.<br>2. Click on the 'Get Started' button at the top right of your screen.<br>3. Fill out the registration form with the required information such as your name, surname, email address, password, and follow the instructions.<br>4. Submit the form by clicking on the registration or account creation button.<br><br>Once these steps are completed, you should receive a confirmation email or be redirected to a confirmation page, indicating that your account has been successfully created. You can then log in to your new account using your email address and password."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Membership and Profiles",
+        "questions": [
+            {
+                "id": 3,
+                "question": "What profiles are available?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Networking and Connections",
+        "questions": [
+            {
+                "id": 4,
+                "question": "How can I connect with other members?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Events and Activities",
+        "questions": [
+            {
+                "id": 5,
+                "question": "Can I attend events without an account?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Free Services",
+        "questions": [
+            {
+                "id": 6,
+                "question": "Are there fees for using Digital Morocco?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Billing and Payments",
+        "questions": [
+            {
+                "id": 7,
+                "question": "How do I upgrade my profile or subscription?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Becoming an Investor",
+        "questions": [
+            {
+                "id": 8,
+                "question": "How can I become an investing partner?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Partnerships and Sponsorships",
+        "questions": [
+            {
+                "id": 9,
+                "question": "How can I become a partner or sponsor?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Technical Issues",
+        "questions": [
+            {
+                "id": 10,
+                "question": "What if I have technical issues?",
+                "answer": "Digital Morocco is a vibrant business networking platform connecting startups, companies, project holders, and investors. We organize events and provide a space to collaborate and grow."
+            }
+        ]
+    }
+]

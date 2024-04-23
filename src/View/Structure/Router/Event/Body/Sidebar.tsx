@@ -54,7 +54,7 @@ const Sidebar = () => {
                     <b id="symbol">$</b>
                     <b id="value">29.00</b>
                 </div>
-                <Button onClick={() => navigate('/checkout')} $isFill $background='#25DAC5' $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
+                <Button onClick={() => navigate('/events/checkout')} $isFill $background='#25DAC5' $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
             </div>
             <div id="map">
                 <p><Lang>Location Map</Lang></p>

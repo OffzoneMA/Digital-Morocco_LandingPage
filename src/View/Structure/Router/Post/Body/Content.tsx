@@ -41,9 +41,13 @@ const Container = styled.div`
         font-size: 16px;
         color: #15143966;
         font-family: DMSans-Regular;
+        line-height: 26px;
+
     }
 
     > img {
         max-width: 100%;
+        margin-top:18px;
+        margin-bottom:18px;
     }
 `;

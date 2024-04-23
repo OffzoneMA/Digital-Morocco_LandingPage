@@ -46,7 +46,7 @@ const Sidebar = () => {
                 <p><Lang>Sub Total</Lang></p>
                 <b>$ 29.00</b>
             </div>
-            <Button onClick={() => navigate('/billing')} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Check Out</Lang></Button>
+            <Button onClick={() => navigate('/events/billing')} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Check Out</Lang></Button>
         </Container>
     )
 }
