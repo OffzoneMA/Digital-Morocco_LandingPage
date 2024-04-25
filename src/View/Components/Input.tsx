@@ -4,14 +4,16 @@ import styled from 'styled-components'
  * Default input
  * 
  */
-const Input = styled.input`
+const Input = styled.input<{
+    $size?: number,
+}>`
     background-color: red;
     border: 2px solid #EBEAED;
     border-radius: 50px;
     background-color: white;
     padding: 11px 20px;
     outline: none;
-    font-size: 15px;
+    font-size: ${p => p.$size ? `${p.$size}px` : '15px'};
 
     &::placeholder {
         color: rgb(21 20 57 / 40%);

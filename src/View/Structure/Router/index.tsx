@@ -20,6 +20,8 @@ const Billing = lazy(() => import('./Billing'))
 const Thanks = lazy(() => import('./Thanks'))
 const Faq = lazy(() => import('./Faq'))
 const TermOfUse = lazy(()=> import('./TermsofUse'))
+const PrivacyPolicy = lazy(()=> import('./PrivacyPolicy'))
+const LegalNotices = lazy(()=> import('./LegalNotices'))
 const Unavailable = lazy(() => import('./404'))
 
 
@@ -49,6 +51,8 @@ const Router = () => {
                 <Route path='thanks' element={<Thanks />} />
                 <Route path='faq' element={<Faq />} />
                 <Route path='termOfUse' element={<TermOfUse />} />
+                <Route path='privacyPolicy' element={<PrivacyPolicy />} />
+                <Route path='legalNotices' element={<LegalNotices />} />
                 <Route path='*' element={<Unavailable />} />
             </Routes>
         </Suspense>

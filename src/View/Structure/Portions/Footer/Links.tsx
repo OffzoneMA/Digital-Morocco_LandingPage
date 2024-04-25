@@ -24,18 +24,18 @@ const Links = () => {
                 <a href='/'><Lang>Startup</Lang></a>
                 <a href='/'><Lang>Investor</Lang></a>
                 <a href='/'><Lang>Company</Lang></a>
-                <a href='/'><Lang>Events</Lang></a>
+                <a href='/events'><Lang>Events</Lang></a>
             </section>
             <section>
                 <h4><Lang>Resources</Lang></h4>
                 <a href='/'><Lang>Careers</Lang></a>
                 <a href='/blog'><Lang>Blog</Lang></a>
-                <a href='/'><Lang>Terms and Conditions</Lang></a>
+                <a href='/termOfUse'><Lang>Terms and Conditions</Lang></a>
             </section>
             <section>
                 <h4><Lang>Help</Lang></h4>
                 <a href='/faq'><Lang>Support</Lang></a>
-                <a href='/'><Lang>Contact Us</Lang></a>
+                <a href='/contact'><Lang>Contact Us</Lang></a>
                 <a href='/faq'><Lang>FAQ</Lang></a>
             </section>
             <section>

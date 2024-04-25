@@ -26,7 +26,7 @@ const Sidebar = () => {
 
     return (
         <Container>
-            <h5>Order Summary</h5>
+            <h5><Lang>Order Summary</Lang></h5>
             <div className='item'>
                 <p><Lang>1x Ticket</Lang></p>
                 <b>$ 29.00</b>

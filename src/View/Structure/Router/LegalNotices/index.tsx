@@ -3,13 +3,11 @@ import { useLang } from '../../../../Controller/Tools/Interface/Lang';
 import { usePage } from '../../../../Controller/Tools/Helper/Page';
 import { config } from '../../../../config';
 import React from 'react';
-import PageHeader from '../../../Components/PageHeader';
 import PageTitle from '../../../Components/PageTitle';
 import Brand from '../../Portions/Brand';
-import Terms from './Terms';
+import Notices from './Notices';
 
-
-const TermOfUse = () => {
+const LegalNotices = () => {
 
     /**
      * Lang
@@ -21,18 +19,18 @@ const TermOfUse = () => {
      * Page
      * 
      */
-    usePage({ title: `${config.APP_NAME} | ${lang('TermOfUse')}` })
+    usePage({ title: `${config.APP_NAME} | ${lang('Legal Notices')}` })
 
     return (
         <Container>
-            <div id='titleHeader'><PageTitle title={lang('Term Of Use')} /></div>
-            <Terms/>
+            <div id='titleHeader'><PageTitle title={lang('Legal Notices')} /></div>
+            <Notices/>
             <Brand />
         </Container>
     )
 }
 
-export default TermOfUse
+export default LegalNotices
 
 
 /**

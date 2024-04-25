@@ -13,9 +13,9 @@ const Copyright = () => {
     return (
         <Container>
             <div id="links">
-                <a href='/'><Lang>Terms of Use</Lang></a>
-                <a href='/'><Lang>Legal Notice</Lang></a>
-                <a href='/'><Lang>Privacy Policy</Lang></a>
+                <a href='/termOfUse'><Lang>Terms of Use</Lang></a>
+                <a href='/legalNotices'><Lang>Legal Notice</Lang></a>
+                <a href='/privacyPolicy'><Lang>Privacy Policy</Lang></a>
             </div>
             <p id="copyright"><Lang>Copyright © 2023 Digital Morocco, all Rights Reserved.</Lang> <Lang>By</Lang> <a rel="noreferrer" href="https://offzone.net/" target="_blank">OFFZONE</a></p>
         </Container>

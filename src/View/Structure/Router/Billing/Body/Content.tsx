@@ -1,9 +1,10 @@
 import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import styled from 'styled-components';
-import React from 'react'
+import React, { useState } from 'react'
 import Input from '../../../../Components/Input';
-import Select from '../../../../Components/Select';
 import Checkbox from '../../../../Components/Checkbox';
+import SimpleSelect, { OptionInterface } from '../../../../Components/SimpleSelect';
+import { Country , City} from 'country-state-city';
 
 // @ts-ignore
 import pay from '../../../../Media/Images/pay.png'
@@ -21,51 +22,99 @@ const Content = () => {
      */
     const lang = useLang()
 
+    /**
+     * Country , City value
+     */
+
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
+
+    /**
+     * Get countries data
+     */
+    const countries = Country.getAllCountries();
+
+
+    /**
+     * Selection Options
+     */
+    const countryOptions = countries.map(country => ({
+        label: country.name,
+        value: country.isoCode
+    }));
+
+    
+    const cities = City.getCitiesOfCountry(selectedCountry) || [];
+    
+    const cityOptions = cities.map(city => ({
+        label: city.name,
+        value: city.name
+    }));
+    
+
+    const handleCountrySelectChange = (selectedOption: any) => {
+        setSelectedCountry(selectedOption.value);
+    };
+
+    const handleCitySelectChange = (selected: any ) => {
+        setSelectedCity(selected.value);
+    };
+
+    console.log(selectedCity)
+
     return (
         <Container>
             <h1><Lang>Billing information</Lang></h1>
             <div id="form">
                 <label>
                     <p><Lang>First Name</Lang></p>
-                    <Input type='text' placeholder={lang('First Name')} />
+                    <Input $size={16} type='text' placeholder={lang('First Name')} />
                 </label>
                 <label>
                     <p><Lang>Last Name</Lang></p>
-                    <Input type='text' placeholder={lang('Last Name')} />
+                    <Input $size={16} type='text' placeholder={lang('Last Name')} />
                 </label>
                 <label>
                     <p><Lang>Phone</Lang></p>
-                    <Input type='text' placeholder={lang('Phone Number')} />
+                    <Input $size={16} type='text' placeholder={lang('Phone Number')} />
                 </label>
                 <label>
                     <p><Lang>e-mail</Lang></p>
-                    <Input type='text' placeholder={lang('Email Address')} />
+                    <Input $size={16} type='text' placeholder={lang('Email Address')} />
                 </label>
                 <label>
                     <p><Lang>Job Title</Lang></p>
-                    <Input type='text' placeholder={lang('Job Title')} />
+                    <Input $size={16} type='text' placeholder={lang('Job Title')} />
                 </label>
                 <label>
                     <p><Lang>Company</Lang></p>
-                    <Input type='text' placeholder={lang('Company Name')} />
-                </label>
-                <label>
-                    <p><Lang>City</Lang></p>
-                    <Select>
-                        <option><Lang>Select City</Lang></option>
-                    </Select>
+                    <Input $size={16} type='text' placeholder={lang('Company Name')} />
                 </label>
                 <label>
                     <p><Lang>Country</Lang></p>
-                    <Select>
-                        <option><Lang>Select Country</Lang></option>
-                    </Select>
+                    <SimpleSelect
+                        placeholder='Select Country'
+                        searchPlaceholder='Search Country'
+                        searchable
+                        options={countryOptions}
+                        onChange={handleCountrySelectChange}
+                    />
+                </label>
+                <label>
+                    <p><Lang>City</Lang></p>
+                    <SimpleSelect
+                        placeholder='Select City'
+                        searchPlaceholder='Search City'
+                        searchable
+                        options={cityOptions}
+                        onChange={handleCitySelectChange}
+                    />
                 </label>
             </div>
             <Checkbox><Lang>Keep me updated on more events and news from this event organizer</Lang></Checkbox>
             <Checkbox><Lang>Send me emails about the best events happening nearby or online.</Lang></Checkbox>
             <div id="pay-methods">
-                <h1>Select Payment Method</h1>
+                <h1><Lang>Select Payment Method</Lang></h1>
                 <img width={250} src={pay} alt="" />
             </div>
         </Container>

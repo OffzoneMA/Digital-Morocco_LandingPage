@@ -10,6 +10,7 @@ const Select = styled.select`
     border-radius: 50px;
     background-color: white;
     padding: 11px 20px;
+    padding-rigth: 10px;
     outline: none;
     font-size: 15px;
 
