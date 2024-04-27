@@ -4,6 +4,10 @@ import React from 'react'
 // @ts-ignore
 import image76 from '../../../Media/Images/image76.jpg'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
+import Fetch from '../../../../Controller/Tools/Server/Fetch'
+import { useParams } from 'react-router-dom'
+import { format } from 'date-fns'
+import { enUS } from 'date-fns/locale'
 
 /**
  * Header
@@ -12,21 +16,37 @@ import { Lang } from '../../../../Controller/Tools/Interface/Lang'
  */
 const Header = () => {
 
+    const { id } = useParams<{ id: string }>();
+
     return (
         <Container>
             <img src={image76} alt="" />
-            <div id="layer">
-                <div id="content">
-                    <h1><Lang>Emerging Stronger: Three Tips to Help Startups Thrive Through a Downturn</Lang></h1>
-                    <div id="info">
-                        <p>20 JULY 2023</p>
-                        <div id="tags">
-                            <span><Lang>Enterpreneurs</Lang></span>
-                            <span><Lang>Startup</Lang></span>
-                        </div>
+            <Fetch<any>
+            url={`http://localhost:5000/blogs/${id}`}
+            method="GET"
+        >
+            {({ response }) => (
+                <div id="layer">
+                    <div id="content">
+                        {response ? (
+                            <>
+                                <h1><Lang>{response.title}</Lang></h1>
+                                <div id="info">
+                                    <p>{format(response?.date, 'dd MMMM yyyy', { locale: enUS }).toUpperCase()}</p>
+                                    <div id="tags">
+                                       {response.tags?.[0].split(',').map((tag: string, index: number) => (
+                                            <span key={index}><Lang>{tag}</Lang></span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <p>Loading...</p>
+                        )}
                     </div>
                 </div>
-            </div>
+            )}
+            </Fetch>
         </Container>
     )
 }

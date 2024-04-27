@@ -6,6 +6,9 @@ import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import image87 from '../../../Media/Images/image87.jpg'
 // @ts-ignore
 import profile from '../../../Media/Images/profile.png'
+import { useParams } from 'react-router-dom'
+import Fetch from '../../../../Controller/Tools/Server/Fetch'
+import Loader from '../../../Components/Loader'
 
 /**
  * Header
@@ -14,22 +17,37 @@ import profile from '../../../Media/Images/profile.png'
  */
 const Header = () => {
 
+    const { id } = useParams<{ id: string }>();
+
     return (
         <Container>
             <img src={image87} alt="" />
-            <div id="layer">
-                <div id="content">
-                    <h1><Lang>North Africa Dreamin' 2023</Lang></h1>
-                    <p><Lang>THE #1 SALESFORCE COMMUNITY CONFERENCE IN AFRICA</Lang></p>
-                    <div id="info">
-                        <img src={profile} alt="" />
-                        <div>
-                            <p>Event by</p>
-                            <b>North Africa Dreamin</b>
-                        </div>
+            <Fetch<any>
+            url={`http://localhost:5000/events/${id}`}
+            method="GET"
+        >
+            {({ response }) => (
+                <div id="layer">
+                    <div id="content">
+                        {response ? (
+                            <>
+                                <h1><Lang>{response.title}</Lang></h1>
+                                <p><Lang>{response?.tags?.[0]}</Lang></p>
+                                <div id="info">
+                                    <img src={response?.organizerLogo || profile} alt="" />
+                                    <div>
+                                        <p>Event by</p>
+                                        <b>{response?.organizername}</b>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <Loader/>
+                        )}
                     </div>
                 </div>
-            </div>
+            )}
+            </Fetch>
         </Container>
     )
 }

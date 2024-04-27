@@ -11,6 +11,7 @@ const Button = styled.button<{
     $color?: string,
     $padding?: [number, number]
     $width?:number
+    $height?:number
     $fontWeight?: number
 }>`
     border-radius: 50px;
@@ -21,7 +22,8 @@ const Button = styled.button<{
     padding: ${p => p.$padding ? `${p.$padding[0]}px ${p.$padding[1]}px` : '8px 19px'};
     transition: filter 0.3s;
     cursor: pointer;
-    width: ${p => p.$width ? `${p.$width}px`:''};
+    min-width: ${p => p.$width ? `${p.$width}px`:''};
+    height: ${p => p.$height ? `${p.$height}px`:''};
     font-weight: ${p => p.$fontWeight ? p.$fontWeight : ''};
 
     &:hover {

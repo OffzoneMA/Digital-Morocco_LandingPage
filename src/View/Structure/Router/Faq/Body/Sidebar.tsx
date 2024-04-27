@@ -38,7 +38,7 @@ const Sidebar = () => {
             <p><Lang>Select Topic</Lang></p>
             <div id="links">
             {faqsData.map((topic , index) => (
-                    <Link onClick={() => handleLinkClick(topic.id.toString() , topic.questions[0].id.toString())} key={topic.id} to={`/faq?topic=${topic.id}&question=${topic.questions[0].id}`} className={parseInt(topicId) ===topic.id ? 'selected' : ''}                    >
+                    <Link onClick={() => handleLinkClick(topic.id.toString() , topic.questions[0].id.toString())} key={topic.id} to={`/faq?topic=${topic.id}&question=${topic.questions[0].id}`} className={parseInt(topicId) ===topic.id ? 'selected' : ''}>
                         <Lang>{topic.name}</Lang>
                     </Link>
                 ))}
@@ -79,6 +79,7 @@ const Container = styled.div`
             color: #2575F0;
             text-decoration: none;
             font-size: 18px;
+            font-family: DMSans-Medium;
 
             &:hover {
                 color: #00CDAE;

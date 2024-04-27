@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react'
 import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import Button from '../../../../Components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Input from '../../../../Components/Input';
 
 /**
@@ -23,6 +23,13 @@ const Sidebar = () => {
      * 
      */
     const lang = useLang()
+
+
+    /**
+     * Get Event Id
+     */
+
+    const { id } = useParams<{ id: string }>();
 
     return (
         <Container>

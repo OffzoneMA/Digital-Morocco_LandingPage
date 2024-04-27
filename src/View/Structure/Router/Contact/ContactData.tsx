@@ -52,7 +52,7 @@ const Container = styled.div`
 
         > h5 {
             margin: 7px 0;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 100;
             font-family: DMSans-Medium;
         }
@@ -60,7 +60,7 @@ const Container = styled.div`
         > p {
             margin: 0;
             color: rgb(21 20 57 / 40%);
-            line-height: 26px;
+            line-height: 28px;
         }
     }
 `;

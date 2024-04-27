@@ -1,13 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { Lang } from '../../Controller/Tools/Interface/Lang';
+import { useSearchParams } from 'react-router-dom';
 
 /**
  * Pages
  * 
  * @returns 
  */
-const Pages = () => {
+
+const Pages = ({ nbrPages = 1 }: PagesProps) => {
+    /**
+     * Get page number
+     */
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1", 10));
+
+    const generatePageLinks = () => {
+        const maxVisiblePages = 5; 
+
+        if (nbrPages <= maxVisiblePages) {
+            return Array.from({ length: nbrPages }, (_, i) => i + 1);
+        }
+
+        const pageLinks: (number | string)[] = [1];
+        const middle = Math.floor(maxVisiblePages / 2);
+        const start = current - middle;
+        const end = current + middle;
+
+        if (start > 1) {
+            pageLinks.push('...'); 
+        }
+
+        for (let i = Math.max(2, start); i <= Math.min(nbrPages - 1, end); i++) {
+            pageLinks.push(i);
+        }
+
+        if (end < nbrPages - 1) {
+            pageLinks.push('...'); 
+        }
+
+        pageLinks.push(nbrPages);
+
+        return pageLinks;
+    };
 
     return (
         <Container>
@@ -95,3 +132,9 @@ const Container = styled.div`
         }
     }
 `;
+
+
+interface PagesProps {
+    nbrPages?: number;
+  }
+  

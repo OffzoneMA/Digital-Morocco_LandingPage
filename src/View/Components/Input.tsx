@@ -17,6 +17,7 @@ const Input = styled.input<{
 
     &::placeholder {
         color: rgb(21 20 57 / 40%);
+        font-size: ${p => p.$size ? `${p.$size}px` : '15px'};
     }
 
     &:focus {

@@ -1,7 +1,12 @@
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
 import Quantity from '../../../../Components/Quantity';
 import styled from 'styled-components';
-import React from 'react'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom';
+import Fetch from '../../../../../Controller/Tools/Server/Fetch';
+import Loader from '../../../../Components/Loader';
+import { format } from 'date-fns';
+import { enUS } from 'date-fns/locale';
 
 
 /**
@@ -10,20 +15,61 @@ import React from 'react'
  * @returns 
  */
 const Content = () => {
+    /**
+     * Get Event Id
+     */
+
+    /**
+     * Update quatity
+     */
+
+    const [quantity, setQuantity] = useState(1)
+
+
+    const { id } = useParams<{ id: string }>();
 
     return (
         <Container>
             <h1><Lang>Buy Ticket</Lang></h1>
-            <div className='item'>
-                <div id="content">
-                    <h4><Lang>North Africa Dreamin' 2023</Lang></h4>
-                    <p><Lang>Sales end  on August, 31 2023</Lang></p>
-                </div>
-                <div id="total">
-                    <b>$ 29.00</b>
-                    <Quantity />
-                </div>
-            </div>
+            <Fetch<any>
+            url={`http://localhost:5000/events/${id}`}
+            method="GET"
+        >
+            {({ response }) => (
+                <>
+                    {response ? (
+                    <div className='item'>
+                        <div id="content">
+                            <h4><Lang>{response?.title}</Lang></h4>
+                            {response?.price > 0 ? (
+                            <>
+                                {response?.salesEndDate ? (
+                                    <p><Lang>Sales end on </Lang><Lang>{format(response?.salesEndDate, 'MMM d, yyyy', { locale: enUS }).toString()}</Lang></p>
+                                ) : (
+                                    <>
+                                        {response?.startDate ? (
+                                            <p><Lang>Sales end on </Lang><Lang>{format(response?.startDate, 'MMM d, yyyy', { locale: enUS }).toString()}</Lang></p>
+                                        ) : (
+                                            <p><Lang>Sales end on </Lang><Lang>Event Start Day</Lang></p>
+                                        )}
+                                    </>
+                                )}
+                            </>
+                            ) : (
+                                <p><Lang>Free</Lang></p>
+                            )}
+                        </div>
+                        <div id="total">
+                            <b>$ {(Number(response?.price.toFixed(2)) * quantity).toFixed(2)}</b>
+                            <Quantity setQuantityValue={setQuantity} />
+                        </div>
+                    </div>
+                    ) : (
+                        <Loader/>
+                    )}
+                </>
+            )}
+            </Fetch>
         </Container>
     )
 }

@@ -21,12 +21,12 @@ const ContactForm = () => {
 
     return (
         <Container onSubmit={console.log}>
-            <Input name='firstName' placeholder={lang('First name')} />
-            <Input name='lastName' placeholder={lang('Last name')} />
-            <Input name='phone' placeholder={lang('Your phone')} />
-            <Input name='email' placeholder={lang('Your email')} />
-            <Textarea name='message' $disableResize $height={150} placeholder={lang('Your message')} />
-            <Button $background='#2575F0' $isFill $color='white' $padding={[11, 20]}><Lang>Send a Message</Lang></Button>
+            <Input $size={16} name='firstName' placeholder={lang('First name')} />
+            <Input $size={16} name='lastName' placeholder={lang('Last name')} />
+            <Input $size={16} name='phone' placeholder={lang('Your phone')} />
+            <Input $size={16} name='email' placeholder={lang('Your email')} />
+            <Textarea $size={16} name='message' $disableResize $height={150} placeholder={lang('Your message')} />
+            <Button $size={18} $background='#2575F0' $isFill $color='white' $padding={[11,25]} $width={205} $height={60}><Lang>Send a Message</Lang></Button>
         </Container>
     )
 }

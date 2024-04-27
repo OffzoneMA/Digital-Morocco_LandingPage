@@ -6,7 +6,10 @@ import styled from 'styled-components'
  * 
  * @returns 
  */
-const Quantity = () => {
+
+type SetQuantityValue = React.Dispatch<any>;
+
+const Quantity = ({ setQuantityValue }: { setQuantityValue: SetQuantityValue }) => {
 
     /**
      * Quantity state
@@ -18,19 +21,28 @@ const Quantity = () => {
      * Plus method
      * 
      */
-    const plus = () => setQuantity(old => old + 1)
+    const plus = () => {
+        setQuantity(old => old + 1)
+        setQuantityValue((old: number) => old + 1)
+    }
 
     /**
      * Minus method
      * 
      */
-    const minus = () => setQuantity(old => old <= 1 ? 1 : old - 1)
+    const minus = () => {
+        setQuantity(old => old <= 1 ? 1 : old - 1)
+        setQuantityValue((old: number) => old <= 1 ? 1 : old - 1)
+    }
 
     /**
      * Change method
      * 
      */
-    const change = (quantity: number) => setQuantity(old => old < 1 ? 1 : quantity)
+    const change = (quantity: number) => {
+        setQuantity(old => old < 1 ? 1 : quantity)
+        setQuantityValue((old: number) => old < 1 ? 1 : quantity)
+    }
 
     return (
         <Container>

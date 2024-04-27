@@ -80,10 +80,15 @@ const Container = styled.div`
         gap: 60px;
 
         > .item {
-            display: grid;
+            display: flex;
+            flex-direction: column;
             justify-items: center;
             text-align: center;
-            // min-width: 284px;
+            width: 284.67px;
+
+            > img {
+                height: 100px;
+            }
 
             > b {
                 color: #151439CC;

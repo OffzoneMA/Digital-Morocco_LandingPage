@@ -75,6 +75,8 @@ const Container = styled.div`
         > h5 {
             text-transform: uppercase;
             margin: 0;
+            font-family: DMSans-Bold;
+            font-size: 14px;
         }
 
         > svg {

@@ -44,11 +44,11 @@ const Router = () => {
                 <Route path='pricing' element={<Pricing />} />
                 <Route path='contact' element={<Contact />} />
                 <Route path='blog' element={<Blog />} />
-                <Route path='post' element={<Post />} />
-                <Route path='events/details' element={<Event />} />
-                <Route path='events/checkout' element={<Checkout />} />
+                <Route path='post/:id' element={<Post />} />
+                <Route path='events/details/:id' element={<Event />} />
+                <Route path='events/checkout/:id' element={<Checkout />} />
                 <Route path='events/billing' element={<Billing />} />
-                <Route path='thanks' element={<Thanks />} />
+                <Route path='events/thanks' element={<Thanks />} />
                 <Route path='faq' element={<Faq />} />
                 <Route path='termOfUse' element={<TermOfUse />} />
                 <Route path='privacyPolicy' element={<PrivacyPolicy />} />

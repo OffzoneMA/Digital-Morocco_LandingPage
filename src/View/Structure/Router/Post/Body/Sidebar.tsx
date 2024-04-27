@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
+import Fetch from '../../../../../Controller/Tools/Server/Fetch';
 
 // @ts-ignore
 import Image from '../../../../Media/Images/image.png'
@@ -12,6 +13,7 @@ import Imag2 from '../../../../Media/Images/image (2).png'
 import Imag3 from '../../../../Media/Images/image (3).png'
 // @ts-ignore
 import Imag4 from '../../../../Media/Images/image (4).png'
+import Loader from '../../../../Components/Loader';
 
 /**
  * Sidebar
@@ -24,26 +26,15 @@ const Sidebar = () => {
         <Container>
             <p><Lang>LATEST STORIES</Lang></p>
             <div id="items">
-                <div className="item">
-                    <img src={Image} alt="" />
-                    <h5><Lang>7 Questions to Ask Yourself When Investing in Startups</Lang></h5>
-                </div>
-                <div className="item">
-                    <img src={Imag1} alt="" />
-                    <h5><Lang>Revving Up for the Next Lap: Unveiling Meow Speed’s Exciting Future Plans!</Lang></h5>
-                </div>
-                <div className="item">
-                    <img src={Imag2} alt="" />
-                    <h5><Lang>Tips on creating FOMO amongst investors for your startup</Lang></h5>
-                </div>
-                <div className="item">
-                    <img src={Imag3} alt="" />
-                    <h5><Lang>Startup Fundraising. Top 3 incorrect assumptions.</Lang></h5>
-                </div>
-                <div className="item">
-                    <img src={Imag4} alt="" />
-                    <h5><Lang>The Finance Behind Startup Investing</Lang></h5>
-                </div>
+                <Fetch<any> url="http://localhost:5000/blogs/latest/5">
+                    {({ response }) => !response ? <Loader /> :
+                        response?.blogs.map((blog: any, key: React.Key | null | undefined) => 
+                        <div className="item">
+                            <img src={blog?.image || Image} alt="" />
+                        <h5><Lang>{blog?.title}</Lang></h5>
+                    </div>
+                        )}
+                </Fetch>
             </div>
         </Container>
     )

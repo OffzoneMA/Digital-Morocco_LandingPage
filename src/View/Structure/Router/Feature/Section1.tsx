@@ -14,7 +14,8 @@ const Section1 = () => {
             <h1><Lang>Powering Connections and Fueling Growth for Startups, Companies, Project Holders, and Investors</Lang></h1>
             <div id="content">
                 <div className="content-item">
-                    <Lang>Ignite Your Business Potential with Digital Morocco! Looking for a powerful platform to propel your business forward? Look no further! Digital Morocco is the ultimate hub for startups, companies, project holders, and investors, where incredible opportunities await.</Lang>
+                    <span><Lang>Ignite Your Business Potential with Digital Morocco!</Lang></span>
+                    <Lang> Looking for a powerful platform to propel your business forward? Look no further! Digital Morocco is the ultimate hub for startups, companies, project holders, and investors, where incredible opportunities await.</Lang>
                 </div>
                 <div className="content-item">
                     <Lang>Digital Morocco is dedicated to fostering meaningful connections and driving business success. We accomplish this through a range of engaging activities, including professional events such as conferences and training sessions, as well as various networking opportunities.</Lang>
@@ -52,7 +53,7 @@ const Container = styled.div`
         margin-top: 50px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 93px;
+        gap: 88px;
         font-size: 18px;
         color: #15143966;
         font-family: DMSans-Medium;
@@ -64,5 +65,11 @@ const Container = styled.div`
     }
     .content-item {
         line-height: 28px;
+        display: flex;
+        flex-direction: column;
+        
+        > span {
+            margin-bottom: 10px;
+        }
     }
 `;
