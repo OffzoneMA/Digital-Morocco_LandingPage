@@ -82,6 +82,7 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: auto 1fr auto;
     width: fit-content;
+    height: 50px;
     color: #15143966;
     overflow: hidden;
 

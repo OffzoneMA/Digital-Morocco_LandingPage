@@ -26,7 +26,7 @@ const Sidebar = () => {
         <Container>
             <p><Lang>LATEST STORIES</Lang></p>
             <div id="items">
-                <Fetch<any> url="http://localhost:5000/blogs/latest/5">
+                <Fetch<any> url={`${process.env.REACT_APP_baseURL}blogs/latest/5`}>
                     {({ response }) => !response ? <Loader /> :
                         response?.blogs.map((blog: any, key: React.Key | null | undefined) => 
                         <div className="item">

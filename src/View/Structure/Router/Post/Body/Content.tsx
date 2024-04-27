@@ -20,7 +20,7 @@ const Content = () => {
     return (
         <Container>
         <Fetch<any>
-            url={`http://localhost:5000/blogs/${id}`}
+            url={`${process.env.REACT_APP_baseURL}blogs/${id}`}
             method="GET"
         >
             {({ response }) => (

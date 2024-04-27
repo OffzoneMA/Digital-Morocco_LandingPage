@@ -19,7 +19,7 @@ const List = () => {
 
     return (
         <Container>
-            <Fetch<any> url="http://localhost:5000/blogs">
+            <Fetch<any> url={`${process.env.REACT_APP_baseURL}blogs`}>
                 {({ response }) => !response ? <Loader /> :
                     response.map((blog: any, key: React.Key | null | undefined) => 
                     <Link key={key} to={`/post/${blog?._id}`} className='item'>
@@ -30,7 +30,7 @@ const List = () => {
                     </Link>
                     )}
             </Fetch>
-            <Pages />
+            <Pages/>
         </Container>
     )
 }
