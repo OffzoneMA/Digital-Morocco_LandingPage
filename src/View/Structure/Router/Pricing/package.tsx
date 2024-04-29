@@ -51,10 +51,13 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
                 }
             </div>
             <Button
+                $size={18}
                 $background={recommended ? 'var(--color-green)' : '#EBEAED'}
                 $color={recommended ? 'white' : undefined}
                 $isFill={recommended}
                 $padding={[9, 25]}
+                $fontFamily='DMSans-Medium'
+                $fontWeight='medium'
             >
                 <Lang>{btnText? btnText: "Start Free Trial"}</Lang>
             </Button>
@@ -94,12 +97,14 @@ const Container = styled.div<{
             letter-spacing: 2px;
             margin: 0;
             align-self: center;
+            color: #1E0E62;
         }
 
         > #price {
             display: flex;
             gap: 5px;
             height: fit-content;
+            color: #1E0E62;
 
             > #currency {
                 line-height: 1;

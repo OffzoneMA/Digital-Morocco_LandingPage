@@ -5,12 +5,16 @@ import { useLang } from '../../Controller/Tools/Interface/Lang';
 
 const SimpleSelect = ({
     placeholder,
+    size,
+    fontFamily,
     searchPlaceholder,
     searchable,
     options,
     onChange
 }: {
     placeholder?: string
+    size?: number
+    fontFamily?: string
     searchPlaceholder?: string
     searchable?: boolean
     options: OptionInterface[],
@@ -46,7 +50,7 @@ const SimpleSelect = ({
 
     return (
         <Container>
-            <CustomSelect active={active} onClick={() => setActive(!active)}>
+            <CustomSelect size={size} active={active} onClick={() => setActive(!active)}>
                 <span id="text">
                     {selectedValue 
                         ? (options.find(option => option.value === selectedValue)?.label || <Placeholder>{placeholder ? <Lang>{placeholder}</Lang> : <Lang>Select</Lang>}</Placeholder>)
@@ -95,9 +99,10 @@ const Placeholder = styled.span`
     color: rgb(21 20 57 / 40%);
 `;
 
-const CustomSelect = styled.div<{ active: boolean }>`
+const CustomSelect = styled.div<{ active: boolean , size?: number , fontFamily?: string}>`
     width: 100%;
-    font-size: 16px;
+    font-size: ${props => props.size ? `${props.size}px` : '16px'};
+    font-family: ${props=> props.fontFamily ? props.fontFamily : 'inherit'};
     border: 2px solid ${props => (props.active ? '#53B1FD' : '#EBEAED')}; 
     border-radius: 50px;
     background-color: white;

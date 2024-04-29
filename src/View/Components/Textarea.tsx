@@ -8,6 +8,7 @@ const Textarea = styled.textarea<{
     $disableResize?: boolean
     $height?: number
     $size?: number,
+    $fontFamily?: string
 }>`
     background-color: red;
     border: 2px solid #EBEAED;
@@ -18,6 +19,7 @@ const Textarea = styled.textarea<{
     resize: ${p => p.$disableResize ? 'none' : 'auto'};
     height: ${p => p.$height ? `${p.$height}px` : 'auto'};
     font-size: ${p => p.$size ? `${p.$size}px` : '15px'};
+    font-family: ${p=> p.$fontFamily ? p.$fontFamily : ''};
 
     &::placeholder {
         color: rgb(21 20 57 / 40%);

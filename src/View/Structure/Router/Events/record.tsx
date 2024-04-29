@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import Event, { EventInterface } from './Event';
 import Fetch from '../../../../Controller/Tools/Server/Fetch';
@@ -6,6 +6,7 @@ import Loader from '../../../Components/Loader';
 import Pages from '../../../Components/Pages';
 import { format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
+import { useSearchParams } from 'react-router-dom';
 
 /**
  * Record
@@ -13,6 +14,22 @@ import { enUS } from 'date-fns/locale';
  * @returns 
  */
 const Record = () => {
+    
+    /**
+     * SearchParams
+     */
+    const [searchParams, setSearchParams] = useSearchParams();
+
+     /**
+     * Tolal Pages
+     */
+     const [totalPages, setTotalPages] = useState(1);
+     const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1"));
+     const eventsPerPage = 1; 
+ 
+     const getTotalPages = (totalItems: number) => {
+         return Math.ceil(totalItems / eventsPerPage);
+     };
 
     function formatEventDateTime(startDate: Date, endDate: Date, startTime: string, endTime: string): string {
     
@@ -28,8 +45,8 @@ const Record = () => {
 
             if (startDateTime.getDate() === endDateTime.getDate() && startDateTime.getMonth() === endDateTime.getMonth() && startDateTime.getFullYear() === endDateTime.getFullYear()) {
                 const formattedDate = format(startDateTime, 'EEEE, MMMM d', { locale: enUS });
-                const gmtOffset = startDateTime.getTimezoneOffset() / 60; // Offset en heures
-                const gmt = gmtOffset >= 0 ? `+${gmtOffset}` : gmtOffset.toString(); // Gestion du signe pour le décalage GMT
+                const gmtOffset = startDateTime.getUTCHours(); 
+                const gmt = gmtOffset >= 0 ? `+${gmtOffset}` : gmtOffset.toString(); 
                 return `${formattedDate}\u00A0\u00A0 • \u00A0\u00A0${formattedStartTimev} - ${formattedEndTimev} ${gmt}`;
             } else {
                 const formattedStartDate = format(startDateTime, 'EEE, MMM d, yyyy', { locale: enUS });
@@ -42,9 +59,14 @@ const Record = () => {
     
     return (
         <Container>
-            <Fetch<any> url="http://localhost:5000/events">
-                {({ response }) => !response ? <Loader /> :
-                    response.map((event: any, key: React.Key | null | undefined) => <Event key={key}
+            <Fetch<any> url={`${process.env.REACT_APP_baseURL}events?page=${current}&pageSize=${eventsPerPage}`}>
+                {({ response }) => {
+                    if (!response) {
+                        return <Loader />;
+                    }
+
+                    setTotalPages(response?.totalPages);
+                    return response?.events.map((event: any, key: React.Key | null | undefined) => <Event key={key}
                     id={event?._id}
                     headerImage={event?.headerImage}
                     title={event?.title}
@@ -52,7 +74,9 @@ const Record = () => {
                     location={event?.physicalLocation}
                     price={event?.price.toFixed(2)}
                     date={formatEventDateTime(event?.startDate , event?.endDate , event?.startTime? event?.startTime : '', event?.endTime? event?.endTime : '')}
-                    />)}
+                    />);
+                }
+                }
             </Fetch>
             <Pages />
         </Container>

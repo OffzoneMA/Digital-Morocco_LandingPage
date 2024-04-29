@@ -99,7 +99,7 @@ const Record = () => {
             <div id="record">
                 <Fetch<ResponseInterface> url={API_URL} params={params}>
                     {({ response }) => !response ? <Loader /> : (
-                        <div id="items">
+                        <div id="items" className='animation'>
                             {response.members.map(member => <Member key={member._id} data={member} />)}
                         </div>
                     )}

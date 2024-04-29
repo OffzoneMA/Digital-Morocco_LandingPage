@@ -22,7 +22,7 @@ const Header = () => {
         <Container>
             <img src={image76} alt="" />
             <Fetch<any>
-            url={`http://localhost:5000/blogs/${id}`}
+            url={`${process.env.REACT_APP_baseURL}blogs/${id}`}
             method="GET"
         >
             {({ response }) => (

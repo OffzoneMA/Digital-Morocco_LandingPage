@@ -10,12 +10,8 @@ import { useSearchParams } from 'react-router-dom';
  */
 
 const Pages = ({ nbrPages = 1 }: PagesProps) => {
-    /**
-     * Get page number
-     */
     const [searchParams, setSearchParams] = useSearchParams();
-
-    const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1", 10));
+    const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1"));
 
     const generatePageLinks = () => {
         const maxVisiblePages = 5; 
@@ -46,21 +42,47 @@ const Pages = ({ nbrPages = 1 }: PagesProps) => {
         return pageLinks;
     };
 
+    const handlePrevClick = () => {
+        const prevPage = current - 1;
+        if (prevPage >= 1) {
+            setSearchParams({ page: prevPage.toString() });
+            setCurrent(prevPage);
+        }
+    };
+
+    const handleNextClick = () => {
+        const nextPage = current + 1;
+        if (nextPage <= nbrPages) {
+            setSearchParams({ page: nextPage.toString() });
+            setCurrent(nextPage);
+        }
+    };
+
     return (
         <Container>
-            <div className='move'>
+            <div className='move' onClick={handlePrevClick}>
                 <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.1667 6H0.833374M0.833374 6L5.83337 11M0.833374 6L5.83337 1" stroke="#667085" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 <p><Lang>Prev</Lang></p>
             </div>
             <div id="items">
-                <div className='item active'>1</div>
-                <div className='item'>2</div>
-                <div className='item'>3</div>
-                <div className='item'>4</div>
+                {generatePageLinks().map((link, index) => (
+                    <div 
+                        key={index} 
+                        className={`item ${link === current ? 'active' : ''}`}
+                        onClick={() => {
+                            if (typeof link === 'number') {
+                                setSearchParams({ page: link.toString() });
+                                setCurrent(link);
+                            }
+                        }}
+                    >
+                        {link}
+                    </div>
+                ))}
             </div>
-            <div className='move'>
+            <div className='move' onClick={handleNextClick}>
                 <p><Lang>Next</Lang></p>
                 <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.833374 6H14.1667M14.1667 6L9.16671 1M14.1667 6L9.16671 11" stroke="#667085" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />

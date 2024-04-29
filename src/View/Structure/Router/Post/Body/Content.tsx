@@ -65,5 +65,6 @@ const Container = styled.div`
         max-width: 100%;
         margin-top:18px;
         margin-bottom:18px;
+        border-radius: 10px;
     }
 `;

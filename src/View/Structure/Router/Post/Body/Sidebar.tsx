@@ -72,6 +72,7 @@ const Container = styled.div`
 
             > img {
                 width: 100px;
+                border-radius: 10px;
             }
 
             > h5 {

@@ -41,7 +41,8 @@ const Packages = () => {
                 $size={22}
                 $color={showStartupDiv? '#25DAC5' :"#2E90FA"}
                 $width={200}
-                $fontWeight={500}
+                $fontWeight='medium'
+                $fontFamily='DMSans-Medium'
             >
                 <Lang>Start Up</Lang>
             </Button>
@@ -49,7 +50,8 @@ const Packages = () => {
                 $size={22}
                 $color={ showInvestorDiv? '#25DAC5' :"#2E90FA" }
                 $width={200}
-                $fontWeight={500}
+                $fontWeight='medium'
+                $fontFamily='DMSans-Medium'
             >
                 <Lang>Investor</Lang>
             </Button>

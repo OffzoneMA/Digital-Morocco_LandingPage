@@ -12,7 +12,7 @@ import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 const Member = ({ data }: { data: MemberInterface }) => {
 
     return (
-        <Container>
+        <Container className='animation'>
             <div id="logo">
                 <img src={data.logo} alt='' loading='lazy' />
             </div>
@@ -50,7 +50,8 @@ const Container = styled.div`
       "website website";
     border-radius: 14px;
     border: 2px solid #EBEAED;
-    padding: 20px;
+    padding: 20px;    
+
 
     #logo {
         grid-area: logo;

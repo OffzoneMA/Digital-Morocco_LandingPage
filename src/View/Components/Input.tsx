@@ -6,6 +6,7 @@ import styled from 'styled-components'
  */
 const Input = styled.input<{
     $size?: number,
+    $fontFamily?: string
 }>`
     background-color: red;
     border: 2px solid #EBEAED;
@@ -14,6 +15,7 @@ const Input = styled.input<{
     padding: 11px 20px;
     outline: none;
     font-size: ${p => p.$size ? `${p.$size}px` : '15px'};
+    font-family: ${p=> p.$fontFamily ? p.$fontFamily : ''};
 
     &::placeholder {
         color: rgb(21 20 57 / 40%);

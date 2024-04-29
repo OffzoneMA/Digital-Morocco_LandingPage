@@ -62,7 +62,7 @@ const Container = styled.div`
         grid-template-columns: 1fr 1fr;
         gap: 60px;
         color: #475467;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 27.2px;
         font-weight: 400;
         font-family: DMSans-Regular;

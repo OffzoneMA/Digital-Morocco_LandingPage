@@ -12,7 +12,8 @@ const Button = styled.button<{
     $padding?: [number, number]
     $width?:number
     $height?:number
-    $fontWeight?: number
+    $fontWeight?: string
+    $fontFamily?: string
 }>`
     border-radius: 50px;
     font-size: ${p => p.$size ? `${p.$size}px` : 'inherit'};
@@ -24,7 +25,8 @@ const Button = styled.button<{
     cursor: pointer;
     min-width: ${p => p.$width ? `${p.$width}px`:''};
     height: ${p => p.$height ? `${p.$height}px`:''};
-    font-weight: ${p => p.$fontWeight ? p.$fontWeight : ''};
+    font-weight: ${p => p.$fontWeight ? p.$fontWeight : 'inherit'};
+    font-family: ${p=> p.$fontFamily ? p.$fontFamily : 'inherit'};
 
     &:hover {
         filter: brightness(0.8);
