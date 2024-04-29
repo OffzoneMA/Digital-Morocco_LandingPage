@@ -41,6 +41,7 @@ const Container = styled.div`
         > a {
             text-decoration: none;
             margin-inline-end: 15px;
+            font-weight: 700;
 
             &:hover {
                 color: var(--color-green);
@@ -48,8 +49,12 @@ const Container = styled.div`
         }
     }
 
-    > #copyright > a {
-        color: #2575F0;
-        text-decoration: none;
+    > #copyright {
+        font-weight: 700;
+
+        > a {
+            color: #2575F0;
+            text-decoration: none;
+        }
     }
 `;

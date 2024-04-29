@@ -37,9 +37,14 @@ const Topic = ({topicId, id, question, answer }: {topicId: number, id: number, q
     }, [searchParams]);
 
     const handleLinkClick = (topicId: string , questionId: string) => {
-        setActive(old => !old)
-        setSearchParams({ topic: topicId , question: questionId});
+        setActive(old => !old);
+        if (active) {
+            setSearchParams({});
+        } else {
+            setSearchParams({ topic: topicId , question: questionId});
+        }
     };
+    
 
     return (
         <Container onClick={()=>handleLinkClick(topicId.toString(), id.toString())}>
