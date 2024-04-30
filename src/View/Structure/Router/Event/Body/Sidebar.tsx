@@ -109,8 +109,8 @@ const Sidebar = () => {
                         </div>
                         <div id="ticket">
                             <div id="label">
-                                <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 5.5H6.0075M1.5 3.4L1.5 6.75589C1.5 7.12277 1.5 7.30622 1.54145 7.47885C1.57819 7.6319 1.6388 7.77822 1.72104 7.91243C1.8138 8.0638 1.94352 8.19351 2.20294 8.45294L7.95441 14.2044C8.84545 15.0955 9.29097 15.541 9.80471 15.7079C10.2566 15.8547 10.7434 15.8547 11.1953 15.7079C11.709 15.541 12.1545 15.0955 13.0456 14.2044L14.7044 12.5456C15.5955 11.6545 16.041 11.209 16.2079 10.6953C16.3547 10.2434 16.3547 9.75661 16.2079 9.30471C16.041 8.79097 15.5955 8.34545 14.7044 7.45441L8.95294 1.70294C8.69351 1.44352 8.5638 1.3138 8.41243 1.22104C8.27822 1.1388 8.1319 1.07819 7.97885 1.04145C7.80622 1 7.62277 1 7.25589 1L3.9 1C3.05992 1 2.63988 1 2.31901 1.16349C2.03677 1.3073 1.8073 1.53677 1.66349 1.81901C1.5 2.13988 1.5 2.55992 1.5 3.4ZM6.375 5.5C6.375 5.70711 6.20711 5.875 6 5.875C5.79289 5.875 5.625 5.70711 5.625 5.5C5.625 5.29289 5.79289 5.125 6 5.125C6.20711 5.125 6.375 5.29289 6.375 5.5Z" stroke="#98A2B3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.5 5.5H5.5075M1 3.4L1 6.75589C1 7.12277 1 7.30622 1.04145 7.47885C1.07819 7.6319 1.1388 7.77822 1.22104 7.91243C1.3138 8.0638 1.44352 8.19351 1.70294 8.45294L7.45441 14.2044C8.34545 15.0955 8.79097 15.541 9.30471 15.7079C9.75661 15.8547 10.2434 15.8547 10.6953 15.7079C11.209 15.541 11.6545 15.0955 12.5456 14.2044L14.2044 12.5456C15.0955 11.6545 15.541 11.209 15.7079 10.6953C15.8547 10.2434 15.8547 9.75661 15.7079 9.30471C15.541 8.79097 15.0955 8.34545 14.2044 7.45441L8.45294 1.70294C8.19351 1.44352 8.0638 1.3138 7.91243 1.22104C7.77822 1.1388 7.6319 1.07819 7.47885 1.04145C7.30622 1 7.12277 1 6.75589 1L3.4 1C2.55992 1 2.13988 1 1.81901 1.16349C1.53677 1.3073 1.3073 1.53677 1.16349 1.81901C1 2.13988 1 2.55992 1 3.4ZM5.875 5.5C5.875 5.70711 5.70711 5.875 5.5 5.875C5.29289 5.875 5.125 5.70711 5.125 5.5C5.125 5.29289 5.29289 5.125 5.5 5.125C5.70711 5.125 5.875 5.29289 5.875 5.5Z" stroke="#25DAC5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                                 <Lang>Ticket Start From</Lang>
                             </div>
@@ -118,7 +118,7 @@ const Sidebar = () => {
                                 <b id="symbol">$</b>
                                 <b id="value">{response?.price.toFixed(2)}</b>
                             </div>
-                            <Button onClick={() => navigate(`/checkout/${response?._id}`)} $isFill $background='#25DAC5' $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
+                            <Button onClick={() => navigate(`/checkout/${response?._id}`)} $isFill $background='#25DAC5' $size={18} $height={50} $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
                         </div>
                         <div id="map">
                             <p><Lang>Location Map</Lang></p>
@@ -173,7 +173,8 @@ const Container = styled.div`
 
         > #label {
             color: #667085;
-            font-size: 17px;
+            line-height: 18.23px;
+            font-size: 14px;
             display: flex;
             align-items: center;
             justify-self: center;
@@ -186,13 +187,14 @@ const Container = styled.div`
             color: #344054;
             justify-self: center;
             gap: 10px;
+            font-family: DMSans-Bold;
 
             > #symbol {
                 font-size: 30px;
             }
 
             > #value {
-                font-size: 53px;
+                font-size: 48px;
             }
         }
 
@@ -212,6 +214,9 @@ const Container = styled.div`
 
         > p {
             color: #15143980;
+            font-size: 14px;
+            line-height: 26px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             margin-block: 5px;
             font-family: DMSans-Medium;

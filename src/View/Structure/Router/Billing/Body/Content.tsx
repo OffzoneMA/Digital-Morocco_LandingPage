@@ -68,31 +68,32 @@ const Content = () => {
             <div id="form">
                 <label>
                     <p><Lang>First Name</Lang></p>
-                    <Input $size={16} type='text' placeholder={lang('First Name')} />
+                    <Input $size={16} $height={50} type='text' placeholder={lang('First Name')} />
                 </label>
                 <label>
                     <p><Lang>Last Name</Lang></p>
-                    <Input $size={16} type='text' placeholder={lang('Last Name')} />
+                    <Input $size={16} $height={50}  type='text' placeholder={lang('Last Name')} />
                 </label>
                 <label>
                     <p><Lang>Phone</Lang></p>
-                    <Input $size={16} type='text' placeholder={lang('Phone Number')} />
+                    <Input $size={16} $height={50}  type='text' placeholder={lang('Phone Number')} />
                 </label>
                 <label>
                     <p><Lang>e-mail</Lang></p>
-                    <Input $size={16} type='text' placeholder={lang('Email Address')} />
+                    <Input $size={16} $height={50}  type='text' placeholder={lang('Email Address')} />
                 </label>
                 <label>
                     <p><Lang>Job Title</Lang></p>
-                    <Input $size={16} type='text' placeholder={lang('Job Title')} />
+                    <Input $size={16} $height={50}  type='text' placeholder={lang('Job Title')} />
                 </label>
                 <label>
                     <p><Lang>Company</Lang></p>
-                    <Input $size={16} type='text' placeholder={lang('Company Name')} />
+                    <Input $size={16} $height={50}  type='text' placeholder={lang('Company Name')} />
                 </label>
                 <label>
                     <p><Lang>Country</Lang></p>
                     <SimpleSelect
+                        height={50}
                         placeholder='Select Country'
                         searchPlaceholder='Search Country'
                         searchable
@@ -103,6 +104,7 @@ const Content = () => {
                 <label>
                     <p><Lang>City</Lang></p>
                     <SimpleSelect
+                        height={50}
                         placeholder='Select City'
                         searchPlaceholder='Search City'
                         searchable
@@ -150,10 +152,12 @@ const Container = styled.div`
                 font-size: 14px;
                 font-family: DMSans-Medium;
                 color: #1E0E62;
+                letter-spacing: 2px;
             }
 
             > input, select {
                 width: -webkit-fill-available;
+                min-width: 280px;
             }
         }
 

@@ -7,6 +7,7 @@ const SimpleSelect = ({
     placeholder,
     size,
     fontFamily,
+    height,
     searchPlaceholder,
     searchable,
     options,
@@ -15,6 +16,7 @@ const SimpleSelect = ({
     placeholder?: string
     size?: number
     fontFamily?: string
+    height?: number
     searchPlaceholder?: string
     searchable?: boolean
     options: OptionInterface[],
@@ -50,7 +52,7 @@ const SimpleSelect = ({
 
     return (
         <Container>
-            <CustomSelect size={size} active={active} onClick={() => setActive(!active)}>
+            <CustomSelect size={size} height={height} active={active} onClick={() => setActive(!active)}>
                 <span id="text">
                     {selectedValue 
                         ? (options.find(option => option.value === selectedValue)?.label || <Placeholder>{placeholder ? <Lang>{placeholder}</Lang> : <Lang>Select</Lang>}</Placeholder>)
@@ -71,17 +73,19 @@ const SimpleSelect = ({
                             value={searchValue}
                             onChange={e => setSearchValue(e.target.value)}
                         />
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#475467" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.66668 6.3335C1.66668 3.75617 3.75601 1.66683 6.33334 1.66683C8.91067 1.66683 11 3.75617 11 6.3335C11 7.59079 10.5028 8.73196 9.69427 9.57109C9.67145 9.58863 9.64951 9.60786 9.62861 9.62876C9.60771 9.64966 9.58848 9.6716 9.57094 9.69442C8.73181 10.5029 7.59064 11.0002 6.33334 11.0002C3.75601 11.0002 1.66668 8.91083 1.66668 6.3335ZM10.0785 11.0214L9.62861 10.5716C9.38916 10.3321 9.36993 9.95584 9.57094 9.69442C9.61281 9.65408 9.65392 9.61296 9.69427 9.57109C9.95569 9.37009 10.332 9.38931 10.5714 9.62876L11.0213 10.0786C10.7429 10.4267 10.4265 10.743 10.0785 11.0214ZM10.0785 11.0214L12.5286 13.4716C12.789 13.7319 13.2111 13.7319 13.4714 13.4716C13.7318 13.2112 13.7318 12.7891 13.4714 12.5288L11.0213 10.0786C11.8424 9.05217 12.3333 7.75017 12.3333 6.3335C12.3333 3.01979 9.64705 0.333496 6.33334 0.333496C3.01963 0.333496 0.333344 3.01979 0.333344 6.3335C0.333344 9.64721 3.01963 12.3335 6.33334 12.3335C7.75002 12.3335 9.05202 11.8425 10.0785 11.0214Z" fill="#98A2B3"/>
+                            <path d="M9.62861 10.5716L10.0785 11.0214C10.4265 10.743 10.7429 10.4267 11.0213 10.0786L10.5714 9.62876C10.332 9.38931 9.95569 9.37009 9.69427 9.57109C9.65392 9.61296 9.61281 9.65408 9.57094 9.69442C9.36993 9.95584 9.38916 10.3321 9.62861 10.5716Z" fill="#98A2B3"/>
                         </svg>
-
                     </SearchInputContainer>
                     }
+                    <div id='optionsListe'>
                     {filteredOptions.map(option => (
                         <Option key={option.value} onClick={() => handleOptionClick(option.value)}>
                             {option.label}
                         </Option>
                     ))}
+                    </div>
                 </Options>
             )}
         </Container>
@@ -99,7 +103,7 @@ const Placeholder = styled.span`
     color: rgb(21 20 57 / 40%);
 `;
 
-const CustomSelect = styled.div<{ active: boolean , size?: number , fontFamily?: string}>`
+const CustomSelect = styled.div<{ active: boolean , size?: number , fontFamily?: string , height?: number}>`
     width: 100%;
     font-size: ${props => props.size ? `${props.size}px` : '16px'};
     font-family: ${props=> props.fontFamily ? props.fontFamily : 'inherit'};
@@ -107,7 +111,7 @@ const CustomSelect = styled.div<{ active: boolean , size?: number , fontFamily?:
     border-radius: 50px;
     background-color: white;
     padding: 0px 20px;
-    height: 42px;
+    height: ${props => props.height ? `${props.height}px` : '42px'};
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,13 +131,18 @@ const Options = styled.div`
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
-    border: 2px solid #EBEAED;
+    width: calc(100% - 15px);
+    padding: 12px 8px 12px 8px;
+    border: 1px solid #F2F4F7;
     border-radius: 8px 8px 8px 8px;
+    box-shadow: 0px 12px 16px -4px #1018281A;
     background-color: white;
-    max-height: 290px;
-    overflow-y: auto;
     z-index: 1;
+
+    > #optionsListe {
+        overflow-y: auto;
+        max-height: 240px;
+    }
 `;
 
 const SearchInputContainer = styled.div`
@@ -142,10 +151,10 @@ const SearchInputContainer = styled.div`
     justify-content: between;
     align-items: center;
     margin: 10px;
-    padding-right: 6px;
-    padding-left: 3px;
+    padding-right: 10px;
+    padding-left: 4px;
     border-radius: 6px;
-    border: 1px solid #EBEAED; 
+    border: 1px solid #D0D5DD; 
 
 `;
 
@@ -155,17 +164,23 @@ const SearchInput = styled.input`
     border: none;
     font-size: 14px;
     outline: none;
+
+    &::placeholder {
+        color: #98A2B3;
+    }
 `;
 
 
 const Option = styled.div`
     padding: 10px;
     cursor: pointer;
-    font-family: DMSans-Medium;
+    color: #1D2939;
+    font-size: 16px;
+    line-height: 20.83px;
 
-    &:hover {
-        background-color: #f5f5f5;
-    }
+    // &:hover {
+    //     background-color: #f5f5f5;
+    // }
 `;
 
 export interface OptionInterface {

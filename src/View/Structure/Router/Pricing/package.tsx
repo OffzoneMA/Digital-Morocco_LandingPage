@@ -96,32 +96,37 @@ const Container = styled.div<{
             font-weight: 700;
             letter-spacing: 2px;
             margin: 0;
+            font-family: DMSans-Bold;
             align-self: center;
-            color: #1E0E62;
+            color: ${p => p.$recommended ? 'white' : '#1E0E62'};
         }
 
         > #price {
             display: flex;
             gap: 5px;
             height: fit-content;
-            color: #1E0E62;
+            color: ${p => p.$recommended ? 'white' : '#1E0E62'};
 
             > #currency {
                 line-height: 1;
-                font-size: 23px;
+                font-size: 31px;
                 align-self: start;
+                margin-top: 5px;
+                font-family: DMSans-Bold;
             }
 
             > #value {
                 line-height: 1;
-                font-size: 45px;
+                font-size: 58px;
                 align-self: end;
+                font-family: DMSans-Bold;
             }
 
             > #duration {
                 margin: 0;
                 line-height: 1;
                 align-self: end;
+                font-size: 16px;
             }
         }
 

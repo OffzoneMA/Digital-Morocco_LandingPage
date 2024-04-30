@@ -27,7 +27,8 @@ export default Body
 const Container = styled.div`
     max-width: var(--content-width);
     width: calc(100% - 50px);
-    padding-block: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 280px;
