@@ -118,7 +118,7 @@ const Sidebar = () => {
                                 <b id="symbol">$</b>
                                 <b id="value">{response?.price.toFixed(2)}</b>
                             </div>
-                            <Button onClick={() => navigate(`/events/checkout/${response?._id}`)} $isFill $background='#25DAC5' $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
+                            <Button onClick={() => navigate(`/checkout/${response?._id}`)} $isFill $background='#25DAC5' $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
                         </div>
                         <div id="map">
                             <p><Lang>Location Map</Lang></p>

@@ -37,7 +37,7 @@ const Router = () => {
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='about' element={<About />} />
-                <Route path='about/feature' element={<Feature />} />
+                <Route path='feature' element={<Feature />} />
                 <Route path='members' element={<Members />} />
                 <Route path='partners' element={<Partners />} />
                 <Route path='events' element={<Events />} />
@@ -45,10 +45,10 @@ const Router = () => {
                 <Route path='contact' element={<Contact />} />
                 <Route path='blog' element={<Blog />} />
                 <Route path='post/:id' element={<Post />} />
-                <Route path='events/details/:id' element={<Event />} />
-                <Route path='events/checkout/:id' element={<Checkout />} />
-                <Route path='events/billing' element={<Billing />} />
-                <Route path='events/thanks' element={<Thanks />} />
+                <Route path='event/:id' element={<Event />} />
+                <Route path='checkout/:id' element={<Checkout />} />
+                <Route path='billing' element={<Billing />} />
+                <Route path='thanks' element={<Thanks />} />
                 <Route path='faq' element={<Faq />} />
                 <Route path='termOfUse' element={<TermOfUse />} />
                 <Route path='privacyPolicy' element={<PrivacyPolicy />} />
