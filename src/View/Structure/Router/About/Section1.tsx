@@ -38,14 +38,16 @@ const Container = styled.div`
     > .box {
         > #subtitle {
             font-size: 14px;
-            font-weight: 700;
+            font-family: DMSans-Bold;
             line-height: 26px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            color: #344054;
         }
 
         > #desc {
             font-size: 22px;
+            font-family: DMSans-Medium;
             line-height: 32px;
             color: var(--content-color);
         }

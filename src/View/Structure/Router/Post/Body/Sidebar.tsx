@@ -67,12 +67,13 @@ const Container = styled.div`
 
         > .item {
             display: flex;
-            gap: 10px;
+            gap: 16px;
             cursor: pointer;
 
             > img {
-                width: 100px;
+                width: 92px;
                 border-radius: 10px;
+                height: 84px;
             }
 
             > h5 {

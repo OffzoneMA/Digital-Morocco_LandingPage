@@ -9,9 +9,10 @@ const Textarea = styled.textarea<{
     $height?: number
     $size?: number,
     $fontFamily?: string
+    $hasError?: boolean
 }>`
     background-color: red;
-    border: 2px solid #EBEAED;
+    border:${props => props.$hasError ? '1px solid  #E85555CC' : ' 2px solid #EBEAED'}; 
     border-radius: 20px;
     background-color: white;
     padding: 10px 20px;
@@ -27,9 +28,14 @@ const Textarea = styled.textarea<{
     }
 
     &:focus {
-        border-color: #53B1FD;
-        box-shadow: 0px 0px 0px 4px #007FFF21;
+        border-color: ${props => props.$hasError ? '#E85555CC' : '#53B1FD'}; 
+        box-shadow: ${props => props.$hasError ? '0px 0px 0px 4px #E8555521' : '0px 0px 0px 4px #007FFF21' } ; 
     }
+
+    ${props => props.$hasError && `
+        border-color: ##E85555CC;
+        box-shadow: 0px 0px 0px 4px #E8555521; 
+    `}
 `;
 
 export default Textarea
