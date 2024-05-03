@@ -124,6 +124,7 @@ const Packages = () => {
                     lang('VIP access to the Digital Morocco networking platform'),
                     lang('Access to all online and offline events, conferences, and webinars'),
                     lang('Full access to premium industry resources, reports, and workshops'),
+                    lang('Full access to premium industry resources, reports, and workshops  and more other features'),
                     lang('Dedicated account manager for personalized connections and support'),
                     lang('Strategic promotion and branding opportunities')
                 ]}
@@ -146,7 +147,7 @@ export default Packages
 const Container = styled.div`
     max-width: 1200px;
     width: calc(100% - 50px);
-    padding-block: 80px;
+    padding-block: 70px;
     margin: auto;
 
     > #btnOptions {
@@ -155,6 +156,16 @@ const Container = styled.div`
         gap: 32px;
         padding-bottom: 50px;
         aling-items: center;
+
+        > button {
+            transition: 300ms;
+
+            &:hover {
+                border-color: #00CDAE;
+                color: #00CDAE;
+                filter: none;
+            }
+        }
     }
     
     > #items {

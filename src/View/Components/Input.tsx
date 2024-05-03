@@ -8,11 +8,12 @@ const Input = styled.input<{
     $size?: number,
     $fontFamily?: string,
     $height?: number 
+    $background?:string
 }>`
     background-color: red;
     border: 2px solid #EBEAED;
     border-radius: 50px;
-    background-color: white;
+    background-color: ${p => p.$background ? p.$background : 'white'};
     padding: ${p => p.$height ? '0px 20px' : '11px 20px'}; 
     outline: none;
     font-size: ${p => p.$size ? `${p.$size}px` : '15px'};

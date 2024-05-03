@@ -19,7 +19,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
 } & React.HTMLAttributes<HTMLDivElement>) => {
 
     return (
-        <Container {...restProps} $recommended={recommended}>
+        <Container {...restProps} $recommended={recommended} $mask={mask}>
             <div id="data">
                 <p id="name">{name}</p>
                 <div id="price">
@@ -74,6 +74,7 @@ export default Package
  */
 const Container = styled.div<{
     $recommended?: boolean
+    $mask?: boolean
 }>`
     display: grid;
     grid-template-rows: auto auto auto 1fr;
@@ -89,6 +90,7 @@ const Container = styled.div<{
         background-color: ${p => p.$recommended ? '#2575F0' : 'initial'};
         color: ${p => p.$recommended ? 'white' : 'initial'};
         border-radius: 10px;
+        height: 312px;
 
         > #name {
             text-transform: uppercase;
@@ -140,6 +142,8 @@ const Container = styled.div<{
 
     #featuresblur {
         position: relative;
+        min-height: ${p => p.$mask ? '281px' : ''};
+        
         > #features {
             padding-inline: 15px;
     

@@ -30,7 +30,7 @@ const Links = () => {
                 <h4><Lang>Resources</Lang></h4>
                 <a href='/'><Lang>Careers</Lang></a>
                 <a href='/blog'><Lang>Blog</Lang></a>
-                <a href='/termOfUse'><Lang>Terms and Conditions</Lang></a>
+                <a href='/terms'><Lang>Terms and Conditions</Lang></a>
             </section>
             <section>
                 <h4><Lang>Help</Lang></h4>

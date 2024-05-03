@@ -13,18 +13,21 @@
     padding: 0
     font-family: DMSans-Regular
     color: var(--text-color)
-    cursor: url('../Media/Icons/curs2.svg'), auto
+    cursor: url('../Media/Icons/curs.svg'), auto
 
         
 *
-    cursor: url('../Media/Icons/curs2.svg'), pointer 
+ cursor: url('../Media/Icons/curs.svg'), auto 
 
 
 a:hover
-    cursor: url('../Media/Icons/curs.svg'), pointer 
+    cursor: url('../Media/Icons/curs2.svg'), auto 
+
+img:hover
+    cursor: url('../Media/Icons/curs2.svg'), auto 
 
 button:hover
-    cursor: url('../Media/Icons/curs.svg'), pointer 
+    cursor: url('../Media/Icons/curs2.svg'), auto 
 
 // Set transition
 *, ::before, ::after
@@ -43,3 +46,22 @@ img
 // Selection
 ::selection
     background-color: #00CDAE
+
+
+$color: #2575F0
+
+::selection 
+  background-color: if($color == #2575F0, #00CDAE, #f0f0f0)
+
+::-moz-selection 
+    background-color: if($color == #2575F0, #00CDAE, #f0f0f0)
+
+::-webkit-selection
+    background-color: if($color == #2575F0, #00CDAE, #f0f0f0)
+
+
+a:hover
+    ::selection 
+        background-color: #2575F0
+
+

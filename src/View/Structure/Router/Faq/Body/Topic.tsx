@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useRef } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
 
@@ -28,6 +28,14 @@ const Topic = ({topicId, id, question, answer }: {topicId: number, id: number, q
     const [topId, setTopId] = useState(searchParams.get('topic') ?? '');
     const [questId, setQuestId] = useState(searchParams.get('question') ?? '');
 
+    
+    /**
+     * Answer Ref
+     */
+    const containerRef = useRef<HTMLDivElement>(null) ;
+
+    const answerRef = useRef<HTMLParagraphElement>(null); 
+
     useEffect(() => {
         setTopId(searchParams.get('topic') ?? '');
     }, [searchParams]);
@@ -42,19 +50,35 @@ const Topic = ({topicId, id, question, answer }: {topicId: number, id: number, q
             setSearchParams({});
         } else {
             setSearchParams({ topic: topicId , question: questionId});
+            setTimeout(() => {
+                if (containerRef.current) {
+                    const yOffset = containerRef.current.getBoundingClientRect().top - 100; 
+                    containerRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+                    window.scrollBy(0, yOffset); 
+                }
+            }, 100); 
         }
     };
+
+    useEffect(() => {
+        if (active && containerRef.current) {
+            const yOffset = containerRef.current.getBoundingClientRect().top - 100; 
+            containerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+            window.scrollBy(0, yOffset); 
+        }
+    }, [active]);
+
     
 
     return (
-        <Container onClick={()=>handleLinkClick(topicId.toString(), id.toString())}>
+        <Container onClick={()=>handleLinkClick(topicId.toString(), id.toString())} ref={containerRef}>
             <div id="title">
                 <h5><Lang>{question}</Lang></h5>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d={active ? 'M1.5 1.25L7 6.75L12.5 1.25' : 'M1.25 12.5L6.75 7L1.25 1.5'} stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            {active && <p className='animation'>{answer}</p>}
+            {active && <p ref={answerRef} className='animation'>{answer}</p>}
         </Container>
     )
 }
@@ -82,6 +106,8 @@ const Container = styled.div`
             margin: 0;
             font-family: DMSans-Bold;
             font-size: 14px;
+            color: #1E0E62;
+            letter-spacing: 0.07em;
         }
 
         > svg {
@@ -108,5 +134,4 @@ const Container = styled.div`
            }
         }
     }
-    
 `;

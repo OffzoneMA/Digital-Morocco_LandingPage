@@ -145,8 +145,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 280px;
 
     > #info {
+        display: flex;
+        flex-direction: column;
 
         > .label {
             display: flex;
@@ -154,9 +157,12 @@ const Container = styled.div`
             gap: 10px;
 
             > p {
-                margin: 10px;
                 color: #1D2939;
-                font-weight: bold;
+                font-family: DMSans-Medium;
+                font-size: 18px;
+                // white-space: nowrap;
+                line-height: 8px;
+                
             }
         }
     }

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Loader from '../../Components/Loader'
+import ScrollToTop from '../../Components/ScrollToTop'
 
 // Sections
 const Home = lazy(() => import('./Home'))
@@ -34,6 +35,7 @@ const Router = () => {
 
     return (
         <Suspense fallback={<Loading />}>
+            <ScrollToTop>
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='about' element={<About />} />
@@ -50,11 +52,12 @@ const Router = () => {
                 <Route path='billing' element={<Billing />} />
                 <Route path='thanks' element={<Thanks />} />
                 <Route path='faq' element={<Faq />} />
-                <Route path='termOfUse' element={<TermOfUse />} />
-                <Route path='privacyPolicy' element={<PrivacyPolicy />} />
+                <Route path='terms' element={<TermOfUse />} />
+                <Route path='privacy' element={<PrivacyPolicy />} />
                 <Route path='legalNotices' element={<LegalNotices />} />
                 <Route path='*' element={<Unavailable />} />
             </Routes>
+            </ScrollToTop>
         </Suspense>
     )
 }

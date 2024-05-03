@@ -40,7 +40,7 @@ const Sidebar = () => {
                 <p><Lang>Sub Total</Lang></p>
                 <b>$ 29.00</b>
             </div>
-            <Input placeholder={lang('Enter Promo Code')} />
+            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} />
             <hr style={{ border: '1px solid #EBEAED' }} />
             <div id="total">
                 <p><Lang>Sub Total</Lang></p>
