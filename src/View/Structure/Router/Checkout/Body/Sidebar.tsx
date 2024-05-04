@@ -47,10 +47,10 @@ const Sidebar = () => {
                 <p><Lang>Sub Total</Lang></p>
                 <b>$ 29.00</b>
             </div>
-            <Input placeholder={lang('Enter Promo Code')} />
+            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} />
             <hr style={{ border: '1px solid #EBEAED' }} />
             <div id="total">
-                <p><Lang>Sub Total</Lang></p>
+                <p><Lang>Total</Lang></p>
                 <b>$ 29.00</b>
             </div>
             <Button onClick={() => navigate('/billing')} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Check Out</Lang></Button>
@@ -69,6 +69,7 @@ const Container = styled.div`
     border-radius: 10px;
     box-shadow: 0px 4px 6px -2px #1018280D, 0px 12px 16px -4px #1018281A;
     padding: 20px;
+    padding-block: 24px;
     height: fit-content;
     background-color: #FCFCFD;
 
@@ -76,16 +77,31 @@ const Container = styled.div`
         margin: 0;
         font-size: 16px;
         color: #1D2939;
-        font-family: DMSans-Medium;
+        font-family: DMSans-Bold;
+        line-height: 20.83px; 
+        margin-block: 5px;
+
+    }
+    > hr {
+        margin-block: 12px;
     }
 
     > .item {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        line-height: 20.83px; 
+
 
         > p {
             color: #98A2B3;
+            font-size: 16px;
+            font-family: DMSans-Medium;
+        }
+
+        > b {
+            font-size: 18px;
+            font-family: DMSans-Medium;
         }
     }
 
@@ -98,17 +114,19 @@ const Container = styled.div`
     }
 
     > #total {
+        margin-bottom: 8px;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         > p {
             font-size: 18px;
-            font-weight: bold;
+            font-family: DMSans-Medium;
         }
 
         > b {
             font-size: 22px;
+            font-family: DMSans-Bold;
         }
     }
 

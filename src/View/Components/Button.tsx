@@ -14,6 +14,8 @@ const Button = styled.button<{
     $height?:number
     $fontWeight?: string
     $fontFamily?: string
+    $hoverColor?: string
+    $applyHoverColor?: boolean
 }>`
     border-radius: 50px;
     font-size: ${p => p.$size ? `${p.$size}px` : 'inherit'};
@@ -27,10 +29,21 @@ const Button = styled.button<{
     height: ${p => p.$height ? `${p.$height}px`:''};
     font-weight: ${p => p.$fontWeight ? p.$fontWeight : 'inherit'};
     font-family: ${p=> p.$fontFamily ? p.$fontFamily : 'inherit'};
+    
 
     &:hover {
-        filter: brightness(0.8);
+        ${p => p.$hoverColor && p.$applyHoverColor && `
+            border-color: ${p.$hoverColor};
+            color: ${p.$hoverColor};
+            filter: none;
+        `}
+
+        ${p => !p.$hoverColor && p.$applyHoverColor && `
+            filter: brightness(0.8);
+        `}
     }
 `;
-
+Button.defaultProps = {
+    $applyHoverColor: true 
+};
 export default Button

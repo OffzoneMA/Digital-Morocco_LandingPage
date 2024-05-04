@@ -41,6 +41,8 @@ const Packages = () => {
                 $size={22}
                 $color={showStartupDiv? '#25DAC5' :"#2E90FA"}
                 $width={200}
+                $applyHoverColor={!showStartupDiv}
+                $hoverColor='#25DAC5'
                 $fontWeight='medium'
                 $fontFamily='DMSans-Medium'
             >
@@ -50,6 +52,8 @@ const Packages = () => {
                 $size={22}
                 $color={ showInvestorDiv? '#25DAC5' :"#2E90FA" }
                 $width={200}
+                $applyHoverColor={!showInvestorDiv}
+                $hoverColor='#25DAC5'
                 $fontWeight='medium'
                 $fontFamily='DMSans-Medium'
             >
@@ -160,11 +164,11 @@ const Container = styled.div`
         > button {
             transition: 300ms;
 
-            &:hover {
-                border-color: #00CDAE;
-                color: #00CDAE;
-                filter: none;
-            }
+            // &:hover {
+            //     border-color: #00CDAE;
+            //     color: #00CDAE;
+            //     filter: none;
+            // }
         }
     }
     

@@ -113,8 +113,10 @@ const Content = () => {
                     />
                 </label>
             </div>
+            <div id='checkBoxs'>
             <Checkbox><Lang>Keep me updated on more events and news from this event organizer</Lang></Checkbox>
             <Checkbox><Lang>Send me emails about the best events happening nearby or online.</Lang></Checkbox>
+            </div>
             <div id="pay-methods">
                 <h1><Lang>Select Payment Method</Lang></h1>
                 <img width={249} src={pay} alt="" />
@@ -131,7 +133,6 @@ export default Content
  */
 const Container = styled.div`
     display: flex;
-    gap: 20px;
     flex-direction: column;
 
     > h1 {
@@ -141,8 +142,8 @@ const Container = styled.div`
     > #form {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 25px;
-        margin-bottom: 20px;
+        gap: 24px;
+        margin-bottom: 30px;
 
         > label {
 
@@ -153,6 +154,7 @@ const Container = styled.div`
                 font-family: DMSans-Medium;
                 color: #1E0E62;
                 letter-spacing: 2px;
+                line-height: 12px;
             }
 
             > input, select {
@@ -165,6 +167,13 @@ const Container = styled.div`
         @media (max-width: 900px) {
             grid-template-columns: 1fr;
         }
+    }
+
+    > #checkBoxs{
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        margin-bottom: 20px;
     }
 
     > #pay-methods {

@@ -87,6 +87,9 @@ const Container = styled.div`
 
     > h1 {
         margin-top: 0;
+        font-family: DMSans-Bold;
+        font-size: 32px; 
+        line-height: 22px; 
     }
 
     > .item {
@@ -95,22 +98,27 @@ const Container = styled.div`
             border-bottom: 2px solid #EBEAED;
             border-top: 2px solid #EBEAED;
             padding-block: 15px;
-            padding-top: 17px;
+            padding-top: 19px;
 
             > h4 {
                 font-size: 18px;
                 margin: 0;
+                font-family: DMSans-Medium;
+                line-height: 28px; 
             }
 
             > p {
-                margin-block: 5px;
+                margin-block: 6px;
                 font-size: 14px;
                 color: #15143966;
+                font-family: DMSans-Medium;
             }
         }
 
         > #total {
             display: flex;
+            font-size: 18px;
+            font-family: DMSans-Medium;
             justify-content: space-between;
             align-items: center;
             margin-top: 20px;

@@ -142,7 +142,28 @@ const Options = styled.div`
     > #optionsListe {
         overflow-y: auto;
         max-height: 240px;
+
     }
+
+    > #optionsListe::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    > #optionsListe::-webkit-scrollbar-track {
+        color: #E4E7EC;
+        border-radius: 20px;
+    }
+
+    > #optionsListe::-webkit-scrollbar-thumb {
+        border: 3px solid #E4E7EC;
+        border-radius: 20px;
+        height: 125px;
+    }
+
+    > #optionsListe::-webkit-scrollbar-thumb:hover {
+        color: #555;
+    }
+    
 `;
 
 const SearchInputContainer = styled.div`
