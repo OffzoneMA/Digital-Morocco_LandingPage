@@ -16,7 +16,27 @@ import { enUS } from 'date-fns/locale'
  */
 const Header = () => {
 
+    /**
+     * Get Id Param
+     */
     const { id } = useParams<{ id: string }>();
+
+    /**
+     * 
+     * @param date Extract day
+     * @returns 
+     */
+    const extractDay = (date: Date): string => {
+        return format(date, 'dd', { locale: enUS });
+      };
+      
+    const extractMonth = (date: Date): string => {
+    return format(date, 'MMMM', { locale: enUS });
+    };
+    
+    const extractYear = (date: Date): string => {
+    return format(date, 'yyyy', { locale: enUS });
+    };
 
     return (
         <Container>
@@ -32,16 +52,23 @@ const Header = () => {
                             <>
                                 <h1><Lang>{response.title}</Lang></h1>
                                 <div id="info">
-                                    <p>{format(response?.date, 'dd MMMM yyyy', { locale: enUS }).toUpperCase()}</p>
+                                    <p>{extractDay(response?.date)} <Lang>{extractMonth(response?.date).toUpperCase()}</Lang> {extractYear(response?.date)}</p>
+                                    {response.tags && response.tags.length > 0 ? (
                                     <div id="tags">
-                                       {response.tags?.[0].split(',').map((tag: string, index: number) => (
-                                            <span key={index}><Lang>{tag}</Lang></span>
-                                        ))}
+                                        {
+                                            response.tags.map((tag: string, index: number) => (
+                                                <span key={index}><Lang>{tag}</Lang></span>
+                                            ))
+                                       }
                                     </div>
+                                     ) : (
+                                        <span></span>
+                                    )
+                                    }
                                 </div>
                             </>
                         ) : (
-                            <p>Loading...</p>
+                            <p>...</p>
                         )}
                     </div>
                 </div>
@@ -103,6 +130,11 @@ const Container = styled.div`
             justify-self: center;
             color: white;
 
+            > p {
+                font-size: 48px;
+                animation: rotate 1s linear infinite;
+            }
+
             > h1 {
                 font-size: 58px;
                 max-width: 780px;
@@ -160,3 +192,4 @@ const Container = styled.div`
         min-height: 300px;
     }
 `;
+

@@ -29,8 +29,7 @@ const PageHeader = (props: React.HTMLAttributes<HTMLDivElement>) => {
         };
     }, []);
 
-    return <Container scrolled={scrolled}  {...props} >
-            </Container>
+    return <Container scroll={scrolled}  {...props} />
 }
 
 export default PageHeader
@@ -40,7 +39,7 @@ export default PageHeader
  * Container
  * 
  */
-const Container = styled.div<{ scrolled: boolean }>`
+const Container = styled.div<{ scroll?: boolean }>`
     position: relative;
     padding-top: 150px;
     padding-bottom: 30px;
@@ -57,7 +56,7 @@ const Container = styled.div<{ scrolled: boolean }>`
         background-image: url(${Ornament});
         background-repeat: no-repeat;
         background-size: cover; 
-        z-index: ${p => p.scrolled ? '-1' : '1'}; 
+        z-index: ${p => p.scroll ? '-1' : '1'}; 
         pointer-events: none;
          
     }

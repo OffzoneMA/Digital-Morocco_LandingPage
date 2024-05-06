@@ -7,9 +7,15 @@ interface ScrollToTopProps {
 
 const ScrollToTop = ({ children }: ScrollToTopProps) => {
   const location = useLocation();
+
+  const thisRoute = location.pathname.split('/')[1];
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    });
+  }, [thisRoute]);
+  
 
   return <>{children}</>;
 };

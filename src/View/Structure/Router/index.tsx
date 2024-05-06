@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Loader from '../../Components/Loader'
@@ -35,7 +35,6 @@ const Router = () => {
 
     return (
         <Suspense fallback={<Loading />}>
-            <ScrollToTop>
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='about' element={<About />} />
@@ -57,7 +56,6 @@ const Router = () => {
                 <Route path='legalNotices' element={<LegalNotices />} />
                 <Route path='*' element={<Unavailable />} />
             </Routes>
-            </ScrollToTop>
         </Suspense>
     )
 }

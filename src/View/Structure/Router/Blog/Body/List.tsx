@@ -27,15 +27,29 @@ const List = () => {
      */
     const [totalPages, setTotalPages] = useState(1);
     const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1"));
-    const blogsPerPage = 1; 
+    const blogsPerPage = 5; 
 
-    const getTotalPages = (totalItems: number) => {
-        return Math.ceil(totalItems / blogsPerPage);
+    /**
+     * 
+     * @param date Extract day
+     * @returns 
+     */
+    const extractDay = (date: Date): string => {
+        return format(date, 'dd', { locale: enUS });
+      };
+      
+    const extractMonth = (date: Date): string => {
+    return format(date, 'MMMM', { locale: enUS });
+    };
+    
+    const extractYear = (date: Date): string => {
+    return format(date, 'yyyy', { locale: enUS });
     };
 
     useEffect(() => {
         setCurrent(Number(searchParams.get("page")) || 1);
     }, [searchParams]);
+    
 
     return (
         <Container>
@@ -48,10 +62,10 @@ const List = () => {
                     setTotalPages(response?.totalPages);
                     return response?.blogs.map((blog: any, key: React.Key | null | undefined) => (
                         <Link key={key} to={`/post/${blog?._id}`} className='item'>
-                            <img src={blog.image} alt="" />
-                            <h1>{blog?.title}</h1>
-                            <b>{format(blog?.date, 'dd MMMM yyyy', { locale: enUS }).toUpperCase()}</b>
-                            <p>{blog?.resume}</p>
+                            <img src={blog?.image} alt="" />
+                            <h1><Lang>{blog?.title}</Lang></h1>
+                            <b>{extractDay(blog?.date)} <Lang>{extractMonth(blog?.date).toUpperCase()}</Lang> {extractYear(blog?.date)}</b>
+                            <p><Lang>{blog?.resume}</Lang></p>
                         </Link>
                     ));
                 }}
@@ -73,7 +87,6 @@ const Container = styled.div`
     justify-items: center;
 
     > .item {
-        cursor: pointer;
         text-decoration: none;
 
         > img {

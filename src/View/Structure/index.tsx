@@ -7,6 +7,7 @@ import Footer from './Portions/Footer'
 import Notifs from './Portions/Notifs'
 import Scroller from './Portions/Scroller'
 import Dialog from './Portions/Dialog'
+import ScrollToTop from '../Components/ScrollToTop'
 
 /**
  * Structure 🏗️
@@ -17,6 +18,7 @@ const Structure = () => {
 
     return (
         <BrowserRouter>
+          <ScrollToTop>
             <Container>
                 <Header />
                 <Router />
@@ -25,6 +27,7 @@ const Structure = () => {
                 <Notifs />
                 <Scroller />
             </Container>
+          </ScrollToTop>
         </BrowserRouter>
     )
 }

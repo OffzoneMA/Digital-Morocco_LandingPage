@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
 import Fetch from '../../../../../Controller/Tools/Server/Fetch';
+import { Link } from 'react-router-dom';
 
 // @ts-ignore
 import Image from '../../../../Media/Images/image.png'
@@ -29,10 +30,10 @@ const Sidebar = () => {
                 <Fetch<any> url={`${process.env.REACT_APP_baseURL}blogs/latest/5`}>
                     {({ response }) => !response ? <Loader /> :
                         response?.blogs.map((blog: any, key: React.Key | null | undefined) => 
-                        <div className="item">
+                        <Link to={`/post/${blog?._id}`} className="item">
                             <img src={blog?.image || Image} alt="" />
-                        <h5><Lang>{blog?.title}</Lang></h5>
-                    </div>
+                            <h5><Lang>{blog?.title}</Lang></h5>
+                        </Link>
                         )}
                 </Fetch>
             </div>
@@ -49,7 +50,7 @@ export default Sidebar
 const Container = styled.div`
     position: -webkit-sticky;
     position: sticky;
-    top: 100px;
+    // top: 100px;
     margin-bottom: 50px;
     align-self: flex-start;
 
@@ -68,7 +69,7 @@ const Container = styled.div`
         > .item {
             display: flex;
             gap: 16px;
-            cursor: pointer;
+            text-decoration: none;
 
             > img {
                 width: 92px;
@@ -79,7 +80,14 @@ const Container = styled.div`
             > h5 {
                 margin: 0;
                 font-size: 15px;
-            } 
+                height: 84px;
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                display: -webkit-box;
+                -webkit-line-clamp: 4; 
+                -webkit-box-orient: vertical;
+                word-wrap: break-word;
+            }
         }
     }
 `;
