@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import {useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 /**
@@ -26,9 +27,9 @@ const Copyright = () => {
     return (
         <Container>
             <div id="links">
-                <a href='/terms' className={thisRoute === 'terms' ? 'active' : ''}><Lang>Terms of Use</Lang></a>
-                <a href='/privacy' className={thisRoute === 'privacy' ? 'active' : ''}><Lang>Privacy Policy</Lang></a>
-                <a href='/legalNotices' className={thisRoute === 'legalNotices' ? 'active' : ''}><Lang>Legal Notice</Lang></a>
+                <Link to='/terms' className={thisRoute === 'terms' ? 'active' : ''}><span><Lang>Terms of Use</Lang></span></Link>
+                <a href='/privacy' className={thisRoute === 'privacy' ? 'active' : ''}><span><Lang>Privacy Policy</Lang></span></a>
+                <a href='/legalNotices' className={thisRoute === 'legalNotices' ? 'active' : ''}><span><Lang>Legal Notice</Lang></span></a>
             </div>
             <p id="copyright"><Lang>Copyright © 2023 Digital Morocco, all Rights Reserved.</Lang> <Lang>By</Lang> <a rel="noreferrer" href="https://offzone.net/" target="_blank">OFFZONE</a></p>
         </Container>

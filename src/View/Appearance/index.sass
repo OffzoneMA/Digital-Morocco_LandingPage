@@ -24,7 +24,7 @@ a:hover
     cursor: url('../Media/Icons/curs2.svg'), auto 
 
 img:hover
-    cursor: url('../Media/Icons/curs2.svg'), pointer 
+    cursor: url('../Media/Icons/curs2.svg'), auto 
 
 button:hover
     cursor: url('../Media/Icons/curs2.svg'), auto 
@@ -61,6 +61,10 @@ $color: #2575F0
 
 
 a:hover
+    ::selection 
+        background-color: #2575F0
+
+.active
     ::selection 
         background-color: #2575F0
 

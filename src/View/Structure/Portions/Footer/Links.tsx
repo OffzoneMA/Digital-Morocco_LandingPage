@@ -14,29 +14,29 @@ const Links = () => {
         <Container>
             <section>
                 <h4><Lang>About</Lang></h4>
-                <a href='/'><Lang>Who We Are?</Lang></a>
-                <a href='/'><Lang>Why Join Us?</Lang></a>
-                <a href='/'><Lang>Our Goals</Lang></a>
-                <a href='/'><Lang>Our Activity</Lang></a>
+                <a href='/'><span><Lang>Who We Are?</Lang></span></a>
+                <a href='/'><span><Lang>Why Join Us?</Lang></span></a>
+                <a href='/'><span><Lang>Our Goals</Lang></span></a>
+                <a href='/'><span><Lang>Our Activity</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Solutions</Lang></h4>
-                <a href='/'><Lang>Startup</Lang></a>
-                <a href='/'><Lang>Investor</Lang></a>
-                <a href='/'><Lang>Company</Lang></a>
-                <a href='/events'><Lang>Events</Lang></a>
+                <a href='/'><span><Lang>Startup</Lang></span></a>
+                <a href='/'><span><Lang>Investor</Lang></span></a>
+                <a href='/'><span><Lang>Company</Lang></span></a>
+                <a href='/events'><span><Lang>Events</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Resources</Lang></h4>
-                <a href='/'><Lang>Careers</Lang></a>
-                <a href='/blog'><Lang>Blog</Lang></a>
-                <a href='/terms'><Lang>Terms and Conditions</Lang></a>
+                <a href='/'><span><Lang>Careers</Lang></span></a>
+                <a href='/blog'><span><Lang>Blog</Lang></span></a>
+                <a href='/terms'><span><Lang>Terms and Conditions</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Help</Lang></h4>
-                <a href='/faq'><Lang>Support</Lang></a>
-                <a href='/contact'><Lang>Contact Us</Lang></a>
-                <a href='/faq'><Lang>FAQ</Lang></a>
+                <a href='/faq'><span><Lang>Support</Lang></span></a>
+                <a href='/contact'><span><Lang>Contact Us</Lang></span></a>
+                <a href='/faq'><span><Lang>FAQ</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Stay Tuned</Lang></h4>

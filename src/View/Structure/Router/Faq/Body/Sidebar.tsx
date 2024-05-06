@@ -88,6 +88,10 @@ const Container = styled.div`
         }
         .selected {
             color: #00CDAE;
+
+            ::selection {
+                background: #2575F0;
+            }
         }
     }
 

@@ -25,12 +25,12 @@ const Links = ({ onChange, withHome }: { onChange?: () => void, withHome?: boole
     return (
         <React.Fragment>
             {withHome && <Link onClick={onChange} className={thisRoute === '' ? 'active' : ''} to="/"><Lang>Home</Lang></Link>}
-            <Link onClick={onChange} className={thisRoute === 'about' || thisRoute === 'feature' ? 'active' : ''} to="/about"><Lang>About</Lang></Link>
-            <Link onClick={onChange} className={thisRoute === 'members' ? 'active' : ''} to="/members"><Lang>Members</Lang></Link>
-            <Link onClick={onChange} className={thisRoute === 'partners' ? 'active' : ''} to="/partners"><Lang>Partners</Lang></Link>
-            <Link onClick={onChange} className={thisRoute === 'events' || thisRoute === 'event' || thisRoute === 'billing' || thisRoute === 'checkout' || thisRoute === 'thanks' ? 'active' : ''} to="/events"><Lang>Events</Lang></Link>
-            <Link onClick={onChange} className={thisRoute === 'pricing' ? 'active' : ''} to="/pricing"><Lang>Pricing</Lang></Link>
-            <Link onClick={onChange} className={thisRoute === 'contact' ? 'active' : ''} to="/contact"><Lang>Contact Us</Lang></Link>
+            <Link onClick={onChange} className={thisRoute === 'about' || thisRoute === 'feature' ? 'active' : ''} to="/about"><span><Lang>About</Lang></span></Link>
+            <Link onClick={onChange} className={thisRoute === 'members' ? 'active' : ''} to="/members"><span><Lang>Members</Lang></span></Link>
+            <Link onClick={onChange} className={thisRoute === 'partners' ? 'active' : ''} to="/partners"><span><Lang>Partners</Lang></span></Link>
+            <Link onClick={onChange} className={thisRoute === 'events' || thisRoute === 'event' || thisRoute === 'billing' || thisRoute === 'checkout' || thisRoute === 'thanks' ? 'active' : ''} to="/events"><span><Lang>Events</Lang></span></Link>
+            <Link onClick={onChange} className={thisRoute === 'pricing' ? 'active' : ''} to="/pricing"><span><Lang>Pricing</Lang></span></Link>
+            <Link onClick={onChange} className={thisRoute === 'contact' ? 'active' : ''} to="/contact"><span><Lang>Contact Us</Lang></span></Link>
         </React.Fragment>
     )
 }

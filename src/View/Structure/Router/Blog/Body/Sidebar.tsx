@@ -67,13 +67,13 @@ const Container = styled.div`
             > img {
                 width: 92px;
                 border-radius: 10px;
-                height: 84px;
+                // height: 84px;
             }
 
             > h5 {
                 margin: 0;
                 font-size: 15px;
-                height: 84px;
+                // height: 84px;
                 overflow: hidden; 
                 text-overflow: ellipsis; 
                 display: -webkit-box;

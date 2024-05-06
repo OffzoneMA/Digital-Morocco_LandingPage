@@ -14,7 +14,7 @@ const Pages = ({ nbrPages = 1 }: PagesProps) => {
     const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1"));
 
     const generatePageLinks = () => {
-        const maxVisiblePages = 5; 
+        const maxVisiblePages = 4; 
 
         if (nbrPages <= maxVisiblePages) {
             return Array.from({ length: nbrPages }, (_, i) => i + 1);

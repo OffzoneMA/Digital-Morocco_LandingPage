@@ -8,6 +8,7 @@ import Fetch from '../../../../Controller/Tools/Server/Fetch'
 import { useParams } from 'react-router-dom'
 import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
+import Loader from '../../../Components/Loader'
 
 /**
  * Header
@@ -40,17 +41,18 @@ const Header = () => {
 
     return (
         <Container>
-            <img src={image76} alt="" />
             <Fetch<any>
             url={`${process.env.REACT_APP_baseURL}blogs/${id}`}
             method="GET"
         >
             {({ response }) => (
-                <div id="layer">
+                <>
+                {response ? (
+                <>
+                   <img src={response?.coverImage || image76} alt="" />
+                   <div id="layer">
                     <div id="content">
-                        {response ? (
-                            <>
-                                <h1><Lang>{response.title}</Lang></h1>
+                    <h1><Lang>{response.title}</Lang></h1>
                                 <div id="info">
                                     <p>{extractDay(response?.date)} <Lang>{extractMonth(response?.date).toUpperCase()}</Lang> {extractYear(response?.date)}</p>
                                     {response.tags && response.tags.length > 0 ? (
@@ -66,12 +68,14 @@ const Header = () => {
                                     )
                                     }
                                 </div>
-                            </>
-                        ) : (
-                            <p>...</p>
-                        )}
                     </div>
                 </div>
+                </>
+                ) : (
+                    <p><Loader/></p>
+                )}
+            </>
+                
             )}
             </Fetch>
         </Container>
@@ -94,7 +98,7 @@ const Container = styled.div`
     max-width: 100vw;
     padding: 20px;
     
-    > img {
+    > p{
         height: 100%;
         scale: 1.1;
         position: absolute;
@@ -103,6 +107,19 @@ const Container = styled.div`
         top: 0;
         bottom: 0;
         margin: auto;
+    }
+    
+    > img {
+        width: 100%;
+        height: 100%;
+        scale: 1.1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        object-fit: cover;
 
 
         // Media
