@@ -110,7 +110,7 @@ const Container = styled.div`
     }
     
     > img {
-        width: 100%;
+        width: auto;
         height: 100%;
         scale: 1.1;
         position: absolute;
@@ -119,7 +119,7 @@ const Container = styled.div`
         top: 0;
         bottom: 0;
         margin: auto;
-        object-fit: cover;
+        // object-fit: cover;
 
 
         // Media
