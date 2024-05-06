@@ -39,7 +39,7 @@ const Sidebar = () => {
             <div id="links">
             {faqsData.map((topic , index) => (
                     <Link onClick={() => handleLinkClick(topic.id.toString() , topic.questions[0].id.toString())} key={topic.id} to={`/faq?topic=${topic.id}&question=${topic.questions[0].id}`} className={parseInt(topicId) ===topic.id ? 'selected' : ''}>
-                        <Lang>{topic.name}</Lang>
+                        <span><Lang>{topic.name}</Lang></span>
                     </Link>
                 ))}
             </div>
