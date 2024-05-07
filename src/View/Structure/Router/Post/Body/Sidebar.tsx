@@ -6,14 +6,6 @@ import { Link } from 'react-router-dom';
 
 // @ts-ignore
 import Image from '../../../../Media/Images/image.png'
-// @ts-ignore
-import Imag1 from '../../../../Media/Images/image (1).png'
-// @ts-ignore
-import Imag2 from '../../../../Media/Images/image (2).png'
-// @ts-ignore
-import Imag3 from '../../../../Media/Images/image (3).png'
-// @ts-ignore
-import Imag4 from '../../../../Media/Images/image (4).png'
 import Loader from '../../../../Components/Loader';
 
 /**

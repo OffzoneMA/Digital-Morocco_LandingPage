@@ -31,7 +31,7 @@ const Container = styled.div`
     padding-block: 150px;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 290px;
+    grid-template-columns: 1fr 320px;
     gap: 50px;
 
     // Media

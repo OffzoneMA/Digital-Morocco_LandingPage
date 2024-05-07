@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import Fetch from '../../../../../Controller/Tools/Server/Fetch';
 import Loader from '../../../../Components/Loader';
 import Pages from '../../../../Components/Pages';
@@ -49,6 +49,18 @@ const List = () => {
     useEffect(() => {
         setCurrent(Number(searchParams.get("page")) || 1);
     }, [searchParams]);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const thisRoute = location.pathname.split('/')[1];
+        if (thisRoute === 'blog') {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    }, [current, location.pathname]);
     
 
     return (

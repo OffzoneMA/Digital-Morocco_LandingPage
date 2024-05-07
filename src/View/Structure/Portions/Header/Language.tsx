@@ -21,6 +21,14 @@ const Language = () => {
      */
     const nextLang = languages.filter(item => item.code !== language)[0];
 
+     /**
+     * Handler for language change
+     */
+     const handleChangeLanguage = () => {
+        changeLang(nextLang.code);
+        window.scrollTo(0, 0); 
+    };
+
     /**
      * On load
      * 
@@ -32,7 +40,7 @@ const Language = () => {
     }, [])
 
     return flag ? (
-        <Container onClick={() => changeLang(nextLang.code)} title={nextLang.name}>
+        <Container onClick={handleChangeLanguage} title={nextLang.name}>
             <img src={flag} alt='' loading='lazy' />
         </Container>
     ) : null
@@ -45,7 +53,7 @@ export default Language
  * 
  */
 const Container = styled.div`
-    cursor: pointer;
+    // cursor: pointer;
     position: absolute;
     right: 0;
     background-color: white;

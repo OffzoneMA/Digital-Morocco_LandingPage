@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 // @ts-ignore
 import Imag23 from '../../../../Media/Images/image23.jpg'
@@ -16,6 +16,15 @@ import Loader from '../../../../Components/Loader';
 const Content = () => {
 
     const { id } = useParams<{ id: string }>();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, [location]);
 
     return (
         <Container>

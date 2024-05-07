@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Event, { EventInterface } from './Event';
 import Fetch from '../../../../Controller/Tools/Server/Fetch';
@@ -6,7 +6,7 @@ import Loader from '../../../Components/Loader';
 import Pages from '../../../Components/Pages';
 import { format, parse } from 'date-fns';
 import { enUS } from 'date-fns/locale';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 /**
  * Record
@@ -55,6 +55,18 @@ const Record = () => {
 
                 }
     }
+    
+    const location = useLocation();
+
+    useEffect(() => {
+        const thisRoute = location.pathname.split('/')[1];
+        if (thisRoute === 'events') {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    }, [current, location.pathname]);
 
     
     return (
