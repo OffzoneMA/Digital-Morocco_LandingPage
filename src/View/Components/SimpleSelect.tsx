@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { Lang } from '../../Controller/Tools/Interface/Lang';
 import { useLang } from '../../Controller/Tools/Interface/Lang';
 
+// @ts-ignore
+import curs2 from '../../View/Media/Icons/curs2.svg';
+
 const SimpleSelect = ({
     placeholder,
     size,
@@ -115,7 +118,6 @@ const CustomSelect = styled.div<{ active: boolean , size?: number , fontFamily?:
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
     position: relative;
 
     > #text {
@@ -194,14 +196,14 @@ const SearchInput = styled.input`
 
 const Option = styled.div`
     padding: 10px;
-    cursor: pointer;
     color: #1D2939;
     font-size: 16px;
     line-height: 20.83px;
 
-    // &:hover {
-    //     background-color: #f5f5f5;
-    // }
+    &:hover {
+        color: #35D8BF;
+        cursor: url(${curs2}), auto;
+    }
 `;
 
 export interface OptionInterface {

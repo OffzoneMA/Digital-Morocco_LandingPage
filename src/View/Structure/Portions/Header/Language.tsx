@@ -53,7 +53,6 @@ export default Language
  * 
  */
 const Container = styled.div`
-    // cursor: pointer;
     position: absolute;
     right: 0;
     background-color: white;

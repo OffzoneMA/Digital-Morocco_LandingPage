@@ -65,7 +65,7 @@ const Policies = () => {
             <div className=''>
                 <label><Lang>Who is responsible for the processing?</Lang></label>
                 <p><Lang>OFFZONE, the owner of the Digital Morocco sites and platform, is responsible for processing your data. As such, it is responsible for determining the purposes and means of the processing aimed at allowing you to use all the features of the Digital Morocco platform.</Lang></p>
-                <p><Lang>This processing has been the subject of a normal declaration to the CNDP under number (pending).</Lang></p>
+                <p><Lang>This processing has been the subject of a normal declaration to the CNDP under number D-W-266/2024.</Lang></p>
             </div>
             <div className=''>
                 <label><Lang>What categories of data do we process?</Lang></label>
@@ -80,9 +80,9 @@ const Policies = () => {
                     <li><Lang>Your preferences and consumption habits if you fill out questionnaires;</Lang></li>
                     <li><Lang>Sales history and order-related information: Dates, products, and quantities ordered;</Lang></li>
                     <li><Lang>Other data provided by you to customer service;</Lang></li>
-                    <li><Lang>In most cases, we ask for your consent to carry out these collections.</Lang></li>
                 </ul>
                 </p>
+                <p><Lang>In most cases, we ask for your consent to carry out these collections.</Lang></p>
             </div>
             <div className=''>
                 <label><Lang>Who are your data intended for?</Lang></label>
@@ -90,10 +90,10 @@ const Policies = () => {
                 <p><Lang>We collaborate with some providers to whom we may transmit anonymized data about you. These data recipients include:</Lang></p>
                 <p>
                 <ul >
-                    <li><Lang>Data hosting</Lang>: <Lang>Contabo Ltd. located at Aschauer Straße 32a 81549 Munich, Germany</Lang></li>
+                    <li><Lang>Data hosting</Lang> : <Lang>Contabo Ltd. located at Aschauer Straße 32a 81549 Munich, Germany</Lang>.</li>
                 </ul>
                 </p>
-                <p><Lang>This transfer has been declared to the CNDP under number (pending).</Lang></p>
+                <p><Lang>This transfer has been declared to the CNDP under number T-HB-111/2024.</Lang></p>
             </div>
             <div className=''>
                 <label><Lang>How long do we keep your data?</Lang></label>

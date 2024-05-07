@@ -24,18 +24,18 @@ const Terms = () => {
                 <label><Lang>Definitions</Lang></label>
                 <p>
                 <ul>
-                    <li><span><Lang>Platform</Lang></span>: <Lang>Refers to the product as well as all the services, features, and content accessible via the Digital Morocco sites, edited and operated by the company OFFZONE.</Lang></li>
-                    <li><span><Lang>Subscription</Lang></span>: <Lang>Refers to any subscription to a service offering made available for a specified price and duration.</Lang></li>
-                    <li><span><Lang>Subscriber</Lang></span>: <Lang>Any natural or legal person who has subscribed to a Subscription.</Lang></li>
-                    <li><span><Lang>ToU</Lang></span>: <Lang>Refers to the Terms of Use governing the use of the Digital Morocco sites.</Lang></li>
-                    <li><span><Lang>User Content</Lang></span>: <Lang>Includes all data, information, texts, images, videos, or any other content submitted or transmitted by the User on the Platform.</Lang></li>
-                    <li><span><Lang>Browsing Data</Lang></span>: <Lang>Information relating to the User's terminal connection to the Platform, such as the type of browser, pages visited, etc. This data may be used for statistical purposes to improve the Platform.</Lang></li>
-                    <li><span><Lang>Personal Data</Lang></span>: <Lang>Information concerning Users, such as their name, email address, billing information, etc., processed in accordance with this Privacy Policy and the applicable data protection legislation.</Lang></li>
-                    <li><span><Lang>Partners</Lang></span>: <Lang>All e-commerce sites, IT companies, or other entities with which OFFZONE has a direct or indirect partnership contract in the provision of Services.</Lang></li>
-                    <li><span><Lang>Services</Lang></span>: <Lang>Refers to all the features, services, and content accessible to Users on the Platform, whether free or paid.</Lang></li>
-                    <li><span><Lang>User(s)</Lang></span>: <Lang>Natural person(s) or legal entity(ies) accessing the sites or using their services.</Lang></li>
-                    <li><span><Lang>Digital Morocco</Lang></span>: <Lang>Refers to the product or the brand of the company OFFZONE which edits and operates the Platform.</Lang></li>
-                    <li><span><Lang>Party(ies)</Lang></span>: <Lang>Refers to the company OFFZONE, publisher, and operator of the Digital Morocco sites, as well as any individual User or entity accessing and using the services provided by the sites.</Lang></li>
+                    <li><span><Lang>Platform</Lang></span> : <Lang>Refers to the product as well as all the services, features, and content accessible via the Digital Morocco sites, edited and operated by the company OFFZONE.</Lang></li>
+                    <li><span><Lang>Subscription</Lang></span> : <Lang>Refers to any subscription to a service offering made available for a specified price and duration.</Lang></li>
+                    <li><span><Lang>Subscriber</Lang></span> : <Lang>Any natural or legal person who has subscribed to a Subscription.</Lang></li>
+                    <li><span><Lang>ToU</Lang></span> : <Lang>Refers to the Terms of Use governing the use of the Digital Morocco sites.</Lang></li>
+                    <li><span><Lang>User Content</Lang></span> : <Lang>Includes all data, information, texts, images, videos, or any other content submitted or transmitted by the User on the Platform.</Lang></li>
+                    <li><span><Lang>Browsing Data</Lang></span> : <Lang>Information relating to the User's terminal connection to the Platform, such as the type of browser, pages visited, etc. This data may be used for statistical purposes to improve the Platform.</Lang></li>
+                    <li><span><Lang>Personal Data</Lang></span> : <Lang>Information concerning Users, such as their name, email address, billing information, etc., processed in accordance with this Privacy Policy and the applicable data protection legislation.</Lang></li>
+                    <li><span><Lang>Partners</Lang></span> : <Lang>All e-commerce sites, IT companies, or other entities with which OFFZONE has a direct or indirect partnership contract in the provision of Services.</Lang></li>
+                    <li><span><Lang>Services</Lang></span> : <Lang>Refers to all the features, services, and content accessible to Users on the Platform, whether free or paid.</Lang></li>
+                    <li><span><Lang>User(s)</Lang></span> : <Lang>Natural person(s) or legal entity(ies) accessing the sites or using their services.</Lang></li>
+                    <li><span><Lang>Digital Morocco</Lang></span> : <Lang>Refers to the product or the brand of the company OFFZONE which edits and operates the Platform.</Lang></li>
+                    <li><span><Lang>Party(ies)</Lang></span> : <Lang>Refers to the company OFFZONE, publisher, and operator of the Digital Morocco sites, as well as any individual User or entity accessing and using the services provided by the sites.</Lang></li>
                 </ul>
                 </p>
             </div>
@@ -64,7 +64,7 @@ const Terms = () => {
                     <li><Lang>Take all necessary measures to protect their hardware and login information, in order to prevent any unauthorized access to their account;</Lang></li>
                     <li><Lang>Actively monitor the operations performed from their User account and take appropriate measures in case of detection of unauthorized activity;</Lang></li>
                     <li><Lang>Take reasonable precautions to avoid the risks of loss or hacking of their personal data stored on the Platform;</Lang></li>
-                    <li><Lang>Ensure the security of their access methods to their account, by using span passwords and avoiding sharing them with unauthorized third parties.</Lang></li>
+                    <li><Lang>Ensure the security of their access methods to their account, by using strong passwords and avoiding sharing them with unauthorized third parties.</Lang></li>
                 </ul>
                 </p>
                 <p><Lang>It should be noted that any action taken from the User account will be considered as being performed by the User themselves, and they will bear full responsibility for it in accordance with the provisions of these Terms of Use.</Lang></p>
@@ -137,9 +137,9 @@ const Terms = () => {
                 <label><Lang>Legal Mentions</Lang></label>
                 <p>
                 <ul style={{listStyleType: 'lower-alpha' }}>
-                    <li><span><Lang>Publisher of the Site</Lang></span>:<br /><Lang>The Digital Morocco Platform is edited and operated by the company Offzone, a limited liability company registered with the commercial register of Taza, Morocco under number 6429.</Lang></li>
-                    <li><span><Lang>Director of Publication</Lang></span>:<br /><Lang>The Director of Publication is Mr. Safouan CHALOUAH.</Lang></li>
-                    <li><span><Lang>Site Host</Lang></span>:<br /><Lang>As a provider of a service operating, administering, and safeguarding personal data and in compliance with Moroccan regulations. OFFZONE uses the services of the company Contabo for the hosting of personal data.</Lang><br/><Lang>Whose head office is located at: Aschauer Straße 32a 81549 Munich, Germany.</Lang></li>
+                    <li><span><Lang>Publisher of the Site</Lang></span><br /><Lang>The Digital Morocco Platform is edited and operated by the company Offzone, a limited liability company registered with the commercial register of Taza, Morocco under number 6429.</Lang></li>
+                    <li><span><Lang>Director of Publication</Lang></span><br /><Lang>The Director of Publication is Mr. Safouan CHALOUAH.</Lang></li>
+                    <li><span><Lang>Site Host</Lang></span><br /><Lang>As a provider of a service operating, administering, and safeguarding personal data and in compliance with Moroccan regulations. OFFZONE uses the services of the company Contabo for the hosting of personal data.</Lang><br/><Lang>Whose head office is located at: Aschauer Straße 32a 81549 Munich, Germany.</Lang></li>
                 </ul>
                 </p>
                 <p><Lang>Location of the data centers where the Digital Morocco sites are hosted: Frankfurt, Germany.</Lang></p>
@@ -160,7 +160,7 @@ const Terms = () => {
                 <p><Lang>If you need more information or if you would like to contribute to improving the quality of our ToU, please feel free to contact us. You can do so using one of our preferred contact methods:</Lang></p>
                 <p>
                     <ul>
-                        <li><Lang>Email address</Lang>: <a href="mailto:support@digitalmorocco.net">support@digitalmorocco.net</a></li>
+                        <li><Lang>Email address</Lang> : <a href="mailto:support@digitalmorocco.net">support@digitalmorocco.net</a></li>
                     </ul>
                 </p>
                 <p><Lang>We are always open to your questions, comments, and suggestions, and we strive to respond to all inquiries promptly. Your contribution is valuable to us in helping to provide a quality service and meet the needs of our users.</Lang></p>

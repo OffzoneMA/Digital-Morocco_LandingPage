@@ -3,6 +3,9 @@ import React, { useEffect, useState , useRef } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
 
+// @ts-ignore
+import curs2 from '../../../../Media/Icons/curs.svg';
+
 
 /**
  * Topic
@@ -94,7 +97,7 @@ const Container = styled.div`
     margin: 0;
     padding-top: 30px;
     padding-bottom: 15px;
-    cursor: pointer;
+    cursor: url(${curs2}), auto;
 
     > #title {
         display: flex;

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+// @ts-ignore
+import curs2 from '../../View/Media/Icons/curs2.svg';
+
 /**
  * Quantity
  * 
@@ -86,7 +89,7 @@ const Container = styled.div`
         border: none;
         padding-inline: 20px;
         color: #15143966;
-        cursor: pointer;
+        cursor: url(${curs2}), auto;
         font-size: 20px;
     }
 `;

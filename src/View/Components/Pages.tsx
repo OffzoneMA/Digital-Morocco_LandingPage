@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { Lang } from '../../Controller/Tools/Interface/Lang';
 import { useSearchParams } from 'react-router-dom';
 
+// @ts-ignore
+import curs2 from '../../../src/View/Media/Icons/curs2.svg';
+
 /**
  * Pages
  * 
@@ -122,7 +125,6 @@ const Container = styled.div`
             justify-content: center;
             font-size: 17px;
             border-inline-end: 2px #EBEAED solid;
-            cursor: pointer;
             font-weight: bold;
 
             &:first-child {
@@ -132,6 +134,7 @@ const Container = styled.div`
             &:hover {
                 background-color: #344054;
                 color: white;
+                // cursor: url(${curs2}), auto;
             }
 
             &.active {
@@ -145,13 +148,13 @@ const Container = styled.div`
         display: flex;
         align-items: center;
         gap: 10px;
-        cursor: pointer;
         font-weight: bold;
         padding-inline: 13px;
 
         &:hover {
             background-color: #344054;
             color: white;
+            // cursor: url(${curs2}), auto;
         }
     }
 `;

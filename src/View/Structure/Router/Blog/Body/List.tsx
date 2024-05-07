@@ -8,6 +8,9 @@ import Pages from '../../../../Components/Pages';
 import { format } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 
+// @ts-ignore
+import curs2 from '../../../../Media/Icons/curs2.svg';
+
 
 
 /**
@@ -121,6 +124,9 @@ const Container = styled.div`
 
         &:hover {
             color: #00CDAE;
+            > * {
+                cursor: url(${curs2}), auto;
+            }
         }
     }
 `;

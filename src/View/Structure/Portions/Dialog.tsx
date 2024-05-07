@@ -137,7 +137,7 @@ const Container = styled.div`
                 top: -45px;
                 font-size: 23px;
                 color: #dbb3b3;
-                cursor: pointer;
+                // cursor: pointer;
                 padding: 0;
                 background-color: transparent;
                 border: none;
@@ -156,7 +156,7 @@ const Container = styled.div`
                     padding-block: 10px;
                     border-inline-start: 1.5px solid;
                     color: #00ff12;
-                    cursor: pointer;
+                    // cursor: pointer;
                 }
             }
 

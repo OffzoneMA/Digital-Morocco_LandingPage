@@ -65,7 +65,6 @@ const Container = styled.div<{
     $background: string
 }>`
     > #button {
-        cursor: pointer;
         position: relative;
         z-index: 1;
         display: flex;

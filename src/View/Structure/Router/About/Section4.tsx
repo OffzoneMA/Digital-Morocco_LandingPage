@@ -5,6 +5,9 @@ import actions from '../../../../Store/actions'
 import Profile, { ProfileInterface } from './Profile'
 import Fetch from '../../../../Controller/Tools/Server/Fetch'
 
+// @ts-ignore
+import curs2 from '../../../Media/Icons/curs2.svg';
+
 /**
  * Section4
  * 
@@ -77,7 +80,6 @@ const Container = styled.div`
         margin-top: 70px;
 
         > .item {
-            cursor: pointer;
             position: relative;
 
             > img {
@@ -113,6 +115,7 @@ const Container = styled.div`
 
             &:hover > #content > #name {
                 color: #00CDAE;
+                cursor: url(${curs2}), auto;
             }
         }
 
