@@ -136,6 +136,8 @@ const Container = styled.div`
     > #btnDiv {
         > * {
           > button {
+            transition: 300ms;
+            
             &:hover {
               background-color: #00CDAE;
               border-color: #00CDAE;
