@@ -84,7 +84,7 @@ const SimpleSelect = ({
                     }
                     <div id='optionsListe'>
                     {filteredOptions.map(option => (
-                        <Option key={option.value} onClick={() => handleOptionClick(option.value)}>
+                        <Option key={option.value} onClick={() => handleOptionClick(option.value)} className={option.value === selectedValue ? 'selected' : ''}>
                             {option.label}
                         </Option>
                     ))}
@@ -203,6 +203,9 @@ const Option = styled.div`
     &:hover {
         color: #35D8BF;
         cursor: url(${curs2}), auto;
+    }
+    &.selected {
+        // color: #35D8BF; 
     }
 `;
 

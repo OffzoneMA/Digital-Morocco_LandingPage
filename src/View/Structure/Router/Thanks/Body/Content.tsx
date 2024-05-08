@@ -2,6 +2,8 @@ import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import styled from 'styled-components';
 import React from 'react'
 import Button from '../../../../Components/Button';
+import ViewTicketPDF from '../../../../Components/ViewTicketPDF';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 /**
  * Content
@@ -15,6 +17,30 @@ const Content = () => {
      * 
      */
     const lang = useLang()
+
+    const handleButtonClick = () => {
+        const newWindow = window.open('', '_blank');
+        if (newWindow) {
+          newWindow.document.write(`
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Document PDF</title>
+                <style>
+                  body { margin: 0; }
+                </style>
+              </head>
+              <body>
+                <PDFViewer width="100%" height="600">
+                  <ViewTicketPDF />
+                </PDFViewer>
+              </body>
+            </html>
+          `);
+        } else {
+          alert("Veuillez autoriser les popups pour afficher le document PDF.");
+        }
+      };
 
     return (
         <Container>
@@ -45,7 +71,13 @@ const Content = () => {
                 Please send us an email if you have any questions.<br /><br />
                 Accessibility: Captioning is available, please let us know if you have any other accessibility needs.</p>
             <hr style={{ border: '1px solid #EBEAED' }} />
-            <Button style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket</Lang></Button>
+
+            <PDFDownloadLink document={<ViewTicketPDF title="North Africa Dreamin' 2023" TicketCode='OpenMic' name='Ichane Roukéya' ticketNumber={2}/>} fileName="ticket.pdf">
+                {({ blob, url, loading, error }) => ( 
+                loading ? <Button onClick={handleButtonClick} style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket ...</Lang></Button>:<Button onClick={handleButtonClick} style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket</Lang></Button>
+
+                )}
+            </PDFDownloadLink>
             <hr style={{ border: '1px solid #EBEAED' }} />
         </Container>
     )

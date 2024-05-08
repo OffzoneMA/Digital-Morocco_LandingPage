@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from './Portions/Header'
 import Router from './Router'
@@ -8,6 +8,7 @@ import Notifs from './Portions/Notifs'
 import Scroller from './Portions/Scroller'
 import Dialog from './Portions/Dialog'
 import ScrollToTop from '../Components/ScrollToTop'
+import ViewTicketPDF from '../Components/ViewTicketPDF'
 
 /**
  * Structure 🏗️

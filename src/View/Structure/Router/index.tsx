@@ -2,8 +2,8 @@ import React, { lazy, Suspense, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Loader from '../../Components/Loader'
-import ScrollToTop from '../../Components/ScrollToTop'
-
+import ViewTicket from '../../Components/ViewTicket'
+import ViewTicketPDF from '../../Components/ViewTicketPDF'
 // Sections
 const Home = lazy(() => import('./Home'))
 const About = lazy(() => import('./About'))
