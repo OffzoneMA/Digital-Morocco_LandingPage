@@ -168,7 +168,6 @@ const Container = styled.div`
                         padding: 0;
                         margin: 0;
                         opacity: 0.6;
-                        cursor: pointer;
                         position: relative;
                         top: 1px;
 
@@ -194,7 +193,6 @@ const Container = styled.div`
                 align-items: center;
                 gap: 5px;
                 color: rgb(21 20 57 / 40%);
-                cursor: pointer;
                 border-bottom: 1px solid;
 
                 > p {

@@ -114,7 +114,6 @@ const Container = styled.div`
         }
 
         > svg {
-            cursor: pointer;
         }
     }
 

@@ -137,7 +137,6 @@ const Container = styled.div`
                 top: -45px;
                 font-size: 23px;
                 color: #dbb3b3;
-                // cursor: pointer;
                 padding: 0;
                 background-color: transparent;
                 border: none;

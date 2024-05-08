@@ -68,6 +68,6 @@ const Container = styled.div`
         top: 4px;
         bottom: 0;
         margin: auto;
-        cursor: pointer;
+        // cursor: pointer;
     }
 `;
