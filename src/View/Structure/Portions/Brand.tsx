@@ -52,6 +52,7 @@ const Container = styled.div`
         padding-block: 70px;
 
         > #text {
+            min-width: 585px;
 
             > h3 {
                 font-size: 32px;
@@ -70,6 +71,8 @@ const Container = styled.div`
                 font-size: 21px;
                 font-weight: 500;
                 line-height: 34px;
+                margin: 0;
+                margin-top: 12px;
                 font-family: DMSans-Medium;
 
                 // Media
@@ -91,8 +94,9 @@ const Container = styled.div`
             justify-content: center;
             font-family: DMSans-Medium;
             text-align: center;
-            width: 900px;
-            padding: 0 30px;
+            width :auto;
+            max-heigth : 240px;
+            padding: 0 35px;
 
             // Media
             @media (max-width: 1050px) {
