@@ -60,7 +60,6 @@ const Content = () => {
         setSelectedCity(selected.value);
     };
 
-    console.log(selectedCity)
 
     return (
         <Container>
@@ -114,7 +113,7 @@ const Content = () => {
                 </label>
             </div>
             <div id='checkBoxs'>
-            <Checkbox><Lang>Keep me updated on more events and news from this event organizer</Lang></Checkbox>
+            <Checkbox><Lang>Keep me updated on more events and news from this event organizer.</Lang></Checkbox>
             <Checkbox><Lang>Send me emails about the best events happening nearby or online.</Lang></Checkbox>
             </div>
             <div id="pay-methods">
@@ -174,6 +173,12 @@ const Container = styled.div`
         gap: 15px;
         flex-direction: column;
         margin-bottom: 20px;
+
+        > label {
+            > p {
+                text-transform: capitalize;
+            }
+        }
     }
 
     > #pay-methods {

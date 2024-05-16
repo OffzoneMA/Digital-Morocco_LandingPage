@@ -25,7 +25,7 @@ const Record = () => {
      */
      const [totalPages, setTotalPages] = useState(1);
      const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1"));
-     const eventsPerPage = 1; 
+     const eventsPerPage = 2; 
  
      const getTotalPages = (totalItems: number) => {
          return Math.ceil(totalItems / eventsPerPage);
@@ -84,13 +84,13 @@ const Record = () => {
                     title={event?.title}
                     locationType={event?.locationType}
                     location={event?.physicalLocation}
-                    price={event?.price.toFixed(2)}
+                    price={event?.price}
                     date={formatEventDateTime(event?.startDate , event?.endDate , event?.startTime? event?.startTime : '', event?.endTime? event?.endTime : '')}
                     />);
                 }
                 }
             </Fetch>
-            <Pages />
+            <Pages nbrPages={totalPages}/>
         </Container>
     )
 }

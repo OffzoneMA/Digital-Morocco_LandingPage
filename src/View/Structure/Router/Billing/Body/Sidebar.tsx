@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import Button from '../../../../Components/Button';
 import { useNavigate } from 'react-router-dom';
@@ -24,12 +24,46 @@ const Sidebar = () => {
      */
     const lang = useLang()
 
+    /**
+     * Promo code value
+     */
+
+    const [promoCode  , setPromoCode ] = useState('');
+
+    /**
+     * Checkout Infos
+     */
+
+    const [checkoutInfo, setCheckoutInfo] = useState<any>(null);
+
+
+    useEffect(() => {
+        const storedInfo = localStorage.getItem('checkoutInfo');
+        if (storedInfo) {
+            setCheckoutInfo(JSON.parse(storedInfo));
+        }
+    }, []);
+
+    useEffect(() => {
+        if(!checkoutInfo?.promoCodeChecked){
+            if (promoCode === checkoutInfo?.promoCode) {
+                const totalPrice = checkoutInfo.price * checkoutInfo.quantity * 0.9;
+                setCheckoutInfo((prevInfo: any) => ({
+                    ...prevInfo,
+                    total: totalPrice,
+                    promoCodeChecked: true
+                }));
+            } 
+        }
+    } , [promoCode])
+
+
     return (
         <Container>
             <h5><Lang>Order Summary</Lang></h5>
             <div className='item'>
-                <p><Lang>1x Ticket</Lang></p>
-                <b>$ 29.00</b>
+                <p>{checkoutInfo?.quantity || 1}x <Lang>Ticket</Lang></p>
+                <b>$ {checkoutInfo?.price.toFixed(2)}</b>
             </div>
             <div className='item'>
                 <p><Lang>Service Fee</Lang></p>
@@ -38,13 +72,13 @@ const Sidebar = () => {
             <hr style={{ border: '1px solid #EBEAED' }} />
             <div className='item'>
                 <p><Lang>Sub Total</Lang></p>
-                <b>$ 29.00</b>
+                <b>$ {checkoutInfo?.subTotal.toFixed(2)}</b>
             </div>
-            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} />
+            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} readOnly={checkoutInfo?.promoCodeChecked} onChange={(e)=> setPromoCode(e.target.value)}/>
             <hr style={{ border: '1px solid #EBEAED' }} />
             <div id="total">
                 <p><Lang>Total</Lang></p>
-                <b>$ 29.00</b>
+                <b>$ {checkoutInfo?.total.toFixed(2)}</b>
             </div>
             <Button onClick={() => navigate('/thanks')} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Proceed to Checkout</Lang></Button>
         </Container>

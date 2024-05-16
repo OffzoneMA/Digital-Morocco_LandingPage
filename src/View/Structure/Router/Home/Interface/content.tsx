@@ -39,7 +39,7 @@ const Container = styled.div`
     justify-items: start;
 
     > h1 {
-        max-width: 440px;
+        max-width: 450px;
         font-size: 50px;
         line-height: 62px;
         margin: 0;

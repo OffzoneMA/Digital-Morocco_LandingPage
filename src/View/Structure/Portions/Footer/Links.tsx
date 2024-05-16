@@ -14,10 +14,10 @@ const Links = () => {
         <Container>
             <section>
                 <h4><Lang>About</Lang></h4>
-                <a href='/'><span><Lang>Who We Are?</Lang></span></a>
-                <a href='/'><span><Lang>Why Join Us?</Lang></span></a>
-                <a href='/'><span><Lang>Our Goals</Lang></span></a>
-                <a href='/'><span><Lang>Our Activity</Lang></span></a>
+                <a href='/about'><span><Lang>Who We Are?</Lang></span></a>
+                <a href='/home'><span><Lang>Why Join Us?</Lang></span></a>
+                <a href='/home'><span><Lang>Our Goals</Lang></span></a>
+                <a href='/home'><span><Lang>Our Activity</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Solutions</Lang></h4>

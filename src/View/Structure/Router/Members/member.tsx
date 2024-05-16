@@ -50,7 +50,8 @@ const Container = styled.div`
       "website website";
     border-radius: 14px;
     border: 2px solid #EBEAED;
-    padding: 20px;    
+    padding: 20px;   
+    min-height: 270px; 
 
 
     #logo {
@@ -58,7 +59,7 @@ const Container = styled.div`
         display: flex;
         align-items: center;
         margin: auto;
-        height: 100px;
+        height: 85px;
 
         > img {
             max-height: 100%;

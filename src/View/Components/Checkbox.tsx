@@ -33,7 +33,6 @@ export default Checkbox
  */
 const Container = styled.label`
     display: flex;
-    align-items: center;
     gap: 9px;
 
     > input {

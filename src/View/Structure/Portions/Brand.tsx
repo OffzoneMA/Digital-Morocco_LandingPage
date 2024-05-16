@@ -91,7 +91,7 @@ const Container = styled.div`
             justify-content: center;
             font-family: DMSans-Medium;
             text-align: center;
-            width: 700px;
+            width: 900px;
             padding: 0 30px;
 
             // Media

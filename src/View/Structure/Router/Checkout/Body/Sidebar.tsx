@@ -32,7 +32,7 @@ const Sidebar = () => {
     const { id } = useParams<{ id: string }>();
 
     return (
-        <Container>
+        <ContainerSidebar>
             <h5><Lang>Order Summary</Lang></h5>
             <div className='item'>
                 <p><Lang>1x Ticket</Lang></p>
@@ -54,7 +54,7 @@ const Sidebar = () => {
                 <b>$ 29.00</b>
             </div>
             <Button onClick={() => navigate('/billing')} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Check Out</Lang></Button>
-        </Container>
+        </ContainerSidebar>
     )
 }
 
@@ -64,7 +64,7 @@ export default Sidebar
  * Container
  * 
  */
-const Container = styled.div`
+const ContainerSidebar = styled.div`
 border: 1.3px solid #EBEAED;
 border-radius: 10px;
 box-shadow: 0px 4px 6px -2px #1018280D, 0px 12px 16px -4px #1018281A;

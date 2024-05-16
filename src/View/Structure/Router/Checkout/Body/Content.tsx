@@ -29,7 +29,7 @@ const Content = () => {
     const { id } = useParams<{ id: string }>();
 
     return (
-        <Container>
+        <ContainerContent>
             <h1><Lang>Buy Ticket</Lang></h1>
             <Fetch<any>
             url={`${process.env.REACT_APP_baseURL}events/${id}`}
@@ -70,7 +70,7 @@ const Content = () => {
                 </>
             )}
             </Fetch>
-        </Container>
+        </ContainerContent>
     )
 }
 
@@ -80,7 +80,7 @@ export default Content
  * Container
  * 
  */
-const Container = styled.div`
+const ContainerContent = styled.div`
     display: flex;
     gap: 20px;
     flex-direction: column;

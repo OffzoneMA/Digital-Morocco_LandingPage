@@ -32,11 +32,11 @@ const Header = () => {
                         {response ? (
                             <>
                                 <h1><Lang>{response.title}</Lang></h1>
-                                <p><Lang>{response?.tags?.[0]}</Lang></p>
+                                <p><Lang>{response?.tags?.[0] || ''}</Lang></p>
                                 <div id="info">
                                     <img src={response?.organizerLogo || profile} alt="" />
                                     <div>
-                                        <p>Event by</p>
+                                        <p><Lang>Event by</Lang></p>
                                         <b>{response?.organizername}</b>
                                     </div>
                                 </div>

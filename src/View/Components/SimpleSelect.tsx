@@ -54,8 +54,8 @@ const SimpleSelect = ({
 
 
     return (
-        <Container>
-            <CustomSelect size={size} height={height} active={active} onClick={() => setActive(!active)}>
+        <Container onMouseEnter={() => setTimeout(() => setActive(true))} onMouseLeave={() => setActive(false)}>
+            <CustomSelect size={size} height={height} active={active}  onClick={() => setActive(old => !old)}>
                 <span id="text">
                     {selectedValue 
                         ? (options.find(option => option.value === selectedValue)?.label || <Placeholder>{placeholder ? <Lang>{placeholder}</Lang> : <Lang>Select</Lang>}</Placeholder>)
@@ -67,7 +67,7 @@ const SimpleSelect = ({
                 </svg>
             </CustomSelect>
             {active && (
-                <Options>
+                <Options className='animation'>
                     {searchable && 
                     <SearchInputContainer>
                         <SearchInput
@@ -131,12 +131,16 @@ const CustomSelect = styled.div<{ active: boolean , size?: number , fontFamily?:
 
 const Options = styled.div`
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #2E90FA;
+    gap: 5px;
     top: 100%;
     left: 0;
     width: calc(100% - 15px);
     padding: 12px 8px 12px 8px;
-    border: 1px solid #F2F4F7;
-    border-radius: 8px 8px 8px 8px;
+    // border: 1px solid #F2F4F7;
+    border-radius: 20px;
     box-shadow: 0px 12px 16px -4px #1018281A;
     background-color: white;
     z-index: 1;

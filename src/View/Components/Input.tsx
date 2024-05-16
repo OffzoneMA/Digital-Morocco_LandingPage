@@ -32,7 +32,7 @@ const Input = styled.input<{
     }
 
     ${props => props.$hasError && `
-        border-color: ##E85555CC;
+        border-color: #E85555CC;
         box-shadow: 0px 0px 0px 4px #E8555521; 
     `}
 `;

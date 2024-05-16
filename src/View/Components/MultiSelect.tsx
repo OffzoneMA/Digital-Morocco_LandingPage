@@ -98,7 +98,7 @@ const Container = styled.div`
     width: fit-content;
     display: grid;
     position: relative;
-    width: 215px;
+    min-width: 215px;
     height: 52px;
     font-family: DMSans-Medium;
 
