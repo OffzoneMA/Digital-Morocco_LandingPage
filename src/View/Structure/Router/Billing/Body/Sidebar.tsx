@@ -74,7 +74,7 @@ const Sidebar = () => {
                 <p><Lang>Sub Total</Lang></p>
                 <b>$ {checkoutInfo?.subTotal.toFixed(2)}</b>
             </div>
-            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} readOnly={checkoutInfo?.promoCodeChecked} onChange={(e)=> setPromoCode(e.target.value)}/>
+            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')}  onChange={(e)=> setPromoCode(e.target.value)}/>
             <hr style={{ border: '1px solid #EBEAED' }} />
             <div id="total">
                 <p><Lang>Total</Lang></p>
