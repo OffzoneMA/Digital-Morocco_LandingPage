@@ -14,18 +14,18 @@ const ContactData = () => {
             <div className="item">
                 <h5><Lang>General Inquiries</Lang></h5>
                 <p>Email: info@digitalmorocco.com</p>
-                <p>Phone: +123-456-7890</p>
+                {/* <p>Phone: +123-456-7890</p> */}
             </div>
             <div className="item">
                 <h5><Lang>Membership Support:</Lang></h5>
                 <p>Email: info@digitalmorocco.com</p>
-                <p>Phone: +123-456-7890</p>
+                {/* <p>Phone: +123-456-7890</p> */}
             </div>
-            <div className="item">
+            {/* <div className="item">
                 <h5><Lang>Visit Us</Lang></h5>
                 <p>Digital Morocco Headquarters</p>
                 <p>123 Innovation Street, Casablanca, Morocco</p>
-            </div>
+            </div> */}
             <div className="item">
                 <h5><Lang>Social Media</Lang></h5>
                 <p>Connect with us on social media for the latest updates, events, and more!</p>
@@ -45,7 +45,8 @@ export default ContactData
  * 
  */
 const Container = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 
     > .item {
