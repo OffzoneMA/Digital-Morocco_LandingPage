@@ -39,7 +39,7 @@ const Content = () => {
                             {response?.details.split('\n').map((line: string , index: React.Key | null | undefined) =>
                                 <p key={index}><Lang>{line}</Lang></p>
                             ) }
-                            <img src={response?.image || Imag23} alt="" />
+                            <img src={response?.image || Imag23} alt="" loading='lazy'/>
                             {response?.content.split('\n').map((line: string , index: React.Key | null | undefined) =>
                                 <p key={index}><Lang>{line}</Lang></p>
                             ) }

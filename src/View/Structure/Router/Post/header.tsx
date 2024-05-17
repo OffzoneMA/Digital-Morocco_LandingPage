@@ -49,7 +49,7 @@ const Header = () => {
                 <>
                 {response ? (
                 <>
-                   <img src={response?.coverImage || image76} alt="" />
+                   <img src={response?.coverImage || image76} alt="" loading='lazy'/>
                    <div id="layer">
                     <div id="content">
                     <h1><Lang>{response.title}</Lang></h1>

@@ -77,7 +77,7 @@ const List = () => {
                     setTotalPages(response?.totalPages);
                     return response?.blogs.map((blog: any, key: React.Key | null | undefined) => (
                         <Link key={key} to={`/post/${blog?._id}`} className='item'>
-                            <img src={blog?.image} alt="" />
+                            <img src={blog?.image} alt="" loading='lazy'/>
                             <h1><Lang>{blog?.title}</Lang></h1>
                             <b>{extractDay(blog?.date)} <Lang>{extractMonth(blog?.date).toUpperCase()}</Lang> {extractYear(blog?.date)}</b>
                             <p><Lang>{blog?.resume}</Lang></p>

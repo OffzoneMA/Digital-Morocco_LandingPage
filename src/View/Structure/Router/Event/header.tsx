@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <Container>
-            <img src={image87} alt="" />
+            <img src={image87} alt="" loading='lazy'/>
             <Fetch<any>
             url={`${process.env.REACT_APP_baseURL}events/${id}`}
             method="GET"

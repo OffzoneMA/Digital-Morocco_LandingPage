@@ -23,7 +23,7 @@ const Sidebar = () => {
                     {({ response }) => !response ? <Loader /> :
                         response?.blogs.map((blog: any, key: React.Key | null | undefined) => 
                         <Link to={`/post/${blog?._id}`} className="item">
-                            <img src={blog?.image || Image} alt="" />
+                            <img src={blog?.image || Image} alt="" loading='lazy' />
                             <h5><Lang>{blog?.title}</Lang></h5>
                         </Link>
                         )}
