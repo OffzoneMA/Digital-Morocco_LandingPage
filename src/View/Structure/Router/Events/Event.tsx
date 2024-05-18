@@ -74,7 +74,7 @@ const Container = styled.div`
         > img {
             width: 230px;
             height: 230px;
-            border-radius: 20px;
+            border-radius: 12px;
         }
     
         > #content {
