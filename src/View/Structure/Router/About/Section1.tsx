@@ -13,7 +13,7 @@ const Section1 = () => {
         <Container>
             <div className='box'></div>
             <div className='box'>
-                <p id="subtitle"><Lang>Who are we?</Lang></p>
+                <p id="subtitle"><Lang>Who Are We?</Lang></p>
                 <p id="desc"><Lang>Digital Morocco is a community of businesses, institutions, investors, and local and international experts in the digital field, working to develop skills and technologies and to qualify startups and digital projects to meet the challenges of the market and changes in the business environment in Morocco and around the world.</Lang></p>
             </div>
         </Container>

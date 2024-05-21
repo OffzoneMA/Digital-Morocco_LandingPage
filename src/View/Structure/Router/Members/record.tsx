@@ -76,6 +76,7 @@ const Record = () => {
                     <MultiSelect label={lang('Filter by Country')} options={countries} onChange={setCountryFilter} />
                 </div>
                 {filters[0] && <div id="used">
+                    <p><Lang>Result for</Lang>:</p>
                     <div id="items">
                         {filters.map((option, key) => (
                             <div key={key} className='item animation'>
@@ -138,11 +139,20 @@ const Container = styled.div`
 
         > #used {
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns:auto 1fr auto;
             align-items: center;
+            gap: 20px;
             justify-content: space-between;
             border-bottom: 1px solid rgb(16 24 40 / 10%);
             border-top: 1px solid rgb(16 24 40 / 10%);
+
+            >p {
+                font-family: DMSans-Medium;
+                font-size: 18px;
+                line-height: 26px;
+                margin: 0;
+
+            }
 
             > #items {
                 padding-top: 20px;
@@ -196,8 +206,9 @@ const Container = styled.div`
                 border-bottom: 1px solid;
 
                 > p {
-                    font-weight: bold;
+                    font-weight: normal;
                     margin: 0;
+                    font-size: 16px;
                 }
             }
         }

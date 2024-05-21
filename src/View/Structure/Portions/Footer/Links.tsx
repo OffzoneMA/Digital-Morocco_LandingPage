@@ -14,27 +14,27 @@ const Links = () => {
         <Container>
             <section>
                 <h4><Lang>About</Lang></h4>
-                <a href='/about'><span><Lang>Who We Are?</Lang></span></a>
-                <a href='/home'><span><Lang>Why Join Us?</Lang></span></a>
-                <a href='/home'><span><Lang>Our Goals</Lang></span></a>
-                <a href='/home'><span><Lang>Our Activity</Lang></span></a>
+                <a href='/#whoarewe'><span><Lang>Who Are We?</Lang></span></a>
+                <a href='/#whyjoinus'><span><Lang>Why Join Us?</Lang></span></a>
+                <a href='/#ourgoals'><span><Lang>Our Goals</Lang></span></a>
+                <a href='/#ouractivity'><span><Lang>Our Activity</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Solutions</Lang></h4>
-                <a href='/'><span><Lang>Startup</Lang></span></a>
-                <a href='/'><span><Lang>Investor</Lang></span></a>
-                <a href='/'><span><Lang>Company</Lang></span></a>
+                <a href='https://digitalmorocco.net/SignIn'><span><Lang>Startup</Lang></span></a>
+                <a href='https://digitalmorocco.net/SignIn'><span><Lang>Investor</Lang></span></a>
+                <a href='https://digitalmorocco.net/SignIn'><span><Lang>Company</Lang></span></a>
                 <a href='/events'><span><Lang>Events</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Resources</Lang></h4>
-                <a href='/'><span><Lang>Careers</Lang></span></a>
+                <a href='mailto:careers@digitalmorocco.net'><span><Lang>Careers</Lang></span></a>
                 <a href='/blog'><span><Lang>Blog</Lang></span></a>
                 <a href='/terms'><span><Lang>Terms and Conditions</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Help</Lang></h4>
-                <a href='/faq'><span><Lang>Support</Lang></span></a>
+                <a href='/contact'><span><Lang>Support</Lang></span></a>
                 <a href='/contact'><span><Lang>Contact Us</Lang></span></a>
                 <a href='/faq'><span><Lang>FAQ</Lang></span></a>
             </section>

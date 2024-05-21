@@ -66,13 +66,21 @@ const Packages = () => {
                 className='animation'
                 name={lang('Basic')}
                 price={19.9}
-                desc={lang('Connect and collaborate at the entry level with curated events and resource access.')}
+                desc={lang('Connect, join exclusive events, and access essential resources for your project.')}
                 features={[
-                    lang('Access to the Digital Morocco networking platform'),
-                    lang('Attend select online events and webinars'),
-                    lang('Limited access to curated digital resources'),
-                    lang('Connect with potential partners and investors')
+                    lang('3200 Credits'),
+                    lang('Full access to the investor list'),
+                    lang('AI-powered investor matching'),
+                    lang('Real-time tracking of investment requests'),
+                    lang('Generate a comprehensive technical report'),
+                    lang('Secure and simple Pitch Deck sharing'),
+                    lang('360° panoramic view'),
+                    lang('Priority access to events'),
+                    lang('Event pricing (standard rate)'),
+                    lang('1 project creation (included)*'),
+                    lang('Standard transaction fees, payable in credits')
                 ]}
+                btnText='Start'
             />
             <Package
                 className='animation'
@@ -80,13 +88,21 @@ const Packages = () => {
                 price={49.9}
                 desc={lang('Unleash unlimited potential with premium events, reports, and priority connections.')}
                 features={[
-                    lang('Full access to the Digital Morocco networking platform'),
-                    lang('Unlimited access to all online events, conferences, and webinars'),
-                    lang('Exclusive access to premium industry resources and reports'),
-                    lang('Priority connections with investors and partners'),
-                    lang('Featured profile placement and visibility')
+                    lang('6400 Credits'),
+                    lang('Full access to the investor list'),
+                    lang('AI-powered investor matching'),
+                    lang('Real-time tracking of investment requests'),
+                    lang('Generate a comprehensive technical report'),
+                    lang('Secure and simple Pitch Deck sharing'),
+                    lang('360° panoramic view'),
+                    lang('Project visibility on our official website'),
+                    lang('Priority access to events'),
+                    lang('Event pricing (-15%)'),
+                    lang('Creation of 2 projects (included)*'),
+                    lang('Transaction fees discount (-10%), payable in credits')
                 ]}
                 recommended
+                btnText='Start'
             />
             <Package
                 className='animation'
@@ -94,12 +110,22 @@ const Packages = () => {
                 price={99.99}
                 desc={lang('Experience VIP networking, comprehensive event access, and personalized support.')}
                 features={[
-                    lang('VIP access to the Digital Morocco networking platform'),
-                    lang('Access to all online and offline events, conferences, and webinars'),
-                    lang('Full access to premium industry resources, reports, and workshops'),
-                    lang('Dedicated account manager for personalized connections and support'),
-                    lang('Strategic promotion and branding opportunities')
+                    lang('9600 Credits'),
+                    lang('Full access to the investor list'),
+                    lang('AI-powered investor matching'),
+                    lang('Real-time tracking of investment requests'),
+                    lang('Generate a comprehensive technical report'),
+                    lang('Secure and simple Pitch Deck sharing'),
+                    lang('360° panoramic view'),
+                    lang('Project visibility on our official website'),
+                    lang('VIP Club (Early access to our activities)'),
+                    lang('VIP Newsletter'),
+                    lang('Priority access to events'),
+                    lang('Event pricing (-30%) + 1 free ticket after 6 months of continuous subscription'),
+                    lang('Creation of 5 projects (included)*'),
+                    lang('Transaction fees discount (-20%), payable in credits')
                 ]}
+                btnText='Start'
             />
             </div>}
             {showInvestorDiv && 
@@ -108,29 +134,34 @@ const Packages = () => {
                 className='animation'
                 name={lang('Standard')}
                 price={0}
-                desc={lang('Unleash unlimited potential with premium events, reports, and priority connections.')}
+                desc={lang('Unleash unlimited potential with our elite events, exclusive reports, and priority connections.')}
                 features={[
-                    lang('Full access to the Digital Morocco networking platform'),
-                    lang('Unlimited access to all online events, conferences, and webinars'),
-                    lang('Exclusive access to premium industry resources and reports'),
-                    lang('Priority connections with investors and partners'),
-                    lang('Featured profile placement and visibility')
+                    lang('Full access to our networking platform'),
+                    lang('Discover an exclusive selection of promising startups'),
+                    lang('In-depth analysis of projects for informed decisions'),
+                    lang('Explore targeted investment opportunities according to your interests'),
+                    lang('Highlight your profile for increased visibility'),
+                    lang('Join our VIP Club to access exclusive benefits'),
+                    lang('Stay informed with our VIP Newsletter')
                 ]}
                 recommended
-                btnText='Free Trial'
+                btnText='Start'
             />
             <Package
                 className='animation'
                 name={lang('premium')}
                 price={99.99}
-                desc={lang('Benefit from a VIP network, full access to events, and management tools.')}
+                desc={lang('Explore an exceptional VIP network, exclusive events, and advanced management tools.')}
                 features={[
-                    lang('VIP access to the Digital Morocco networking platform'),
-                    lang('Access to all online and offline events, conferences, and webinars'),
-                    lang('Full access to premium industry resources, reports, and workshops'),
+                    lang('Full access to our networking platform'),
+                    lang('Discover an exclusive selection of promising startups'),
+                    lang('In-depth analysis of projects for informed decisions'),
+                    lang('Explore targeted investment opportunities according to your interests'),
+                    lang('Highlight your profile for increased visibility'),
+                    lang('Join our VIP Club to access exclusive benefits'),
+                    lang('Stay informed with our VIP Newsletter'),
                     lang('Full access to premium industry resources, reports, and workshops  and more other features'),
                     lang('Dedicated account manager for personalized connections and support'),
-                    lang('Strategic promotion and branding opportunities')
                 ]}
                 btnText='Coming soon'
                 mask

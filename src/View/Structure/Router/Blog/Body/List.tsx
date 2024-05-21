@@ -6,7 +6,8 @@ import Fetch from '../../../../../Controller/Tools/Server/Fetch';
 import Loader from '../../../../Components/Loader';
 import Pages from '../../../../Components/Pages';
 import { format } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { enUS , fr} from 'date-fns/locale';
+import { language } from '../../../../Language';
 
 // @ts-ignore
 import curs2 from '../../../../Media/Icons/curs2.svg';
@@ -31,23 +32,6 @@ const List = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [current, setCurrent] = useState<number>(parseInt(searchParams.get("page") || "1"));
     const blogsPerPage = 5; 
-
-    /**
-     * 
-     * @param date Extract day
-     * @returns 
-     */
-    const extractDay = (date: Date): string => {
-        return format(date, 'dd', { locale: enUS });
-      };
-      
-    const extractMonth = (date: Date): string => {
-    return format(date, 'MMMM', { locale: enUS });
-    };
-    
-    const extractYear = (date: Date): string => {
-    return format(date, 'yyyy', { locale: enUS });
-    };
 
     useEffect(() => {
         setCurrent(Number(searchParams.get("page")) || 1);
@@ -79,7 +63,7 @@ const List = () => {
                         <Link key={key} to={`/post/${blog?._id}`} className='item'>
                             <img src={blog?.image} alt="" loading='lazy'/>
                             <h1><Lang>{blog?.title}</Lang></h1>
-                            <b>{extractDay(blog?.date)} <Lang>{extractMonth(blog?.date).toUpperCase()}</Lang> {extractYear(blog?.date)}</b>
+                            <b>{format(blog?.date, 'd MMMM yyyy', { locale: language =='fr-FR'? fr : enUS }).toUpperCase()}</b>
                             <p><Lang>{blog?.resume}</Lang></p>
                         </Link>
                     ));

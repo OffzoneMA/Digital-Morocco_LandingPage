@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import WhoAreWe from './WhoAreWe'
 import Discover from './Discover'
@@ -11,6 +11,21 @@ import Activities from './Activities'
  * @returns 
  */
 const Content = () => {
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            const element = document.querySelector(hash) as HTMLElement;
+            if (element) {
+              setTimeout(() => {
+                window.scrollTo({
+                  top: element.getBoundingClientRect().top + window.pageYOffset - 80, 
+                  behavior: 'smooth'
+                });
+              }, 0);
+            }
+        }
+      }, []);
 
     return (
         <Container>

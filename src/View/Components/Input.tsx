@@ -9,7 +9,8 @@ const Input = styled.input<{
     $fontFamily?: string,
     $height?: number 
     $background?:string
-    $hasError?: boolean
+    $hasError?: boolean,
+    $placeholderColor?: string
 }>`
     background-color: red;
     border:${props => props.$hasError ? '1px solid  #E85555CC' : ' 2px solid #EBEAED'}; 
@@ -22,7 +23,7 @@ const Input = styled.input<{
     height: ${p => p.$height ? `${p.$height}px` : 'auto'}; 
 
     &::placeholder {
-        color: rgb(21 20 57 / 40%);
+        color: ${p => p.$placeholderColor ? `${p.$placeholderColor}` : 'rgb(21 20 57 / 40%)'};
         font-size: ${p => p.$size ? `${p.$size}px` : '15px'};
     }
 

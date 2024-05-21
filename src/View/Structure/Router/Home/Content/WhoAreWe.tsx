@@ -9,7 +9,7 @@ import { Lang } from '../../../../../Controller/Tools/Interface/Lang'
  */
 const WhoAreWe = () => {
     return (
-        <Container>
+        <Container id='whoarewe'>
             <div className='title onscroll'></div>
             <div id='header' className='onscroll'>
                 <p id='subtitle'><Lang>Who are we?</Lang></p>

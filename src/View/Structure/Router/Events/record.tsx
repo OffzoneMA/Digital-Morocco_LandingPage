@@ -5,8 +5,9 @@ import Fetch from '../../../../Controller/Tools/Server/Fetch';
 import Loader from '../../../Components/Loader';
 import Pages from '../../../Components/Pages';
 import { format, parse } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { fr , enUS } from 'date-fns/locale';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import { language } from '../../../Language';
 
 /**
  * Record
@@ -37,19 +38,19 @@ const Record = () => {
             return 'Coming Soon';
         }
         else {
-            const formattedStartTimev = format(parse(startTime, 'h:mm a', new Date()), 'ha', { locale: enUS }).toLowerCase();
-            const formattedEndTimev = format(parse(endTime, 'h:mm a', new Date()), 'ha', { locale: enUS }).toLowerCase();
+            const formattedStartTimev = format(parse(startTime, 'h:mm a', new Date()), 'ha', { locale: language =='fr-FR'? fr : enUS }).toLowerCase();
+            const formattedEndTimev = format(parse(endTime, 'h:mm a', new Date()), 'ha', { locale: language =='fr-FR'? fr : enUS }).toLowerCase();
 
             const startDateTime = new Date(startDate);
             const endDateTime = new Date(endDate);
 
             if (startDateTime.getDate() === endDateTime.getDate() && startDateTime.getMonth() === endDateTime.getMonth() && startDateTime.getFullYear() === endDateTime.getFullYear()) {
-                const formattedDate = format(startDateTime, 'EEEE, MMMM d', { locale: enUS });
+                const formattedDate = format(startDateTime, language =='fr-FR'? 'EEEE d MMMM' : 'EEEE, MMMM d', { locale: language =='fr-FR'? fr : enUS });
                 const gmtOffset = startDateTime.getUTCHours(); 
                 const gmt = gmtOffset >= 0 ? `+${gmtOffset}` : gmtOffset.toString(); 
                 return `${formattedDate}\u00A0\u00A0 • \u00A0\u00A0${formattedStartTimev} - ${formattedEndTimev} ${gmt}`;
             } else {
-                const formattedStartDate = format(startDateTime, 'EEE, MMM d, yyyy', { locale: enUS });
+                const formattedStartDate = format(startDateTime, language =='fr-FR'? 'EEE d MMMM yyyy' : 'EEE, MMM d, yyyy', { locale: language =='fr-FR'? fr : enUS });
                 return `${formattedStartDate}\u00A0\u00A0 • \u00A0\u00A0${startTime.toLowerCase()}`;
             }
 

@@ -13,12 +13,12 @@ const ContactData = () => {
         <Container>
             <div className="item">
                 <h5><Lang>General Inquiries</Lang></h5>
-                <p>Email: info@digitalmorocco.com</p>
+                <p><Lang>Email:</Lang> info@digitalmorocco.com</p>
                 {/* <p>Phone: +123-456-7890</p> */}
             </div>
             <div className="item">
                 <h5><Lang>Membership Support:</Lang></h5>
-                <p>Email: info@digitalmorocco.com</p>
+                <p><Lang>Email:</Lang> info@digitalmorocco.com</p>
                 {/* <p>Phone: +123-456-7890</p> */}
             </div>
             {/* <div className="item">
@@ -28,7 +28,7 @@ const ContactData = () => {
             </div> */}
             <div className="item">
                 <h5><Lang>Social Media</Lang></h5>
-                <p>Connect with us on social media for the latest updates, events, and more!</p>
+                <p><Lang>Connect with us on social media for the latest updates, events, and more!</Lang></p>
                 <p>Facebook: @DigitalMorocco</p>
                 <p>Instagram: @DigitalMorocco</p>
                 <p>LinkedIn: @DigitalMorocco</p>

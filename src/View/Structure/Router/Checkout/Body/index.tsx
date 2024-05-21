@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import Fetch from '../../../../../Controller/Tools/Server/Fetch';
 import Loader from '../../../../Components/Loader';
 import { format } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { enUS , fr } from 'date-fns/locale';
 import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import Button from '../../../../Components/Button';
 import { useNavigate, useParams } from 'react-router-dom';
 import Input from '../../../../Components/Input';
 import axios from 'axios';
-
+import { language } from '../../../../Language';
 
 /**
  * Body
@@ -48,6 +48,19 @@ const Body = () => {
 
     const [promoCode  , setPromoCode ] = useState('');
 
+    /**
+     * Promo Code error message
+     */
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+
+    const [serviceFee, setServiceFee] = useState(() => {
+        const fee = process.env.REACT_APP_SERVICEFEE;
+        return fee ? Number(fee) : 1;
+    });
+
+    console.log(process.env.REACT_APP_SERVICEFEE)
+
     const [eventPromoCode , setEventPromoCode ] = useState('');
 
     /**
@@ -70,8 +83,8 @@ const Body = () => {
 
                 if (eventData) {
                     const { price } = eventData;
-                    const totalPrice = promoCode === eventData.promoCode ? price * 0.9 * quantity : price * quantity;
-                    const subTotal = price * quantity;
+                    const totalPrice = promoCode === eventData.promoCode ? price * 0.9 * quantity + serviceFee: price * quantity + serviceFee;
+                    const subTotal = price * quantity + serviceFee;
 
                     setInfo({
                         quantity,
@@ -81,6 +94,13 @@ const Body = () => {
                         promoCode: eventData?.promoCode || '', 
                         promoCodeChecked: promoCode === eventData?.promoCode 
                     });
+
+                    if(promoCode?.length > 5 && promoCode !== eventData?.promoCode) {
+                        setErrorMessage('Promo Code incorrect or expired.');
+                    }
+                    else {
+                        setErrorMessage(null);
+                    }
                 }
             } catch (error) {
                 console.error('Failed to fetch event data:', error);
@@ -91,7 +111,7 @@ const Body = () => {
     }, [id, quantity, promoCode]);
 
     const handleCheckout = () => {
-        localStorage.setItem('checkoutInfo', JSON.stringify(info));
+        sessionStorage.setItem('checkoutInfo', JSON.stringify(info));
         navigate('/billing');
     };
 
@@ -114,11 +134,11 @@ const Body = () => {
                                     {response?.price > 0 ? (
                                         <>
                                             {response?.salesEndDate ? (
-                                                <p><Lang>Sales end on </Lang><Lang>{format(response?.salesEndDate, 'MMM d, yyyy', { locale: enUS }).toString()}</Lang></p>
+                                                <p><Lang>Sales end on </Lang><Lang>{format(response?.salesEndDate, language =='fr-FR'? 'd MMM yyyy' : 'MMM d, yyyy', { locale: language =='fr-FR'? fr : enUS}).toString()}</Lang></p>
                                             ) : (
                                                 <>
                                                     {response?.startDate ? (
-                                                        <p><Lang>Sales end on </Lang><Lang>{format(response?.startDate, 'MMM d, yyyy', { locale: enUS }).toString()}</Lang></p>
+                                                        <p><Lang>Sales end on </Lang><Lang>{format(response?.startDate, language =='fr-FR'? 'd MMM yyyy' : 'MMM d, yyyy' , { locale: language =='fr-FR'? fr : enUS }).toString()}</Lang></p>
                                                     ) : (
                                                         <p><Lang>Sales end on </Lang><Lang>Event Start Day</Lang></p>
                                                     )}
@@ -130,7 +150,9 @@ const Body = () => {
                                     )}
                                 </div>
                                 <div id="total">
+                                    {language === 'fr-FR' ? <b>{(Number((response?.price).toFixed(2)) * quantity).toFixed(2)} $</b> :
                                     <b>$ {(Number((response?.price).toFixed(2)) * quantity).toFixed(2)}</b>
+                                    }                                    
                                     <Quantity setQuantityValue={setQuantity} />
                                 </div>
                             </div>
@@ -139,27 +161,49 @@ const Body = () => {
                             <h5><Lang>Order Summary</Lang></h5>
                             <div className='item'>
                                 <p>{quantity}x <Lang>Ticket</Lang></p>
+                                {language === 'fr-FR' ?
+                                 <b>{(Number((response?.price).toFixed(2)) * quantity).toFixed(2)} $</b>
+                                :
                                 <b>$ {(Number((response?.price).toFixed(2)) * quantity).toFixed(2)}</b>
+                                }
                             </div>
                             <div className='item'>
                                 <p><Lang>Service Fee</Lang></p>
-                                <b>$ 0.00</b>
+                                {language === 'fr-FR' ?
+                                 <b>{Number(serviceFee).toFixed(2)} $</b>
+                                :
+                                <b>$ {Number(serviceFee).toFixed(2)}</b>
+                                }
                             </div>
                             <hr style={{ border: '1px solid #EBEAED' }} />
                             <div className='item'>
                                 <p><Lang>Sub Total</Lang></p>
-                                <b>$ {(Number((response?.price).toFixed(2)) * quantity).toFixed(2)}</b>
+                                {language === 'fr-FR' ?
+                                <b>{(Number((response?.price).toFixed(2)) * quantity + Number(serviceFee)).toFixed(2)} $</b>
+                                :
+                                <b>$ {(Number((response?.price).toFixed(2)) * quantity + Number(serviceFee)).toFixed(2)}</b>
+                                }
                             </div>
-                            <Input $height={49} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} onChange={(e)=> setPromoCode(e.target.value)}/>
-                            <hr style={{ border: '1px solid #EBEAED' }} />
+                            <Input $height={49} $hasError={errorMessage !== null} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} onChange={(e)=> setPromoCode(e.target.value)}/>
+                            {errorMessage && <span id='errorMsg'>{errorMessage}</span>}
+                            <hr style={{ border: '1px solid #EBEAED' , marginTop: '24px'}} />
                             <div id="total">
                                 <p><Lang>Total</Lang></p>
+                                {language === 'fr-FR' ?
                                 <b>
-                                ${promoCode === response?.promoCode
-                                    ? (Number((response?.price * 0.9).toFixed(2)) * quantity).toFixed(2)
-                                    : (Number((response?.price).toFixed(2)) * quantity).toFixed(2) 
+                                {promoCode === response?.promoCode
+                                    ? (Number((response?.price * 0.9).toFixed(2)) * quantity + Number(serviceFee)).toFixed(2)
+                                    : (Number((response?.price).toFixed(2)) * quantity + Number(serviceFee)).toFixed(2) 
+                                } $
+                                </b>                               
+                                :
+                                <b>
+                                $ {promoCode === response?.promoCode
+                                    ? (Number((response?.price * 0.9).toFixed(2)) * quantity + Number(serviceFee)).toFixed(2)
+                                    : (Number((response?.price).toFixed(2)) * quantity + Number(serviceFee)).toFixed(2) 
+                                } 
+                                </b>                               
                                 }
-                                </b>
                             </div>
                             <Button onClick={handleCheckout} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Check Out</Lang></Button>
                         </ContainerSidebar>
@@ -274,6 +318,10 @@ background-color: #FCFCFD;
 > hr {
     margin-block: 12px;
 }
+> #errorMsg {
+    font-size: 14px;
+    color: #E85555CC;
+}
 
 > .item {
     display: flex;
@@ -300,7 +348,7 @@ background-color: #FCFCFD;
     display: block;
     width: -webkit-fill-available;
     margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 > #total {

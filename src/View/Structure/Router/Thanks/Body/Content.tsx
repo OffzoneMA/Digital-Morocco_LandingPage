@@ -1,6 +1,6 @@
 import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import styled from 'styled-components';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../../../Components/Button';
 import ViewTicketPDF from '../../../../Components/ViewTicketPDF';
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -17,6 +17,19 @@ const Content = () => {
      * 
      */
     const lang = useLang()
+
+    /**
+     * Checkout Infos
+     */
+
+    const [checkoutInfo, setCheckoutInfo] = useState<any>(null);
+
+    useEffect(() => {
+      const storedInfo = sessionStorage.getItem('checkoutInfo');
+      if (storedInfo) {
+          setCheckoutInfo(JSON.parse(storedInfo));
+      }
+  }, []);
 
     const handleButtonClick = () => {
         const newWindow = window.open('', '_blank');
@@ -53,29 +66,29 @@ const Content = () => {
             </h2>
             <hr style={{ border: '1px solid #EBEAED' }} />
             <b className='label'><Lang>You’re going to</Lang></b>
-            <h1>North Africa Dreamin' 2023<br />THE #1 SALESFORCE COMMUNITY CONFERENCE IN AFRICA</h1>
-            <b className='label'><Lang>1 ticket sent to</Lang></b>
+            <h1><Lang>North Africa Dreamin' 2023</Lang><br /><Lang>THE #1 SALESFORCE COMMUNITY CONFERENCE IN AFRICA</Lang></h1>
+            <b className='label'>{checkoutInfo?.quantity || 1} <Lang>ticket sent to</Lang></b>
             <p>example.name@email.com</p>
             <b className='label'><Lang>date</Lang></b>
-            <p>Saturday, October 21, 2023    8am - 9pm +01 <button className="meet"><Lang>Add to Google Calendar</Lang></button></p>
+            <p><Lang>Saturday, October 21, 2023 8am - 9pm +01</Lang> <button className="meet"><Lang>Add to Google Calendar</Lang></button></p>
             <b className='label'><Lang>Note</Lang></b>
-            <p id='note'>The information below is emailed to you. Scroll down in your confirmation email. Here's the link!<br /><br />
+            <p id='note'><Lang>The information below is emailed to you. Scroll down in your confirmation email. Here's the link!</Lang><br /><br />
 
-                We're looking forward to you joining us!Join the event using this Zoom link (registration form to deter Zoom mischiefs!):<br />
-                Click bit.ly link below to Join Zoom Meeting (or copy and paste into your browser and click 'launch meeting')<br /><br />
+                <Lang>We're looking forward to you joining us!Join the event using this Zoom link (registration form to deter Zoom mischiefs!):</Lang><br />
+                <Lang>Click bit.ly link below to Join Zoom Meeting (or copy and paste into your browser and click 'launch meeting')</Lang><br /><br />
 
                 https://bit.ly/StWOpnMicMeeting <br />
                 ID: 848 4416 4280 <br />
-                Passcode: OpenMic<br /><br />
+                <Lang>Passcode</Lang> : OpenMic<br /><br />
 
-                Please send us an email if you have any questions.<br />
-                Accessibility: Captioning is available, please let us know if you have any other accessibility needs.</p>
+                <Lang>Please send us an email if you have any questions.</Lang><br />
+                <Lang>Accessibility: Captioning is available, please let us know if you have any other accessibility needs.</Lang></p>
             <hr style={{ border: '1px solid #EBEAED' }} />
 
             <div id='btnDiv'>
             <PDFDownloadLink document={<ViewTicketPDF title="North Africa Dreamin' 2023" TicketCode='OpenMic' name='Ichane Roukéya' ticketNumber={2}/>} fileName="ticket.pdf">
                 {({ blob, url, loading, error }) => ( 
-                loading ? <Button id='btn' onClick={handleButtonClick} style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket ...</Lang></Button>:<Button id='btn' onClick={handleButtonClick} style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket</Lang></Button>
+                loading ? <Button id='btn' onClick={handleButtonClick} style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket</Lang></Button>:<Button id='btn' onClick={handleButtonClick} style={{ marginBlock: 15 }} $isFill $background='#482BE7' $color='white' $padding={[12, 70]}><Lang>View Ticket</Lang></Button>
 
                 )}
             </PDFDownloadLink>

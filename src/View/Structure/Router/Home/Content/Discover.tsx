@@ -14,7 +14,7 @@ import Screen from '../../../../../Controller/Tools/Interface/Device'
 const Discover = () => {
     
     return (
-        <Container>
+        <Container id='whyjoinus'>
             <div id="content">
                 <div id="text">
                     <p id="subtitle" className='onscroll'><Lang>Why Join Us?</Lang></p>

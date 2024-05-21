@@ -24,17 +24,20 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
                 <p id="name">{name}</p>
                 <div id="price">
                     <b id="currency">{price==0? '':'$'}</b>
-                    <b id="value">{price==0? <Lang>Free</Lang>:price}</b>
-                    <p id="duration"><Lang>{price==0? '':'per month'}</Lang></p>
+                    {/* <b id="value">{price==0? <Lang>Free</Lang>:price}</b> */}
+                    <b id="value"><Lang>{price==0? 'Free':'Upcoming'}</Lang></b>
+                    {/* <p id="duration"><Lang>{price==0? '':'per month'}</Lang></p> */}
                 </div>
                 <p id="desc">{desc}</p>
             </div>
             <div id="featuresblur">
                 <div id="features" >
                     {features.map((feature, key) => <p key={key}>
+                        <span>
                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 4.5L4.97059 8L13 1" stroke="#25DAC5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
+                        </span>
                         {feature}
                     </p>)}
                 </div>
@@ -56,6 +59,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
                 $color={recommended ? 'white' : undefined}
                 $isFill={recommended}
                 $padding={[9, 25]}
+                $width={200}
                 $fontFamily='DMSans-Medium'
                 $fontWeight='medium'
             >
@@ -85,12 +89,12 @@ const Container = styled.div<{
         grid-template-rows: 100px auto auto;
         justify-items: center;
         text-align: center;
-        padding-inline: 60px;
+        padding-inline: 30px;
         border: 2px solid ${p => p.$recommended ? '#2575F0' : '#EBEAED'};
         background-color: ${p => p.$recommended ? '#2575F0' : 'initial'};
         color: ${p => p.$recommended ? 'white' : 'initial'};
         border-radius: 10px;
-        height: 312px;
+        min-height: 345px;
 
         > #name {
             text-transform: uppercase;
@@ -210,9 +214,9 @@ const Container = styled.div<{
 
         &:hover {
             filter: none;
-            color: #25DAC5;
-            border-color: #25DAC5;
-            background-color: transparent;
+            color: ${p => p.$recommended ? 'white' : '#25DAC5'};
+            border-color: ${p => p.$recommended ? '#01A395' : '#25DAC5'};
+            background-color: ${p => p.$recommended ? '#01A395' : 'transparent'};
         }
     }
 `;

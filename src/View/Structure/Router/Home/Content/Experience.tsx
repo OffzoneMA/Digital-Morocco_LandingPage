@@ -19,7 +19,7 @@ import Icon4 from '../../../../Media/Icons/icon4.svg';
 const Experience = () => {
 
     return (
-        <Container>
+        <Container id='ourgoals'>
             <div id="content">
                 <h1 className='onscroll'><Lang>Experience the power of networking</Lang></h1>
                 <p className='onscroll'><Lang>The fourth industrial revolution, known as Industry 4.0, has transformed the world of technology. However, it does not evolve on its own. By sharing our experiences and achievements during events, conferences, training sessions, and other professional gatherings, we hope that our collective efforts will position us at the forefront of decision-makers in the digital world.</Lang></p>

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Fetch from '../../../../Controller/Tools/Server/Fetch'
 import Loader from '../../../Components/Loader'
-import Member from './../Members/member'
 import { MemberInterface } from '../../../../Application/Member'
+import Partner from './partner'
 
 
 /**
@@ -30,7 +30,7 @@ const Record = () => {
             <Fetch<ResponseInterface> url={url}>
                 {({ response }) => !response ? <Loader /> : (
                     <div id="items">
-                        {response.partners.map(partner => <Member key={partner._id} data={partner} />)}
+                        {response.partners.map(partner => <Partner key={partner._id} data={partner} />)}
                     </div>
                 )}
             </Fetch>

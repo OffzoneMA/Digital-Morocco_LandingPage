@@ -65,7 +65,7 @@ const Policies = () => {
             <div className=''>
                 <label><Lang>Who is responsible for the processing?</Lang></label>
                 <p><Lang>OFFZONE, the owner of the Digital Morocco sites and platform, is responsible for processing your data. As such, it is responsible for determining the purposes and means of the processing aimed at allowing you to use all the features of the Digital Morocco platform.</Lang></p>
-                <p><Lang>This processing has been the subject of a normal declaration to the CNDP under number D-W-266/2024.</Lang></p>
+                <p className='cndp'><Lang>This processing has been the subject of a normal declaration to the CNDP under number D-W-266/2024.</Lang></p>
             </div>
             <div className=''>
                 <label><Lang>What categories of data do we process?</Lang></label>
@@ -93,7 +93,7 @@ const Policies = () => {
                     <li><Lang>Data hosting</Lang> : <Lang>Contabo Ltd. located at Aschauer Straße 32a 81549 Munich, Germany</Lang>.</li>
                 </ul>
                 </p>
-                <p><Lang>This transfer has been declared to the CNDP under number T-HB-111/2024.</Lang></p>
+                <p className='cndp'><Lang>This transfer has been declared to the CNDP under number T-HB-111/2024.</Lang></p>
             </div>
             <div className=''>
                 <label><Lang>How long do we keep your data?</Lang></label>
@@ -161,6 +161,9 @@ const Container = styled.div`
         > label {
             font-family: DMSans-Medium;
             color: #2575F0;
+        }
+        > .cndp {
+            font-family: DMSans-Medium;
         }
         > p {
             font-size: 16px;

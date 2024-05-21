@@ -15,7 +15,9 @@ const Button = styled.button<{
     $fontWeight?: string
     $fontFamily?: string
     $hoverColor?: string
-    $applyHoverColor?: boolean
+    $applyHoverColor?: boolean,
+    $hoverBackground?: string,
+    $hoverBorder?: string
 }>`
     border-radius: 50px;
     font-size: ${p => p.$size ? `${p.$size}px` : 'inherit'};
@@ -38,9 +40,15 @@ const Button = styled.button<{
             filter: none;
         `}
 
-        ${p => !p.$hoverColor && p.$applyHoverColor && `
-            filter: brightness(0.8);
+        ${p => p.$hoverBackground && `
+            background-color: ${p.$hoverBackground};
+            border-color: ${p.$hoverBorder ? p.$hoverBorder : p.$hoverBackground};
+            filter: none;
         `}
+
+        // ${p => !p.$hoverColor && p.$applyHoverColor && `
+        //     filter: brightness(0.8);
+        // `}
     }
 `;
 Button.defaultProps = {

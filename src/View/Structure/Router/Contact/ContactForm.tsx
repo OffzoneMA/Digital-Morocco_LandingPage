@@ -139,8 +139,8 @@ const Container = styled(Form)`
         transition: 300ms;
 
         &:hover {
-            background-color: #00CDAE;
-            border-color: #00CDAE;
+            background-color: #235DBD;
+            border-color: #235DBD;
             filter: none;
         }
     }

@@ -7,8 +7,9 @@ import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import Fetch from '../../../../Controller/Tools/Server/Fetch'
 import { useParams } from 'react-router-dom'
 import { format } from 'date-fns'
-import { enUS } from 'date-fns/locale'
+import { enUS, fr } from 'date-fns/locale'
 import Loader from '../../../Components/Loader'
+import { language } from '../../../Language'
 
 /**
  * Header
@@ -21,23 +22,6 @@ const Header = () => {
      * Get Id Param
      */
     const { id } = useParams<{ id: string }>();
-
-    /**
-     * 
-     * @param date Extract day
-     * @returns 
-     */
-    const extractDay = (date: Date): string => {
-        return format(date, 'dd', { locale: enUS });
-      };
-      
-    const extractMonth = (date: Date): string => {
-    return format(date, 'MMMM', { locale: enUS });
-    };
-    
-    const extractYear = (date: Date): string => {
-    return format(date, 'yyyy', { locale: enUS });
-    };
 
     return (
         <Container>
@@ -54,7 +38,7 @@ const Header = () => {
                     <div id="content">
                     <h1><Lang>{response.title}</Lang></h1>
                                 <div id="info">
-                                    <p>{extractDay(response?.date)} <Lang>{extractMonth(response?.date).toUpperCase()}</Lang> {extractYear(response?.date)}</p>
+                                <p>{format(response?.date, 'd MMMM yyyy', { locale: language =='fr-FR'? fr : enUS }).toUpperCase()}</p>
                                     {response.tags && response.tags.length > 0 ? (
                                     <div id="tags">
                                         {

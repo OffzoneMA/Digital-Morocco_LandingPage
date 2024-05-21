@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MemberInterface } from '../../../../Application/Member'
+import { MemberInterface as PartnerInterface } from '../../../../Application/Member'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 
 
@@ -9,7 +9,7 @@ import { Lang } from '../../../../Controller/Tools/Interface/Lang'
  * 
  * @returns 
  */
-const Member = ({ data }: { data: MemberInterface }) => {
+const Partner = ({ data }: { data: PartnerInterface }) => {
 
     return (
         <Container className='animation'>
@@ -17,7 +17,7 @@ const Member = ({ data }: { data: MemberInterface }) => {
                 <img src={data.logo} alt='' loading='lazy' />
             </div>
             <p id="name">{data.companyName}</p>
-            <p id="sector">Healthcare</p>
+            {/* <p id="sector">Healthcare</p> */}
             <p id="desc">{data.desc}</p>
             <a id="website" href={data.website} target='_blank' rel="noreferrer">
                 <Lang>Visit Website</Lang>
@@ -29,7 +29,7 @@ const Member = ({ data }: { data: MemberInterface }) => {
     )
 }
 
-export default Member
+export default Partner
 
 
 /**
@@ -45,7 +45,7 @@ const Container = styled.div`
     gap: 10px 10px; 
     grid-template-areas: 
       "logo logo"
-      "name sector"
+      "name name"
       "desc desc"
       "website website";
     border-radius: 14px;

@@ -67,33 +67,34 @@ const Content = () => {
             <div id="form">
                 <label>
                     <p><Lang>First Name</Lang></p>
-                    <Input $size={16} $height={49} type='text' placeholder={lang('First Name')} />
+                    <Input $size={16} $height={49} $placeholderColor='#98A2B3' type='text' placeholder={lang('First Name')} />
                 </label>
                 <label>
                     <p><Lang>Last Name</Lang></p>
-                    <Input $size={16} $height={49}  type='text' placeholder={lang('Last Name')} />
+                    <Input $size={16} $height={49} $placeholderColor='#98A2B3' type='text' placeholder={lang('Last Name')} />
                 </label>
                 <label>
                     <p><Lang>Phone</Lang></p>
-                    <Input $size={16} $height={49}  type='text' placeholder={lang('Phone Number')} />
+                    <Input $size={16} $height={49} $placeholderColor='#98A2B3' type='text' placeholder={lang('Phone Number')} />
                 </label>
                 <label>
                     <p><Lang>e-mail</Lang></p>
-                    <Input $size={16} $height={49}  type='text' placeholder={lang('Email Address')} />
+                    <Input $size={16} $height={49} $placeholderColor='#98A2B3' type='text' placeholder={lang('Email Address')} />
                 </label>
                 <label>
                     <p><Lang>Job Title</Lang></p>
-                    <Input $size={16} $height={49}  type='text' placeholder={lang('Job Title')} />
+                    <Input $size={16} $height={49} $placeholderColor='#98A2B3' type='text' placeholder={lang('Job Title')} />
                 </label>
                 <label>
                     <p><Lang>Company</Lang></p>
-                    <Input $size={16} $height={49}  type='text' placeholder={lang('Company Name')} />
+                    <Input $size={16} $height={49} $placeholderColor='#98A2B3'  type='text' placeholder={lang('Company Name')} />
                 </label>
                 <label>
                     <p><Lang>Country</Lang></p>
                     <SimpleSelect
                         height={49}
                         placeholder='Select Country'
+                        placeholdercolor='#98A2B3'
                         searchPlaceholder='Search Country'
                         searchable
                         options={countryOptions}
@@ -105,6 +106,7 @@ const Content = () => {
                     <SimpleSelect
                         height={49}
                         placeholder='Select City'
+                        placeholdercolor='#98A2B3'
                         searchPlaceholder='Search City'
                         searchable
                         options={cityOptions}

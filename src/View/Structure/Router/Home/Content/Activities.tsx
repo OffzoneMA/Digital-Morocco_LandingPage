@@ -19,7 +19,7 @@ import Image5 from '../../../../Media/Images/image5.png';
 const Activities = () => {
     
     return (
-        <Container>
+        <Container id='ouractivity'>
             <h1 className='onscroll'><Lang>Our Activities</Lang></h1>
             <p className='onscroll'><Lang>Digital Morocco is dedicated to fostering meaningful connections and driving business success. We accomplish this through a range of engaging activities, including professional events such as conferences and training sessions.</Lang></p>
             <div id="list">
@@ -95,6 +95,7 @@ const Container = styled.div`
                 font-size: 22px;
                 line-height: 32px;
                 padding-inline: 30px;
+                font-family: DMSans-Medium;
             }
 
             > p {

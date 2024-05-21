@@ -9,7 +9,8 @@ import map from '../../../../Media/Images/map.png'
 import Fetch from '../../../../../Controller/Tools/Server/Fetch';
 import Loader from '../../../../Components/Loader';
 import { format, parse } from 'date-fns';
-import { enUS } from 'date-fns/locale';
+import { enUS , fr } from 'date-fns/locale';
+import { language } from '../../../../Language';
 
 /**
  * Sidebar
@@ -30,6 +31,14 @@ const Sidebar = () => {
 
     const { id } = useParams<{ id: string }>();
 
+    const formattedTime = (time: string, language: string): string => {
+        const parsedTime = parse(time, 'h:mm a', new Date());
+        if (language === 'fr-FR') {
+          return format(parsedTime, 'H', { locale: fr }) + 'h';
+        }
+        return format(parsedTime, 'h a', { locale: enUS }).toLowerCase();
+      };
+
     function formatEventDate(startDate: Date, endDate: Date): string {
     
         if (!startDate || !endDate ) {
@@ -41,10 +50,10 @@ const Sidebar = () => {
             const endDateTime = new Date(endDate);
 
             if (startDateTime.getDate() === endDateTime.getDate() && startDateTime.getMonth() === endDateTime.getMonth() && startDateTime.getFullYear() === endDateTime.getFullYear()) {
-                const formattedDate = format(startDateTime, 'EEEE, MMMM d, yyyy', { locale: enUS });
+                const formattedDate = format(startDateTime, language =='fr-FR'? 'EEEE d MMM yyyy' : 'EEEE, MMMM d, yyyy', { locale: language =='fr-FR'? fr : enUS });
                 return `${formattedDate}`;
             } else {
-                const formattedStartDate = format(startDateTime, 'EEE, MMM d, yyyy', { locale: enUS });
+                const formattedStartDate = format(startDateTime, language =='fr-FR'? 'EEE d MMM yyyy' : 'EEE, MMM d, yyyy', { locale: language =='fr-FR'? fr : enUS });
                 return `${formattedStartDate}`;
             }
 
@@ -57,8 +66,8 @@ const Sidebar = () => {
             return '24 hours a day, 7 days a week';
         }
         else {
-            const formattedStartTimev = format(parse(startTime, 'h:mm a', new Date()), 'ha', { locale: enUS }).toLowerCase();
-            const formattedEndTimev = format(parse(endTime, 'h:mm a', new Date()), 'ha', { locale: enUS }).toLowerCase();
+            const formattedStartTimev = formattedTime(startTime, language);
+            const formattedEndTimev = formattedTime(endTime, language);
 
             const startDateTime = new Date(startDate);
             const endDateTime = new Date(endDate);
@@ -68,10 +77,17 @@ const Sidebar = () => {
 
                 console.log(gmtOffset)
                 const gmt = gmtOffset >= 0 ? `+${gmtOffset}` : gmtOffset.toString(); 
+                if(language =='fr-FR') {
+                    return `De ${formattedStartTimev} à ${formattedEndTimev} GMT${gmt}`
+                }
                 return `${formattedStartTimev} - ${formattedEndTimev} ${gmt}`;
             } else {
-                return `${startTime}`;
-            }
+                
+                const parsedTime = parse(startTime, 'h:mm a', new Date());
+                if (language === 'fr-FR') {
+                  return format(parsedTime, 'H:mm', { locale: fr }).replace(':', 'h');
+                }
+                return format(parsedTime, 'h:mm a', { locale: enUS }).toUpperCase();            }
 
         }
     }
@@ -91,7 +107,7 @@ const Sidebar = () => {
                                 <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.75 7.5H1.25M11 1.5V4.5M5 1.5V4.5M4.85 16.5H11.15C12.4101 16.5 13.0402 16.5 13.5215 16.2548C13.9448 16.039 14.289 15.6948 14.5048 15.2715C14.75 14.7902 14.75 14.1601 14.75 12.9V6.6C14.75 5.33988 14.75 4.70982 14.5048 4.22852C14.289 3.80516 13.9448 3.46095 13.5215 3.24524C13.0402 3 12.4101 3 11.15 3H4.85C3.58988 3 2.95982 3 2.47852 3.24524C2.05516 3.46095 1.71095 3.80516 1.49524 4.22852C1.25 4.70982 1.25 5.33988 1.25 6.6V12.9C1.25 14.1601 1.25 14.7902 1.49524 15.2715C1.71095 15.6948 2.05516 16.039 2.47852 16.2548C2.95982 16.5 3.58988 16.5 4.85 16.5Z" stroke="#00CDAE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
-                                <p><Lang>{formatEventDate(response?.startDate , response?.endDate)}</Lang></p>
+                                <p>{formatEventDate(response?.startDate , response?.endDate)}</p>
                             </div>
                             <div className='label'>
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -208,8 +224,8 @@ const Container = styled.div`
             transition: 300ms;
 
             &:hover {
-                background-color: #2575F0;
-                border-color: #2575F0;
+                background-color: #01A395;
+                border-color: #01A395;
                 color: white;
                 filter: none;
             }
