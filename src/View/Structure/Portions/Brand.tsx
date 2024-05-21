@@ -99,7 +99,9 @@ const Container = styled.div`
                 margin-top: 25px;
 
                 >input {
+                    min-width :304px;
                     field-sizing: content;
+                    color: #1E0E62;
                 }
             }
         }

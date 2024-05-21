@@ -19,7 +19,7 @@ const Content = () => {
             if (element) {
               setTimeout(() => {
                 window.scrollTo({
-                  top: element.getBoundingClientRect().top + window.pageYOffset - 80, 
+                  top: element.getBoundingClientRect().top + window.pageYOffset - 100, 
                   behavior: 'smooth'
                 });
               }, 0);
