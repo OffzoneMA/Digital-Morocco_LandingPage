@@ -60,7 +60,7 @@ const List = () => {
 
                     setTotalPages(response?.totalPages);
                     return response?.blogs.map((blog: any, key: React.Key | null | undefined) => (
-                        <Link key={key} to={`/post/${blog?._id}`} className='item'>
+                        <Link key={key} to={`/post/${blog?._id}`} state={{blog}} className='item'>
                             <img src={blog?.image} alt="" loading='lazy'/>
                             <h1><Lang>{blog?.title}</Lang></h1>
                             <b>{format(blog?.date, 'd MMMM yyyy', { locale: language =='fr-FR'? fr : enUS }).toUpperCase()}</b>

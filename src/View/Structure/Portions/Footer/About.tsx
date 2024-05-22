@@ -65,8 +65,8 @@ const Container = styled.div`
             transition: 300ms;
 
             &:hover {
-                background-color: #224A94;
-                border-color: #224A94;
+                background-color: #3016C0;
+                border-color: #3016C0;
                 filter: none;
             }
         }

@@ -19,7 +19,6 @@ const Scroller = () => {
          * 
          */
         const revealing = () => document.querySelectorAll(".onscroll").forEach(reveal => {
-            console.log(reveal.getBoundingClientRect().top)
             if (reveal.getBoundingClientRect().top < window.innerHeight - 170)
                 reveal.classList.add('scrolled');
             else

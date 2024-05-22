@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react'
 import { Lang, useLang } from '../../../../../Controller/Tools/Interface/Lang';
 import Button from '../../../../Components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Input from '../../../../Components/Input';
 import { language } from '../../../../Language';
 
@@ -18,6 +18,9 @@ const Sidebar = () => {
      * 
      */
     const navigate = useNavigate()
+
+    const location = useLocation();
+
 
     /**
      * Lang
@@ -207,8 +210,8 @@ const Container = styled.div`
         transition: 300ms;
 
         &:hover {
-            background-color: #00CDAE;
-            border-color: #00CDAE;
+            background-color: #3016C0;
+            border-color: #3016C0;
             filter: none;
         }
     }

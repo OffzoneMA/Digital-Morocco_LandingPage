@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { language } from '../Language'
 
 /**
  * Page title
@@ -9,7 +10,7 @@ import styled from 'styled-components'
 const PageTitle = ({ slug, title }: { slug?: string, title: string }) => {
 
     return (
-        <Container>
+        <Container lang={language}>
             {slug ? <p className='animation'>{slug}</p> : undefined}
             <h1 className='animation'>{title}</h1>
         </Container>
@@ -23,7 +24,7 @@ export default PageTitle
  * Container
  * 
  */
-const Container = styled.div`
+const Container = styled.div<{lang?: string}>`
     text-align: center;
     font-family: DMSans-Bold;
 
@@ -36,9 +37,9 @@ const Container = styled.div`
     }
 
     > h1 {
-        font-size: 59px;
+        font-size: 58px;
         letter-spacing: -1px;
-        max-width: 873px;
+        max-width: ${props => props.lang === 'fr-FR' ? '984px' : '904px'};
         margin: auto;
 
         // Media

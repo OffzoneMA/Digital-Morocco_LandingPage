@@ -16,6 +16,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
     recommended?: boolean
     btnText?: string
     mask?: boolean
+    // isStartup?: boolean
 } & React.HTMLAttributes<HTMLDivElement>) => {
 
     return (
@@ -54,6 +55,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
                 }
             </div>
             <Button
+            onClick={()=> console.log('btn click')}
                 $size={18}
                 $background={recommended ? 'var(--color-green)' : '#EBEAED'}
                 $color={recommended ? 'white' : undefined}
@@ -162,6 +164,10 @@ const Container = styled.div<{
                     top: 6px;
                 }
             }
+
+            > p:first-of-type {
+                font-family: DMSans-Medium; 
+            }
         }
 
         > #mask {
@@ -218,5 +224,11 @@ const Container = styled.div<{
             border-color: ${p => p.$recommended ? '#01A395' : '#25DAC5'};
             background-color: ${p => p.$recommended ? '#01A395' : 'transparent'};
         }
+
+        ${p => p.$mask && `
+            pointer-events: none;   
+            border-color: #DCDCDB;
+            color: #A7A6A8;          
+        `}
     }
 `;

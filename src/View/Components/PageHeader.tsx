@@ -43,7 +43,7 @@ const Container = styled.div<{ scroll?: boolean }>`
     position: relative;
     padding-top: 150px;
     padding-bottom: 30px;
-    padding-inline: 20px;
+    padding-inline: 10px;
 
     &:before {
         content: "";

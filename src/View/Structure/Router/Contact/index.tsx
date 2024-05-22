@@ -60,6 +60,7 @@ const Container = styled.div`
 
         h1 {
             font-family: DMSans-Bold;
+            max-width: 500px;
 
             // Media
             @media (max-width: 900px) {

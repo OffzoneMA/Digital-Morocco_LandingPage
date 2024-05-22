@@ -56,7 +56,7 @@ const Header = () => {
                 </div>
                 </>
                 ) : (
-                    <p><Loader/></p>
+                    <div id='loader'><Loader/></div>
                 )}
             </>
                 
@@ -81,6 +81,16 @@ const Container = styled.div`
     overflow: hidden;
     max-width: 100vw;
     padding: 20px;
+
+    > #loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+    }
     
     > p{
         height: 100%;

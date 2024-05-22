@@ -39,7 +39,7 @@ export default Member
 const Container = styled.div`
     display: grid; 
     grid-auto-columns: 1fr; 
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr auto; 
     grid-template-rows: auto auto auto auto;
     background-color: #FCFCFD;
     gap: 10px 10px; 
@@ -73,7 +73,7 @@ const Container = styled.div`
         grid-area: name;
         align-self: center;
         margin: 0;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 500;
         line-height: 32px;
         font-family: DMSans-Medium;

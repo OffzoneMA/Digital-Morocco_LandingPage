@@ -375,8 +375,8 @@ background-color: #FCFCFD;
     transition: 300ms;
 
     &:hover {
-        background-color: #00CDAE;
-        border-color: #00CDAE;
+        background-color: #3016C0;
+        border-color: #3016C0;
         filter: none;
     }
 }

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang';
 import Fetch from '../../../../../Controller/Tools/Server/Fetch';
 import { Link } from 'react-router-dom';
 
 // @ts-ignore
-import Image from '../../../../Media/Images/image.png'
+import Image from '../../../../Media/Images/image.png';
 import Loader from '../../../../Components/Loader';
 
 /**
@@ -14,26 +14,27 @@ import Loader from '../../../../Components/Loader';
  * @returns 
  */
 const Sidebar = () => {
-
     return (
         <Container>
             <p><Lang>LATEST STORIES</Lang></p>
             <div id="items">
                 <Fetch<any> url={`${process.env.REACT_APP_baseURL}blogs/latest/5`}>
-                    {({ response }) => !response ? <Loader /> :
-                        response?.blogs.map((blog: any, key: React.Key | null | undefined) => 
-                        <Link to={`/post/${blog?._id}`} className="item">
-                            <img src={blog?.image || Image} alt="" />
-                            <h5><Lang>{blog?.title}</Lang></h5>
-                        </Link>
-                        )}
+                    {({ response }) => {
+                        if (!response) return <Loader />;
+                        return response.blogs.map((blog: any, key: React.Key | null | undefined ) => (
+                            <Link key={key || blog?._id || Math.random()} to={`/post/${blog?._id}`} state={{blog}} className="item">
+                                <img src={blog?.image || Image} alt="" />
+                                <h5><Lang>{blog?.title}</Lang></h5>
+                            </Link>
+                        ));
+                    }}
                 </Fetch>
             </div>
         </Container>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;
 
 /**
  * Container
@@ -42,7 +43,6 @@ export default Sidebar
 const Container = styled.div`
     position: -webkit-sticky;
     position: sticky;
-    // top: 100px;
     margin-bottom: 50px;
     align-self: flex-start;
 
