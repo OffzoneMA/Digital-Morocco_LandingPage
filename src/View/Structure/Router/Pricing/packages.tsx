@@ -61,6 +61,7 @@ const Packages = () => {
             </Button>
             </div>
             {showStartupDiv && 
+            <>
             <div id="items">
             <Package
                 className='animation'
@@ -127,7 +128,10 @@ const Packages = () => {
                 ]}
                 btnText='Start'
             />
-            </div>}
+            </div>
+            <p id='startUpText'><Lang>*Possibility to add additional projects: up to 2 for the Standard Plan and 5 for the Premium Plan. See pricing conditions in our Terms of Use.</Lang></p>
+            </>
+            }
             {showInvestorDiv && 
             <div id="items">
             <Package
@@ -182,7 +186,8 @@ export default Packages
 const Container = styled.div`
     max-width: 1200px;
     width: calc(100% - 50px);
-    padding-block: 70px;
+    padding-top: 70px;
+    padding-bottom: 30px;
     margin: auto;
 
     > #btnOptions {
@@ -207,6 +212,15 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
         gap: 35px;
+    }
+
+    > #startUpText {
+        margin: 0;
+        margin-top: 30px;
+        color:  rgba(21, 20, 57, 0.40);
+        font-family: "DMSans-Regular";
+        font-size: 10px;
+        line-height: 26px; 
     }
 
     // Media

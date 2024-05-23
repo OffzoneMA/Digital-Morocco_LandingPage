@@ -51,6 +51,11 @@ const ContactForm = () => {
         return regex.test(email);
     };
 
+    const validatePhoneNumber = (phoneNumber: string) => {
+        const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/;
+        return phoneRegex.test(phoneNumber);
+      };
+
     /**
      * Field Changing value
      * @param e 
@@ -67,19 +72,19 @@ const ContactForm = () => {
             [name]: value === '' 
         });
 
-        if (name === 'email') {
-            setFormErrors ( {
-                ...formErrors,
-                [name]: !validateEmail(value)
-            });
-        }
+        // if (name === 'email') {
+        //     setFormErrors ( {
+        //         ...formErrors,
+        //         [name]: !validateEmail(value)
+        //     });
+        // }
 
-        if (name === 'message') {
-            setFormErrors ( {
-                ...formErrors,
-                [name]: value.length < 10 
-            });
-        }
+        // if (name === 'message') {
+        //     setFormErrors ( {
+        //         ...formErrors,
+        //         [name]: value.length < 10 
+        //     });
+        // }
     };
 
     const handleSubmit = () => {
@@ -96,9 +101,13 @@ const ContactForm = () => {
             errors.email = !validateEmail(formData.email);
         }
 
-        if (formData.message !== '') {
-            errors.message = formData.message.length < 10;
-        }
+        if (formData.phone !== '') {
+            errors.phone = !validatePhoneNumber(formData.phone);
+          }
+
+        // if (formData.message !== '') {
+        //     errors.message = formData.message.length < 10;
+        // }
 
         
 

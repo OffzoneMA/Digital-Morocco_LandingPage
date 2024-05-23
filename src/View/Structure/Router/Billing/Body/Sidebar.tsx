@@ -70,8 +70,8 @@ const Sidebar = () => {
                 }));
                 setErrorMessage(null);
             } else {
-                if(promoCode.length > 5) {
-                    setErrorMessage('Promo Code incorrect or expired.');
+                if(promoCode.length >= 5) {
+                    setErrorMessage('Expired or wrong promo code!');
                 }
                 else{
                     setErrorMessage(null);
@@ -110,7 +110,7 @@ const Sidebar = () => {
                 }
             </div>
             <Input $height={49} $background='#FCFCFD' $hasError={errorMessage !==null} placeholder={lang('Enter Promo Code')}  onChange={(e)=> setPromoCode(e.target.value)}/>
-            {errorMessage && <span id='errorMsg'>{errorMessage}</span>}
+            {errorMessage && <span id='errorMsg'><Lang>{errorMessage}</Lang></span>}
             <hr style={{ border: '1px solid #EBEAED' , marginTop: '24px'}} />
             <div id="total">
                 <p><Lang>Total</Lang></p>

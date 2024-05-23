@@ -60,7 +60,9 @@ const Container = styled.div`
 
         h1 {
             font-family: DMSans-Bold;
-            max-width: 500px;
+            max-width: 618px;
+            font-size: 42px;
+            color: #1E0E62;
 
             // Media
             @media (max-width: 900px) {
@@ -70,8 +72,9 @@ const Container = styled.div`
 
         > p {
             font-family: DMSans-Medium;
-            max-width: 520px;
-            font-size: 15px;
+            max-width: 618px;
+            font-size: 18px;
+            color: #344054;
         }
     }
 

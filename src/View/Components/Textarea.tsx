@@ -13,6 +13,7 @@ const Textarea = styled.textarea<{
 }>`
     background-color: red;
     border:${props => props.$hasError ? '1px solid  #E85555CC' : ' 2px solid #EBEAED'}; 
+    color:${props => props.$hasError ? '#EC7373' : 'inherit'}; 
     border-radius: 20px;
     background-color: white;
     padding: 10px 20px;

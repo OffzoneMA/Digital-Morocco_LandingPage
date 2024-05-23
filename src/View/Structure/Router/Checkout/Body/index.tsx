@@ -95,8 +95,8 @@ const Body = () => {
                         promoCodeChecked: promoCode === eventData?.promoCode 
                     });
 
-                    if(promoCode?.length > 5 && promoCode !== eventData?.promoCode) {
-                        setErrorMessage('Promo Code incorrect or expired.');
+                    if(promoCode?.length >= 5 && promoCode !== eventData?.promoCode) {
+                        setErrorMessage('Expired or wrong promo code!');
                     }
                     else {
                         setErrorMessage(null);
@@ -185,7 +185,7 @@ const Body = () => {
                                 }
                             </div>
                             <Input $height={49} $hasError={errorMessage !== null} $background='#FCFCFD' placeholder={lang('Enter Promo Code')} onChange={(e)=> setPromoCode(e.target.value)}/>
-                            {errorMessage && <span id='errorMsg'>{errorMessage}</span>}
+                            {errorMessage && <span id='errorMsg'><Lang>{errorMessage}</Lang></span>}
                             <hr style={{ border: '1px solid #EBEAED' , marginTop: '24px'}} />
                             <div id="total">
                                 <p><Lang>Total</Lang></p>
@@ -319,6 +319,7 @@ background-color: #FCFCFD;
     margin-block: 12px;
 }
 > #errorMsg {
+    margin: 0;
     font-size: 14px;
     color: #E85555CC;
 }

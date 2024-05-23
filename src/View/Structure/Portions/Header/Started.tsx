@@ -66,8 +66,8 @@ const Container = styled.div<{
             }
 
             &:last-child:hover {
-                background-color: transparent;
-                color: #01A395;
+                background-color: #01A395;
+                color: white;
             }
         }
     `}

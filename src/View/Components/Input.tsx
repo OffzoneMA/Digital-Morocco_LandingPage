@@ -14,6 +14,7 @@ const Input = styled.input<{
 }>`
     background-color: red;
     border:${props => props.$hasError ? '1px solid  #E85555CC' : ' 2px solid #EBEAED'}; 
+    color:${props => props.$hasError ? '#EC7373' : 'inherit'}; 
     border-radius: 50px;
     background-color: ${p => p.$background ? p.$background : 'white'};
     padding: ${p => p.$height ? '0px 20px' : '11px 20px'}; 
