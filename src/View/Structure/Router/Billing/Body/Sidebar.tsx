@@ -71,7 +71,7 @@ const Sidebar = () => {
                 setErrorMessage(null);
             } else {
                 if(promoCode.length >= 5) {
-                    setErrorMessage('Expired or wrong promo code!');
+                    setErrorMessage('Expired or incorrect promo code!');
                 }
                 else{
                     setErrorMessage(null);
@@ -155,7 +155,8 @@ const Container = styled.div`
 
     > #errorMsg {
         font-size: 14px;
-        color: #E85555CC;
+        color: #EC7373;
+        font-family: DMSans-Medium;
     }
 
     > .item {

@@ -189,6 +189,7 @@
     "Transaction fees discount (-20%), payable in credits":"Réduction des frais de transaction (-20%), payable en crédits",
     "per month": "par mois",
     "Upcoming": "À Venir",
+    "*Possibility to add additional projects: up to 2 for the Standard Plan and 5 for the Premium Plan. See pricing conditions in our Terms of Use.":"*Possibilité d'ajouter des projets supplémentaires : jusqu'à 2 pour le Plan Standard et 5 pour le Plan Premium. Voir conditions tarifaires dans nos CGU.",
     "Start Free Trial": "Commencer l'essai gratuit",
     "Free Trial": "Essai Gratuit",
     "Benefit from a VIP network, full access to events, and management tools.":"Profitez d'un réseau VIP, d'un accès complet aux événements et d'outils de gestion.",
@@ -507,7 +508,7 @@
     "Buy Ticket":"Acheter un Billet",
     "Check Out":"Finaliser la Commande",
     "Sales end on ": "Les ventes se terminent le ",
-    "Expired or wrong promo code!": "Code promo expiré ou erroné!",
+    "Expired or incorrect promo code!": "Code promo expiré ou incorrect !",
 
 
 
