@@ -5,7 +5,8 @@ import Form from '../../../../Controller/Tools/Interface/Form';
 import Input from '../../../Components/Input';
 import Button from '../../../Components/Button';
 import Textarea from '../../../Components/Textarea';
-import { FaCheck } from 'react-icons/fa'; // Example with react-icons
+import axios from 'axios';
+
 
 /**
  * Contact form
@@ -78,36 +79,57 @@ const ContactForm = () => {
         });
     };
 
-    const handleSubmit = () => {
-
+    const handleSubmit = async () => {
         const errors = {
             firstName: formData.firstName === '',
             lastName: formData.lastName === '',
-            email: formData.email === '' ,
+            email: formData.email === '',
             message: formData.message === ''
         };
-
+    
         if (formData.email !== '') {
             errors.email = !validateEmail(formData.email);
         }
-
+    
         setFormErrors(errors);
-
+    
         const hasErrors = Object.values(errors).some(error => error);
-
+    
         if (!hasErrors) {
-            console.log('Formulaire soumis avec succès !', formData);
-            setIsSend(true);
+            try {
+                const response = await axios.post("https://digitalmorocco-dev.vercel.app/users/send-email", formData, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                });
+    
+                if (response.status === 200) {
+                    setIsSend(true);
+                    setFormData({
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        phone: '',
+                        message: ''
+                    });
+                } else {
+                    setIsSend(false);
+                    console.log("Error submitting form:", response);
+                }
+            } catch (error) {
+                setIsSend(false);
+                console.log("Error submitting form:", error);
+            }
         }
     };
-
     return (
         <Container onSubmit={handleSubmit} issend={isSend ? "true" : undefined}>
-            <Input onChange={handleChange} $hasError={formErrors.firstName} $size={18} $height={49} $fontFamily='DMSans-Medium' name='firstName' placeholder={lang('First name')} />
-            <Input onChange={handleChange} $hasError={formErrors.lastName} $size={18} $height={49} $fontFamily='DMSans-Medium' name='lastName' placeholder={lang('Last name')} />
-            <Input onChange={handleChange} $size={18} $height={49} $fontFamily='DMSans-Medium' name='phone' placeholder={lang('Your phone')} />
-            <Input onChange={handleChange} $hasError={formErrors.email} $size={18} $height={49} $fontFamily='DMSans-Medium' name='email' placeholder={lang('Your email')} />
-            <Textarea onChange={handleChange} $hasError={formErrors.message} $size={18} $fontFamily='DMSans-Medium' name='message' $disableResize $height={150} placeholder={lang('Your message')} />
+            <Input onChange={handleChange} value={formData.firstName} $hasError={formErrors.firstName} $size={18} $height={49} $fontFamily='DMSans-Medium' name='firstName' placeholder={lang('First name')} />
+            <Input onChange={handleChange} value={formData.lastName} $hasError={formErrors.lastName} $size={18} $height={49} $fontFamily='DMSans-Medium' name='lastName' placeholder={lang('Last name')} />
+            <Input onChange={handleChange} value={formData.phone} $size={18} $height={49} $fontFamily='DMSans-Medium' name='phone' placeholder={lang('Your phone')} />
+            <Input onChange={handleChange} value={formData.email} $hasError={formErrors.email} $size={18} $height={49} $fontFamily='DMSans-Medium' name='email' placeholder={lang('Your email')} />
+            <Textarea onChange={handleChange} value={formData.message} $hasError={formErrors.message} $size={18} $fontFamily='DMSans-Medium' name='message' $disableResize $height={150} placeholder={lang('Your message')} />
             <Button $size={18} $background='#2575F0' $isFill $color='white' $padding={[11,25]} $width={205} $height={60} >
                 {isSend ? <><Lang>Sent</Lang> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="icon-right">
