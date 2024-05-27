@@ -107,7 +107,7 @@ const Sidebar = () => {
                                 <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.75 7.5H1.25M11 1.5V4.5M5 1.5V4.5M4.85 16.5H11.15C12.4101 16.5 13.0402 16.5 13.5215 16.2548C13.9448 16.039 14.289 15.6948 14.5048 15.2715C14.75 14.7902 14.75 14.1601 14.75 12.9V6.6C14.75 5.33988 14.75 4.70982 14.5048 4.22852C14.289 3.80516 13.9448 3.46095 13.5215 3.24524C13.0402 3 12.4101 3 11.15 3H4.85C3.58988 3 2.95982 3 2.47852 3.24524C2.05516 3.46095 1.71095 3.80516 1.49524 4.22852C1.25 4.70982 1.25 5.33988 1.25 6.6V12.9C1.25 14.1601 1.25 14.7902 1.49524 15.2715C1.71095 15.6948 2.05516 16.039 2.47852 16.2548C2.95982 16.5 3.58988 16.5 4.85 16.5Z" stroke="#00CDAE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
-                                <p>{formatEventDate(response?.startDate , response?.endDate)}</p>
+                                <p><Lang>{formatEventDate(response?.startDate , response?.endDate)}</Lang></p>
                             </div>
                             <div className='label'>
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@ const Sidebar = () => {
                                 <b id="symbol">$</b>
                                 <b id="value">{response?.price.toFixed(2)}</b>
                             </div>
-                            <Button onClick={() => navigate(`/checkout/${response?._id}`)} $isFill $background='#25DAC5' $size={18} $height={50} $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
+                            <Button disabled onClick={() => navigate(`/checkout/${response?._id}`)} $isFill $background='#25DAC5' $size={18} $height={50} $color='white' $padding={[12, 30]}><Lang>Get Ticket</Lang></Button>
                         </div>
                         <div id="map">
                             <p><Lang>Location Map</Lang></p>
@@ -222,11 +222,14 @@ const Container = styled.div`
 
         > button {
             transition: 300ms;
+            background-color: #E5E5E6;
+            border-color: #E5E5E6;
+            color: #A7A6A8;
 
             &:hover {
-                background-color: #01A395;
-                border-color: #01A395;
-                color: white;
+                // background-color: #01A395;
+                // border-color: #01A395;
+                // color: white;
                 filter: none;
             }
         }

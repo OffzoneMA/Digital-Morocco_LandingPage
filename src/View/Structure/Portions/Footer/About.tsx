@@ -18,12 +18,12 @@ const About = () => {
                 <Logo type='full' width={170} />
             </section>
             <section>
-                <h4><Lang>Address</Lang></h4>
-                <p>493 Av. 2 Mars, Casablanca 20550, Morocco</p>
+                {/* <h4><Lang>Address</Lang></h4>
+                <p>493 Av. 2 Mars, Casablanca 20550, Morocco</p> */}
             </section>
             <section>
-                <h4><Lang>Try Digital Morocco for Free</Lang></h4>
-                <p><Lang>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</Lang></p>
+                <h4><Lang>Try Digital Morocco for free!</Lang></h4>
+                <p><Lang>Join the top 100 project leaders and enjoy 6 months of free access to our premier networking platform. Sign up now and connect with the best!</Lang></p>
                 <Button $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
             </section>
         </Container>
@@ -41,7 +41,10 @@ const Container = styled.div`
     border-top: var(--border-section);
     padding-block: 30px;
     display: grid;
-    grid-template-columns: auto 200px 1fr;
+    // grid-template-columns: auto 200px  1fr;
+
+    grid-template-columns: auto 50px  1fr;
+
     gap: 75px;
 
     > section {

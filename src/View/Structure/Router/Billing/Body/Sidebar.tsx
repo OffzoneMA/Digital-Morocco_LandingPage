@@ -87,9 +87,9 @@ const Sidebar = () => {
             <div className='item'>
                 <p>{checkoutInfo?.quantity || 1}x <Lang>Ticket</Lang></p>
                 {language === 'fr-FR' ?
-                <b>{(Number(checkoutInfo?.price) * Number(checkoutInfo?.quantity)).toFixed(2)} $</b>
+                <b>{(Number(checkoutInfo?.price || 0) * Number(checkoutInfo?.quantity || 1)).toFixed(2)} $</b>
                 :
-                <b>$ {(Number(checkoutInfo?.price) * Number(checkoutInfo?.quantity)).toFixed(2)}</b>
+                <b>$ {(Number(checkoutInfo?.price || 0) * Number(checkoutInfo?.quantity || 1)).toFixed(2)}</b>
                 }
             </div>
             <div className='item'>
@@ -104,9 +104,9 @@ const Sidebar = () => {
             <div className='item'>
                 <p><Lang>Sub Total</Lang></p>
                 {language === 'fr-FR' ?
-                <b>{checkoutInfo?.subTotal.toFixed(2)} $</b>
+                <b>{(checkoutInfo?.subTotal || 0).toFixed(2)} $</b>
                 :
-                <b>$ {checkoutInfo?.subTotal.toFixed(2)}</b>
+                <b>$ {(checkoutInfo?.subTotal || 0).toFixed(2)}</b>
                 }
             </div>
             <Input $height={49} $background='#FCFCFD' $hasError={errorMessage !==null} placeholder={lang('Enter Promo Code')}  onChange={(e)=> setPromoCode(e.target.value)}/>
@@ -115,9 +115,9 @@ const Sidebar = () => {
             <div id="total">
                 <p><Lang>Total</Lang></p>
                 {language === 'fr-FR' ?
-                <b>{checkoutInfo?.total.toFixed(2)} $</b>
+                <b>{(checkoutInfo?.total || 0).toFixed(2)} $</b>
                 :
-                <b>$ {checkoutInfo?.total.toFixed(2)}</b>
+                <b>$ {(checkoutInfo?.total || 0).toFixed(2)}</b>
                 }
             </div>
             <Button onClick={() => navigate('/thanks')} $isFill $background='#482BE7' $color='white' $padding={[12, 30]}><Lang>Proceed to Checkout</Lang></Button>

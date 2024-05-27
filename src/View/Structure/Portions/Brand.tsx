@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Input from '../../Components/Input';
 import { useLang , Lang } from '../../../Controller/Tools/Interface/Lang';
@@ -19,6 +19,15 @@ const Brand = () => {
      */
     const lang = useLang()
 
+    /**
+     * Subscribe
+     */
+    const [subscribe , setSubscribe] = useState(false);
+
+    const subscribeUser = () => {
+        setSubscribe(true);
+    }
+
     return (
         <Container>
             <div id="content">
@@ -27,7 +36,7 @@ const Brand = () => {
                     <p><Lang>Join us at Digital Morocco and embark on a transformative journey. Dive into our vibrant community, where innovation thrives, connections flourish, and growth knows no bounds.</Lang></p>
                     <div id='textBox'>
                     <Input $size={14} $height={42}  $fontFamily='DMSans-Regular' placeholder={lang('Enter your email to subscribe to our newsletter')} />
-                    <Button  $size={18} $background='#00CDAE' $hoverBackground='#01A395' $isFill $color='white' $padding={[9,26]}><Lang>Subscribe</Lang></Button>
+                    <Button  $size={18} $background='#00CDAE' $hoverBackground='#01A395' $isFill $color='white' $padding={[9,26]} onClick={subscribeUser}>{subscribe? <Lang>Subscribed</Lang> : <Lang>Subscribe</Lang>}</Button>
                     </div>
                 </div>
                 <div id="box">

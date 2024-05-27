@@ -47,9 +47,9 @@ const Router = () => {
                 <Route path='blog' element={<Blog />} />
                 <Route path='post/:id' element={<Post />} />
                 <Route path='event/:id' element={<Event />} />
-                <Route path='checkout/:id' element={<Checkout />} />
-                <Route path='billing' element={<Billing />} />
-                <Route path='thanks' element={<Thanks />} />
+                {/* <Route path='checkout/:id' element={<Checkout />} /> */}
+                {/* <Route path='billing' element={<Billing />} /> */}
+                {/* <Route path='thanks' element={<Thanks />} /> */}
                 <Route path='faq' element={<Faq />} />
                 <Route path='terms' element={<TermOfUse />} />
                 <Route path='privacy' element={<PrivacyPolicy />} />

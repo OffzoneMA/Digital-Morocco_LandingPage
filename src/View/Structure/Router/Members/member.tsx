@@ -17,7 +17,7 @@ const Member = ({ data }: { data: MemberInterface }) => {
                 <img src={data.logo} alt='' loading='lazy' />
             </div>
             <p id="name">{data.companyName}</p>
-            <p id="sector">Healthcare</p>
+            <p id="sector">{data?.companyType?.split(',')[0].trim() || 'Healthcare'}</p>
             <p id="desc">{data.desc}</p>
             <a id="website" href={data.website} target='_blank' rel="noreferrer">
                 <Lang>Visit Website</Lang>
