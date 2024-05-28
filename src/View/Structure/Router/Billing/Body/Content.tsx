@@ -178,7 +178,6 @@ const Container = styled.div`
 
         > label {
             > p {
-                text-transform: capitalize;
             }
         }
     }

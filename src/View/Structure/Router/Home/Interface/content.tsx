@@ -60,8 +60,8 @@ const Container = styled.div`
         padding: 17px 35px;
 
         &:hover {
-            background-color: ##235DBD;
-            border-color: ##235DBD;
+            background-color: #235DBD;
+            border-color: #235DBD;
             filter: none;
         }
     }

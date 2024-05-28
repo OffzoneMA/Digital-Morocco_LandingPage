@@ -23,7 +23,7 @@ const About = () => {
             </section>
             <section>
                 <h4><Lang>Try Digital Morocco for free!</Lang></h4>
-                <p><Lang>Join the top 100 project leaders and enjoy 6 months of free access to our premier networking platform. Sign up now and connect with the best!</Lang></p>
+                <p><Lang>Join the top 200 project leaders and enjoy 12 months of free access to our premier networking platform. Sign up now and connect with the best!</Lang></p>
                 <Button $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
             </section>
         </Container>
