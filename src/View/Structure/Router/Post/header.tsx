@@ -105,6 +105,7 @@ const Container = styled.div`
     
     > img {
         width: auto;
+        min-width: 80%;
         height: 100%;
         scale: 1.1;
         position: absolute;

@@ -37,7 +37,7 @@ const WelcomePopup = (props: any) => (
         Try Digital Morocco for free!
         </p>
         <p id='text'>
-        Join the top <span id='leader'>200 project leaders</span> and enjoy <span id='link'>12 months of free access</span> to our premier networking platform. 
+        Join the top <span id='leader'>200 project leaders</span> and enjoy <span id='link'>12 months of free access</span> to our top-tier networking platform. 
         <br/>
         Sign up now and connect with the best!
         </p>
