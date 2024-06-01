@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '../../../../Components/Button'
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang'
+import { useNavigate } from 'react-router-dom'
 
 /**
  * Content
@@ -10,11 +11,18 @@ import { Lang } from '../../../../../Controller/Tools/Interface/Lang'
  */
 const Content = () => {
 
+    /**
+     * Navigate
+     * 
+     */
+    const navigate = useNavigate()
+
     return (
         <Container>
             <h1 className='animation'><Lang>Grow your business through networking and digital solutions!</Lang></h1>
             <p className='animation'><Lang>Expand your professional network, gain access to exclusive resources, and connect with individuals and organizations committed to advancing the digital landscape in Morocco.</Lang></p>
-            <Button className='animation' $background='var(--color-blue)' $hoverBackground='#235DBD' $padding={[13, 32]} $isFill><Lang>Get Started Now</Lang></Button>
+            <Button className='animation' $background='var(--color-blue)' $hoverBackground='#235DBD' $padding={[13, 32]} $isFill 
+            onClick={() => navigate('/pricing')}><Lang>Get Started Now</Lang></Button>
         </Container>
     )
 }
@@ -74,9 +82,31 @@ const Container = styled.div`
         left: 0;
         right: 0;
         margin-inline: 20px;
+        // margin-top: 20px;
 
         > h1 {
-            font-size: 40px;
+            font-size: 37px;
+        }
+
+    }
+
+    @media (max-width: 368px) {
+        margin-inline: auto;
+        justify-items: center;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-inline: 20px;
+        margin-top: 30px;
+
+        > h1 {
+            font-size: 31px;
+        }
+        > button {
+            transition: 300ms;
+            border: none;
+            font-size: 18px;
+            padding: 17px 25px;
         }
     }
 `;

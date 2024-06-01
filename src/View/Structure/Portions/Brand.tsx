@@ -24,9 +24,34 @@ const Brand = () => {
      */
     const [subscribe , setSubscribe] = useState(false);
 
-    const subscribeUser = () => {
-        setSubscribe(true);
-    }
+    /**
+     * User Email
+     */
+    const [email , setEmail ] = useState('');
+
+    const subscribeUser = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_baseURL}newsletter/subscribe`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email }) 
+            });
+    
+            if (response.ok) {
+                setSubscribe(true);
+                setEmail('');
+                setTimeout(() => {
+                    setSubscribe(false);
+                }, 5000); 
+            } else {
+                console.log('Error subscribe user.');
+            }
+        } catch (error) {
+            console.log('Error subscribe user :', error);
+        }
+    };
 
     return (
         <Container>
@@ -35,8 +60,8 @@ const Brand = () => {
                     <h3><Lang>Ready to unlock a world of endless possibilities?</Lang></h3>
                     <p><Lang>Join us at Digital Morocco and embark on a transformative journey. Dive into our vibrant community, where innovation thrives, connections flourish, and growth knows no bounds.</Lang></p>
                     <div id='textBox'>
-                    <Input $size={14} $height={42}  $fontFamily='DMSans-Regular' placeholder={lang('Enter your email to subscribe to our newsletter')} />
-                    <Button  $size={18} $background='#00CDAE' $hoverBackground='#01A395' $isFill $color='white' $padding={[9,26]} onClick={subscribeUser}>{subscribe? <Lang>Subscribed</Lang> : <Lang>Subscribe</Lang>}</Button>
+                        <Input value={email} type='email' onChange={(e) => setEmail(e.target.value)} $size={14} $height={42} $fontFamily='DMSans-Regular' placeholder={lang('Enter your email to subscribe to our newsletter')} />
+                        <Button $size={18} $background='#00CDAE' $hoverBackground='#01A395' $isFill $color='white' $padding={[9,26]} onClick={subscribeUser}>{subscribe ? <Lang>Subscribed</Lang> : <Lang>Subscribe</Lang>}</Button>
                     </div>
                 </div>
                 <div id="box">
@@ -83,7 +108,13 @@ const Container = styled.div`
 
                 // Media
                 @media (max-width: 900px) {
+                    font-size: 24px;
+                    line-height: 34px;
+                }
+
+                @media (max-width: 600px) {
                     font-size: 20px;
+                    line-height: 30px;
                 }
             }
 
@@ -97,7 +128,13 @@ const Container = styled.div`
 
                 // Media
                 @media (max-width: 900px) {
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+
+                @media (max-width: 600px) {
                     font-size: 16px;
+                    line-height: 26px;
                 }
             }
 
@@ -105,14 +142,43 @@ const Container = styled.div`
                 display: flex;
                 flex-direction: row;
                 gap: 30px;
+                width: 100%;
                 margin-top: 25px;
 
                 >input {
-                    min-width :304px;
-                    field-sizing: content;
-                    color: #1E0E62;
+                    min-width: 304px;
+                    // field-sizing: content;
+                    color: #1E0E62 !important;
+
+                    // Media
+                    @media (max-width: 600px) {
+                        min-width: auto;
+                        max-width: calc(100% - 170px);
+                    }
+                }
+
+                > button {
+                    // Media
+                    @media (max-width: 600px) {
+                        padding: 8px 16px;
+                        font-size: 16px;
+                    }
+                }
+
+                // Media
+                @media (max-width: 900px) {
+                    min-width: auto;
+                    max-width: 100%;
                 }
             }
+
+            // Media
+            @media (max-width: 900px) {
+                min-width: auto;
+                width: 100%;
+                gap: 10px;
+            }
+
         }
 
         > #box {
@@ -127,8 +193,8 @@ const Container = styled.div`
             justify-content: center;
             font-family: DMSans-Medium;
             text-align: center;
-            width :auto;
-            max-heigth : 240px;
+            width: auto;
+            max-height: 240px;
             padding: 35px 40px;
 
             // Media
@@ -140,7 +206,14 @@ const Container = styled.div`
 
             // Media
             @media (max-width: 900px) {
+                font-size: 18px;
+                line-height: 28px;
+            }
+
+            // Media
+            @media (max-width: 600px) {
                 font-size: 16px;
+                line-height: 26px;
             }
         }
 
@@ -155,5 +228,15 @@ const Container = styled.div`
     // Media
     @media (max-width: 1050px) {
         background-size: auto 100%;
+    }
+
+    // Media
+    @media (max-width: 900px) {
+        > #content {
+            > #text {
+                width: auto;
+                max-width: 100%;
+            }
+        }
     }
 `;

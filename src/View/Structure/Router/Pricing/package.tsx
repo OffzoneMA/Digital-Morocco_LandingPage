@@ -19,6 +19,12 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
     // isStartup?: boolean
 } & React.HTMLAttributes<HTMLDivElement>) => {
 
+    const handleButtonClick = () => {
+        if (btnText === 'Start') {
+            window.open('https://app.dimorocco.net/SignUp', '_blank');
+        }
+    }
+
     return (
         <Container {...restProps} $recommended={recommended} $mask={mask}>
             <div id="data">
@@ -55,7 +61,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
                 }
             </div>
             <Button
-            onClick={()=> console.log('btn click')}
+            onClick={handleButtonClick}
                 $size={18}
                 $background={recommended ? 'var(--color-green)' : '#EBEAED'}
                 $color={recommended ? 'white' : undefined}

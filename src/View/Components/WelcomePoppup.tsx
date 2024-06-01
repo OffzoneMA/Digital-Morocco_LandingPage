@@ -56,6 +56,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 24px;
+
+  > img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
   
   > button {
     transition: 300ms;
@@ -99,11 +105,13 @@ const Container = styled.div`
 
     > #text {
       margin: 0;
+      width: auto;
       color: #1D2939;
       text-align: center;
       font-family: DMSans-Regular;
       font-size: 14px;
       line-height: 26px; 
+      padding-inline: 10px;
 
       > #leader{
         color: #1D2939;
@@ -117,6 +125,55 @@ const Container = styled.div`
 
     }
   }
+
+  // Media
+  @media (max-width: 368px) {
+    margin-inline: auto;
+        justify-items: center;
+        text-align: center;
+        left: 0;
+        right: 0;   
+
+        > img {
+          max-width: 250px;
+          height: auto;
+        }
+
+        > #content {
+          > #title {
+            padding-inline: 20px;
+            font-size: 20px;
+          }
+        }
+}
+    @media (max-width: 740px) {
+        margin-inline: auto;
+        justify-items: center;
+        text-align: center;
+        left: 0;
+        right: 0;
+
+        > button {
+          font-size: 18px;
+          height: 50px;
+          padding: 9px 13px;
+          width: 277px;
+        }      
+
+        > img {
+          max-width: 250px;
+          height: auto;
+        }
+
+        > #content {
+          > #title {
+            text-align: center;
+            padding-inline: 20px;
+            font-size: 25px;
+          }
+        }
+
+    }
 `;
 
 const CloseButton = styled.div`

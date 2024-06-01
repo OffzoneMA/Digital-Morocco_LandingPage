@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Logo from '../../../Components/Logo'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import Button from '../../../Components/Button'
+import { useNavigate } from 'react-router-dom'
 
 
 /**
@@ -11,6 +12,12 @@ import Button from '../../../Components/Button'
  * @returns 
  */
 const About = () => {
+
+    /**
+     * Navigate
+     * 
+     */
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -24,7 +31,7 @@ const About = () => {
             <section>
                 <h4><Lang>Try Digital Morocco for free!</Lang></h4>
                 <p><Lang>Join the first 200 project leaders and enjoy 12 months of free access to our top-tier networking platform. Sign up now and connect with the best!</Lang></p>
-                <Button $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
+                <Button onClick={() => navigate('/pricing')} $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
             </section>
         </Container>
     )

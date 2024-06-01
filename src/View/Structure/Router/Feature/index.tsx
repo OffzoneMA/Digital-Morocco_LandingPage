@@ -35,7 +35,7 @@ const Feature = () => {
             <PageHeader><PageTitle slug={lang('Unleashing Growth and Innovation')} title={lang('Unlocking Opportunities through Networking')} /></PageHeader>
             <Section1 />
             <Section2 />
-            <Discover />
+            {/* <Discover /> */}
             <Brand />
         </Container>
     )

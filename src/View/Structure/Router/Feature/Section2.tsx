@@ -106,7 +106,9 @@ const Container = styled.div`
 
         // Media
         @media (max-width: 900px) {
-            display: grid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 `;

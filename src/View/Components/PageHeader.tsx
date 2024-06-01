@@ -50,7 +50,8 @@ const Container = styled.div<{ $scrolled?: string }>`
         margin-top: 20px;
         top: 0;
         left: 0;
-        width: 500px;
+        width: 100%;
+        max-width: 500px;
         height: 100%;
         background-image: url(${Ornament});
         background-repeat: no-repeat;

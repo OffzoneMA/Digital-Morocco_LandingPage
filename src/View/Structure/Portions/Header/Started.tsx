@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import Button from '../../../Components/Button'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import { HeaderType, useHeader } from './headers'
+import { useNavigate } from 'react-router-dom'
 
 /**
  * Started
@@ -17,10 +18,20 @@ const Started = () => {
      */
     const header = useHeader()
 
+    /**
+     * Navigate
+     * 
+     */
+    const navigate = useNavigate()
+
+    const handleButtonClick = () => {
+        window.open('https://app.dimorocco.net/', '_blank');
+    }
+
     return (
         <Container className='animation' $name={header.name}>
-            <Button $background={header.stroke} $color={header.color} style={{ borderColor: header.signStrok }}><Lang>Sign in</Lang></Button>
-            <Button $background='var(--color-green)' $color='var(--color-dark)' $isFill><Lang>Get Started</Lang></Button>
+            <Button onClick={handleButtonClick} $background={header.stroke} $color={header.color} style={{ borderColor: header.signStrok }}><Lang>Sign in</Lang></Button>
+            <Button $background='var(--color-green)' $color='var(--color-dark)' $isFill onClick={() => navigate('/pricing')}><Lang>Get Started</Lang></Button>
         </Container>
     )
 }

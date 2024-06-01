@@ -79,5 +79,13 @@ const Container = styled.div`
             gap: 30px;
         }
     }
+
+    // Media
+        @media (max-width: 900px) {
+            > p {
+                width: auto;
+                min-width: auto;
+            }
+        }
     
 `;
