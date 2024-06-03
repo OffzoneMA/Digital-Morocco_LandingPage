@@ -14,7 +14,7 @@ const ScrollToTop = ({ children }: ScrollToTopProps) => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     });
-  }, [thisRoute]);
+  }, [location.pathname]);
   
 
   return <>{children}</>;
