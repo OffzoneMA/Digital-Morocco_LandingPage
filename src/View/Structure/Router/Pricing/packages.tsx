@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Package from './package'
 import { Lang, useLang } from '../../../../Controller/Tools/Interface/Lang'
 import Button from '../../../Components/Button'
+import WelcomePopup from '../../../Components/WelcomePoppup'
 
 
 /**
@@ -11,6 +12,11 @@ import Button from '../../../Components/Button'
  * @returns 
  */
 const Packages = () => {
+
+    /**
+     * Popup
+     */
+    const [showPopup, setShowPopup] = useState(false);
 
     /**
      * Lang
@@ -33,6 +39,46 @@ const Packages = () => {
         setShowStartupDiv(false);
         setShowInvestorDiv(true);
     };
+
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+            sessionStorage.setItem('userInitiatedReload', 'true');
+        };
+      
+        window.addEventListener('beforeunload', handleBeforeUnload);
+      
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+      }, []);
+      
+      useEffect(() => {
+        const hasVisited = localStorage.getItem('hasVisitedPricingPage');
+        const sessionVisit = sessionStorage.getItem('hasVisitedPricingDuringSession');
+        const userInitiatedReload = sessionStorage.getItem('userInitiatedReload') === 'true';
+      
+        const navigationEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+        const isReload = navigationEntries.length > 0 && navigationEntries[0].type === 'reload';
+      
+        if (!hasVisited) {
+            // First visit ever
+            localStorage.setItem('hasVisitedPricingPage', 'true');
+            setShowPopup(true);
+        } else if (isReload && userInitiatedReload) {
+            // Page reload initiated by the user
+            setShowPopup(true);
+        } else if (!sessionVisit) {
+            // First visit in the current session
+            setShowPopup(true);
+        }
+      
+        sessionStorage.setItem('hasVisitedPricingDuringSession', 'true');
+        sessionStorage.removeItem('userInitiatedReload');
+      }, []);
+      
+          const handleClosePopup = () => {
+            setShowPopup(false);
+          };
 
     return (
         <Container>
@@ -130,6 +176,11 @@ const Packages = () => {
             />
             </div>
             <p id='startUpText'><Lang>*Possibility to add additional projects: up to 2 for the Standard Plan and 5 for the Premium Plan. See pricing conditions in our Terms of Use.</Lang></p>
+
+            <WelcomePopup
+            isOpen={showPopup}
+              onRequestClose={handleClosePopup}
+            />
             </>
             }
             {showInvestorDiv && 
@@ -197,6 +248,13 @@ const Container = styled.div`
         padding-bottom: 50px;
         aling-items: center;
 
+        // Media
+        @media (max-width: 468px) {
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+        }
+
         > button {
             transition: 300ms;
 
@@ -210,7 +268,7 @@ const Container = styled.div`
     
     > #items {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 35px;
     }
 

@@ -105,7 +105,7 @@ const Container = styled.div`
     }
 
     // Media
-    @media (max-width: 900px) {
+    @media (max-width: 40em) {
         grid-template-columns: 1fr;
         gap: 30px;
         padding-block: 25px;

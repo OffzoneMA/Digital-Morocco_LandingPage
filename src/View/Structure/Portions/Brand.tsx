@@ -28,8 +28,33 @@ const Brand = () => {
      * User Email
      */
     const [email , setEmail ] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [hasemailError, setHasEmailError] = useState(false);
+
+    const validateEmail = (email: string) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email.toLowerCase());
+    }
+
+    const onchangeEmail = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const value  = e.target.value;
+        setEmail(value);
+        if (value === '') {
+            setHasEmailError(true);
+            return;
+        }
+        setHasEmailError(false);
+
+    }
 
     const subscribeUser = async () => {
+
+        if (!validateEmail(email)) {
+            setEmailError(lang('Please enter a valid email address'));
+            setHasEmailError(true);
+            return;
+        }
+
         try {
             const response = await fetch(`${process.env.REACT_APP_baseURL}newsletter/subscribe`, {
                 method: 'POST',
@@ -41,7 +66,9 @@ const Brand = () => {
     
             if (response.ok) {
                 setSubscribe(true);
+                setHasEmailError(false);
                 setEmail('');
+                setEmailError('');
                 setTimeout(() => {
                     setSubscribe(false);
                 }, 5000); 
@@ -60,7 +87,7 @@ const Brand = () => {
                     <h3><Lang>Ready to unlock a world of endless possibilities?</Lang></h3>
                     <p><Lang>Join us at Digital Morocco and embark on a transformative journey. Dive into our vibrant community, where innovation thrives, connections flourish, and growth knows no bounds.</Lang></p>
                     <div id='textBox'>
-                        <Input value={email} type='email' onChange={(e) => setEmail(e.target.value)} $size={14} $height={42} $fontFamily='DMSans-Regular' placeholder={lang('Enter your email to subscribe to our newsletter')} />
+                        <Input $hasError={hasemailError} value={email} onChange={(e) => onchangeEmail(e)} $size={14} $height={42} $fontFamily='DMSans-Regular' placeholder={lang('Enter your email to subscribe to our newsletter')} />
                         <Button $size={18} $background='#00CDAE' $hoverBackground='#01A395' $isFill $color='white' $padding={[9,26]} onClick={subscribeUser}>{subscribe ? <Lang>Subscribed</Lang> : <Lang>Subscribe</Lang>}</Button>
                     </div>
                 </div>
@@ -85,7 +112,6 @@ const Container = styled.div`
     background-size: cover;
     background-position: center center;
     height: auto;
-    color: white;
     display: flex;
 
     > #content {
@@ -98,12 +124,12 @@ const Container = styled.div`
 
         > #text {
             min-width: 592px;
-
             > h3 {
                 font-size: 32px;
                 font-weight: 700;
                 line-height: 46px;
                 margin: 0;
+                color: white;
                 font-family: DMSans-Bold;
 
                 // Media
@@ -123,6 +149,7 @@ const Container = styled.div`
                 font-weight: 500;
                 line-height: 34px;
                 margin: 0;
+                color: white;
                 margin-top: 15px;
                 font-family: DMSans-Medium;
 
@@ -145,15 +172,17 @@ const Container = styled.div`
                 width: 100%;
                 margin-top: 25px;
 
+                @media (max-width: 40em) {
+                    flex-direction: column;
+                }
+
                 >input {
-                    min-width: 304px;
-                    // field-sizing: content;
-                    color: #1E0E62 !important;
+                    // min-width: 304px;
 
                     // Media
-                    @media (max-width: 600px) {
-                        min-width: auto;
-                        max-width: calc(100% - 170px);
+                    @media (min-width: 40em) {
+                        field-sizing: content;
+                        min-width: 304px;
                     }
                 }
 

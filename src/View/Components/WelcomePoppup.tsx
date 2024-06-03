@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // @ts-ignore
 import welcomeImg from '../Media/Images/welcomeImg.svg';
 import Button from './Button';
+import { useNavigate  , useLocation} from 'react-router-dom';
 
 const StyledPopup = styled(Popup)`
   &-overlay {
@@ -17,7 +18,25 @@ const StyledPopup = styled(Popup)`
   }
 `;
 
-const WelcomePopup = (props: any) => (
+const WelcomePopup = (props: any) => {
+  /**
+     * Navigate
+     * 
+     */
+  const navigate = useNavigate()
+
+  const location = useLocation();
+
+    const handleClick = () => {
+        props?.onRequestClose();
+        if (location.pathname === '/pricing') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            navigate('/pricing');
+        }
+    };
+
+  return (
   <StyledPopup
     open={props?.isOpen}
     modal
@@ -42,10 +61,11 @@ const WelcomePopup = (props: any) => (
         Sign up now and connect with the best!
         </p>
       </div>
-      <Button className='animation' $background='#2575F0' $isFill>Get Started Now</Button>
+      <Button className='animation' $background='#2575F0' $isFill onClick={handleClick}>Get Started Now</Button>
     </Container>
   </StyledPopup>
-);
+  )
+};
 
 export default WelcomePopup;
 
@@ -155,13 +175,10 @@ const Container = styled.div`
 
         > button {
           font-size: 18px;
-          height: 50px;
-          padding: 9px 13px;
-          width: 277px;
         }      
 
         > img {
-          max-width: 250px;
+          max-width:  300px;
           height: auto;
         }
 
@@ -169,7 +186,7 @@ const Container = styled.div`
           > #title {
             text-align: center;
             padding-inline: 20px;
-            font-size: 25px;
+            font-size: 28px;
           }
         }
 

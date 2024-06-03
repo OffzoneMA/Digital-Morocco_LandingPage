@@ -112,14 +112,14 @@ const Container = styled.div`
             }
 
             // Media
-            @media (max-width: 900px) {
+            @media (max-width: 1050px) {
                 grid-template-columns: 1fr;
                 gap: 30px;
 
                 > img {
                     grid-row: 1;
-                    width: 100%;
-                    height: auto;
+                    // width: auto;
+                    // height: auto;
                 }
             }
         }

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import Button from '../../../Components/Button'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import { HeaderType, useHeader } from './headers'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , useLocation} from 'react-router-dom'
 
 /**
  * Started
@@ -24,6 +24,16 @@ const Started = () => {
      */
     const navigate = useNavigate()
 
+    const location = useLocation();
+
+    const handleClick = () => {
+        if (location.pathname === '/pricing') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            navigate('/pricing');
+        }
+    };
+
     const handleButtonClick = () => {
         window.open('https://app.dimorocco.net/', '_blank');
     }
@@ -31,7 +41,7 @@ const Started = () => {
     return (
         <Container className='animation' $name={header.name}>
             <Button onClick={handleButtonClick} $background={header.stroke} $color={header.color} style={{ borderColor: header.signStrok }}><Lang>Sign in</Lang></Button>
-            <Button $background='var(--color-green)' $color='var(--color-dark)' $isFill onClick={() => navigate('/pricing')}><Lang>Get Started</Lang></Button>
+            <Button $background='var(--color-green)' $color='var(--color-dark)' $isFill onClick={handleClick}><Lang>Get Started</Lang></Button>
         </Container>
     )
 }

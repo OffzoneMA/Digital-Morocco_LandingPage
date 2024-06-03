@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Logo from '../../../Components/Logo'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import Button from '../../../Components/Button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , useLocation } from 'react-router-dom'
 
 
 /**
@@ -19,6 +19,17 @@ const About = () => {
      */
     const navigate = useNavigate()
 
+    const location = useLocation();
+
+    const handleClick = () => {
+        if (location.pathname === '/pricing') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            navigate('/pricing');
+        }
+    };
+
+
     return (
         <Container>
             <section>
@@ -31,7 +42,7 @@ const About = () => {
             <section>
                 <h4><Lang>Try Digital Morocco for free!</Lang></h4>
                 <p><Lang>Join the first 200 project leaders and enjoy 12 months of free access to our top-tier networking platform. Sign up now and connect with the best!</Lang></p>
-                <Button onClick={() => navigate('/pricing')} $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
+                <Button onClick={handleClick} $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
             </section>
         </Container>
     )

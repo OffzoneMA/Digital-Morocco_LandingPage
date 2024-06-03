@@ -135,6 +135,14 @@ const Container = styled.div`
             gap: 10px;
             border-bottom: 1px solid rgb(16 24 40 / 10%);
             padding-bottom: 10px;
+
+            @media (max-width: 768px) {
+                // grid-template-columns: 1fr 1fr;
+                display: flex;
+                flex-flow: row wrap;
+                gap: 10px;
+                width: 100%;
+            }
         }
 
         > #used {

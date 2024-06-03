@@ -35,7 +35,7 @@ const Container = styled.div`
     gap: 80px;
 
     // Media
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
 `;

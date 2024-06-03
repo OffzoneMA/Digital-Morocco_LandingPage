@@ -32,48 +32,7 @@ const Home = () => {
      * Popup
      */
 
-  //   useEffect(() => {
-  //     const hasVisited = localStorage.getItem('hasVisitedHomePage');
-  //     const sessionVisit = sessionStorage.getItem('hasVisitedDuringSession');
 
-  //     if (!hasVisited) {
-  //         localStorage.setItem('hasVisitedHomePage', 'true');
-  //         setShowPopup(true);
-  //     } else if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-  //         setShowPopup(true);
-  //     } else if (!sessionVisit) {
-  //         setShowPopup(false);
-  //     }
-
-  //     sessionStorage.setItem('hasVisitedDuringSession', 'true');
-  // }, []);
-
-//   useEffect(() => {
-//     const hasVisited = localStorage.getItem('hasVisitedHomePage');
-//     const sessionVisit = sessionStorage.getItem('hasVisitedDuringSession');
-
-//     // Check if the page is being reloaded
-//     const navigationEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
-//     const isReload = navigationEntries.length > 0 && navigationEntries[0].type === 'reload';
-
-//     if (!hasVisited) {
-//         // First visit ever
-//         localStorage.setItem('hasVisitedHomePage', 'true');
-//         setShowPopup(true);
-//     } else if (isReload) {
-//         console.log('paga reload')
-//         setShowPopup(true);
-//     } else if (!sessionVisit) {
-//         // First visit in the current session
-//         setShowPopup(true);
-//     }else {
-//       setShowPopup(false);
-//     }
-
-//     // Mark that the home page has been visited during this session
-//     sessionStorage.setItem('hasVisitedDuringSession', 'true');
-// }, []);
-  
 useEffect(() => {
   const handleBeforeUnload = () => {
       sessionStorage.setItem('userInitiatedReload', 'true');

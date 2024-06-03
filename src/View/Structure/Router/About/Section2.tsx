@@ -74,14 +74,14 @@ const Container = styled.div`
 
 
         // Media
-        @media (max-width: 900px) {
+        @media (max-width: 1050px) {
             grid-template-columns: 1fr;
             gap: 30px;
         }
     }
 
     // Media
-        @media (max-width: 900px) {
+        @media (max-width: 1050px) {
             > p {
                 width: auto;
                 min-width: auto;
