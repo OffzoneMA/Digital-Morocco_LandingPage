@@ -78,29 +78,26 @@ const Container = styled.div`
     @media (max-width: 740px) {
         margin-inline: auto;
         justify-items: center;
-        text-align: center;
         left: 0;
         right: 0;
         margin-inline: 20px;
         // margin-top: 20px;
 
         > h1 {
-            font-size: 37px;
+            font-size: 45px;
         }
 
     }
 
-    @media (max-width: 368px) {
+    @media (max-width: 380px) {
         margin-inline: auto;
-        justify-items: center;
-        text-align: center;
         left: 0;
         right: 0;
         margin-inline: 20px;
         margin-top: 30px;
 
         > h1 {
-            font-size: 31px;
+            font-size: 35px;
         }
         > button {
             transition: 300ms;

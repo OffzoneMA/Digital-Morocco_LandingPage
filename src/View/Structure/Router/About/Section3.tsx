@@ -118,8 +118,14 @@ const Container = styled.div`
 
                 > img {
                     grid-row: 1;
-                    // width: auto;
-                    // height: auto;
+                }
+            }
+
+            @media (max-width: 480px) {
+
+                > img {
+                    width: 100%;
+                    height: auto;
                 }
             }
         }

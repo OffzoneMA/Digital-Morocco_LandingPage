@@ -11,7 +11,7 @@ import Member from './member'
  * API_URL
  * 
  */
-const API_URL = 'https://digitalmorocco-dev.vercel.app/members';
+const API_URL = `${process.env.REACT_APP_baseURL}members`;
 
 /**
  * Record
@@ -153,6 +153,20 @@ const Container = styled.div`
             justify-content: space-between;
             border-bottom: 1px solid rgb(16 24 40 / 10%);
             border-top: 1px solid rgb(16 24 40 / 10%);
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                padding-bottom: 10px;
+                gap: 10px;
+
+                > p{
+                    display: none;
+                }
+
+                > #clear{
+                    max-width: 140px;
+                }
+            }
 
             >p {
                 font-family: DMSans-Medium;

@@ -23,7 +23,7 @@ const Record = () => {
      * Url
      * 
      */
-    const url = `https://digitalmorocco-dev.vercel.app/partners/?page=${page}`
+    const url = `${process.env.REACT_APP_baseURL}partners/?page=${page}`
 
     return (
         <Container>

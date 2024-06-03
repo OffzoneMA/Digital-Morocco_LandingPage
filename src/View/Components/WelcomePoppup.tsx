@@ -162,7 +162,7 @@ const Container = styled.div`
         > #content {
           > #title {
             padding-inline: 20px;
-            font-size: 20px;
+            font-size: 23px;
           }
         }
 }
