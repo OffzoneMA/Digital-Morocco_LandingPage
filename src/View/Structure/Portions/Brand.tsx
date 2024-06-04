@@ -5,6 +5,7 @@ import { useLang , Lang } from '../../../Controller/Tools/Interface/Lang';
 // @ts-ignore
 import Background from '../../Media/Images/background.png';
 import Button from '../../Components/Button';
+import { language } from '../../Language';
 
 /**
  * Brand
@@ -81,7 +82,7 @@ const Brand = () => {
     };
 
     return (
-        <Container>
+        <Container lang={language}>
             <div id="content">
                 <div id="text">
                     <h3><Lang>Ready to unlock a world of endless possibilities?</Lang></h3>
@@ -106,7 +107,7 @@ export default Brand
  * Container
  * 
  */
-const Container = styled.div`
+const Container = styled.div<{lang?: string}>`
     background-image: url(${Background});
     background-repeat: no-repeat;
     background-size: cover;
@@ -172,17 +173,17 @@ const Container = styled.div`
                 width: 100%;
                 margin-top: 25px;
 
-                @media (max-width: 40em) {
+                @media (max-width: 640px) {
                     flex-direction: column;
                 }
 
                 >input {
-                    // min-width: 304px;
 
                     // Media
-                    @media (min-width: 40em) {
-                        field-sizing: content;
-                        min-width: 304px;
+                    @media (min-width: 640px) {
+                        // field-sizing: content;
+                        min-width: ${props => props.lang === 'fr-FR' ? '370px' : '304px'};
+                        width: auto;
                     }
                 }
 

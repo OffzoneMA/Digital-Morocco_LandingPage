@@ -4,6 +4,7 @@ import Package from './package'
 import { Lang, useLang } from '../../../../Controller/Tools/Interface/Lang'
 import Button from '../../../Components/Button'
 import WelcomePopup from '../../../Components/WelcomePoppup'
+import { useLocation } from 'react-router-dom'
 
 
 /**
@@ -23,6 +24,11 @@ const Packages = () => {
      * 
      */
     const lang = useLang()
+
+    /**
+     * Location
+     */
+    const location = useLocation();
 
     /**
      * Button click
@@ -53,32 +59,36 @@ const Packages = () => {
       }, []);
       
       useEffect(() => {
-        const hasVisited = localStorage.getItem('hasVisitedPricingPage');
+        const { state } = location;
+        const popupShown = state?.popupShown ?? false;
+
+        const hasVisited = sessionStorage.getItem('hasVisitedPricingPage');
         const sessionVisit = sessionStorage.getItem('hasVisitedPricingDuringSession');
         const userInitiatedReload = sessionStorage.getItem('userInitiatedReload') === 'true';
       
         const navigationEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
         const isReload = navigationEntries.length > 0 && navigationEntries[0].type === 'reload';
-      
-        if (!hasVisited) {
+        console.log(!hasVisited && location.state?.popupShown)
+
+        if (!hasVisited && !popupShown) {
             // First visit ever
-            localStorage.setItem('hasVisitedPricingPage', 'true');
+            sessionStorage.setItem('hasVisitedPricingPage', 'true');
             setShowPopup(true);
         } else if (isReload && userInitiatedReload) {
             // Page reload initiated by the user
             setShowPopup(true);
-        } else if (!sessionVisit) {
+        } else if (!sessionVisit && !popupShown) {
             // First visit in the current session
             setShowPopup(true);
         }
       
         sessionStorage.setItem('hasVisitedPricingDuringSession', 'true');
         sessionStorage.removeItem('userInitiatedReload');
-      }, []);
+      }, [location]);
       
-          const handleClosePopup = () => {
-            setShowPopup(false);
-          };
+    const handleClosePopup = () => {
+    setShowPopup(false);
+    };
 
     return (
         <Container>

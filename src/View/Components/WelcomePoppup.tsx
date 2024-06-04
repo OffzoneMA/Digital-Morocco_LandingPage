@@ -32,7 +32,7 @@ const WelcomePopup = (props: any) => {
         if (location.pathname === '/pricing') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-            navigate('/pricing');
+            navigate('/pricing' , { state: { popupShown: true }});
         }
     };
 

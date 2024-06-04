@@ -46,7 +46,7 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  const hasVisited = localStorage.getItem('hasVisitedHomePage');
+  const hasVisited = sessionStorage.getItem('hasVisitedHomePage');
   const sessionVisit = sessionStorage.getItem('hasVisitedDuringSession');
   const userInitiatedReload = sessionStorage.getItem('userInitiatedReload') === 'true';
 
@@ -55,7 +55,7 @@ useEffect(() => {
 
   if (!hasVisited) {
       // First visit ever
-      localStorage.setItem('hasVisitedHomePage', 'true');
+      sessionStorage.setItem('hasVisitedHomePage', 'true');
       setShowPopup(true);
   } else if (isReload && userInitiatedReload) {
       // Page reload initiated by the user
