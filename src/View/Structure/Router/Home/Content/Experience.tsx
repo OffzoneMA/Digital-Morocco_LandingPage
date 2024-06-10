@@ -74,6 +74,23 @@ const Container = styled.div`
             line-height: 52px;
             letter-spacing: -0.4px;
             margin: 0;
+
+            // Media
+            @media (max-width: 1200px) {
+                font-size: 36px;
+                line-height: 46px;
+            }
+
+            @media (max-width: 900px) {
+                font-size: 30px;
+                line-height: 40px;
+                text-align: center;
+            }
+
+            @media (max-width: 600px) {
+                font-size: 24px;
+                line-height: 34px;
+            }
         }
 
         > p {
@@ -82,6 +99,18 @@ const Container = styled.div`
             line-height: 28px;
             max-width: 700px;
             filter: opacity(0.7);
+            margin-top: 20px;
+
+            @media (max-width: 900px) {
+                font-size: 16px;
+                line-height: 26px;
+                text-align: center;
+            }
+
+            @media (max-width: 600px) {
+                font-size: 14px;
+                line-height: 24px;
+            }
         }
 
         > #list {
@@ -90,27 +119,46 @@ const Container = styled.div`
             gap: 50px;
             margin-top: 70px;
 
+            @media (max-width: 900px) {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
             > .item {
                 > #title {
                     font-size: 22px;
                     font-weight: 500;
                     line-height: 32px;
+
+                    @media (max-width: 900px) {
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+
+                    @media (max-width: 600px) {
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
                 }
-            
+
                 > #desc {
                     font-size: 16px;
                     font-weight: 400;
                     line-height: 26px;
                     opacity: 0.7;
                     font-family: DMSans-Regular;
-                }
-            }
 
-            // Media
-            @media (max-width: 900px) {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 30px;
+                    @media (max-width: 900px) {
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+
+                    @media (max-width: 600px) {
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+                }
             }
         }
     }

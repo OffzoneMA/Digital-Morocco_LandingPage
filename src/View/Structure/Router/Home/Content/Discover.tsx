@@ -118,4 +118,43 @@ const Container = styled.div`
         pointer-events: none;
         user-select: none;
     }
+
+    // Media Queries
+    @media (max-width: 1200px) {
+        > #content {
+            margin-block: 50px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        > #content {
+        }
+
+        > #content > #text {
+            max-width: 90%;
+            margin: auto;
+        }
+    }
+
+    @media (max-width: 600px) {
+        > #content > #text > #title {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        > #content > #text > #dec {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        > #content > #text > ul {
+            font-size: 14px;
+            line-height: 22px;
+            margin-top: 50px;
+        }
+
+        > #content > #text > ul > li::before {
+            font-size: 24px;
+        }
+    }
 `;

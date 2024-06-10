@@ -36,5 +36,11 @@ const Container = styled.div`
     // Media
     @media (max-width: 900px) {
         grid-template-columns: 1fr;
+        padding-block: 40px;
+    }
+
+    @media (max-width: 468px) {
+        padding-block: 15px;
+        gap: 30px;
     }
 `;

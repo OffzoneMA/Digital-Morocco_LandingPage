@@ -81,7 +81,7 @@ const Topic = ({topicId, id, question, answer }: {topicId: number, id: number, q
                     <path d={active ? 'M1.5 1.25L7 6.75L12.5 1.25' : 'M1.25 12.5L6.75 7L1.25 1.5'} stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
-            {active && <p ref={answerRef} className='animation'>{answer}</p>}
+            {active && <div id='answer' ref={answerRef} className='animation'>{answer}</div>}
         </Container>
     )
 }
@@ -111,16 +111,34 @@ const Container = styled.div`
             font-size: 14px;
             color: #1E0E62;
             letter-spacing: 0.07em;
+
+            @media (max-width: 600px) {
+                font-size: 12px;
+            }
         }
 
         > svg {
+            width: 14px;
+            height: 14px;
+
+            // Media query for small screens
+            @media (max-width: 600px) {
+                width: 12px;
+                height: 12px;
+            }
         }
     }
 
-    > p {
+    > #answer {
         color: #15143966;
         font-size: 16px;
         line-height: 26px;
+
+        // Media query for small screens
+        @media (max-width: 600px) {
+            font-size: 14px;
+            line-height: 22px;
+        }
 
         > p {
             > span {

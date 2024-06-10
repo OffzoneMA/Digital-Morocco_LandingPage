@@ -250,6 +250,8 @@ const Container = styled.div`
     padding-top: 70px;
     padding-bottom: 30px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 
     > #btnOptions {
         display: flex;
@@ -277,9 +279,15 @@ const Container = styled.div`
     }
     
     > #items {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 35px;
+
+        > * {
+            flex: 1 1 350px;
+        }
     }
 
     > #startUpText {
@@ -291,8 +299,13 @@ const Container = styled.div`
         line-height: 26px; 
     }
 
+    // // Media
+    // @media (max-width: 900px) {
+    //     padding-block: 30px;
+    // }
+
     // Media
-    @media (max-width: 900px) {
-        padding-block: 30px;
+    @media (max-width: 780px) {
+        
     }
 `;

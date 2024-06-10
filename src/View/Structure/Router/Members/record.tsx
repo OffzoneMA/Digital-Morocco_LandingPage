@@ -127,53 +127,60 @@ const Container = styled.div`
 
     > #filter {
         display: grid;
+        gap: 20px;
 
         > #fields {
             display: grid;
             width: fit-content;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             border-bottom: 1px solid rgb(16 24 40 / 10%);
             padding-bottom: 10px;
 
+            // @media (max-width: 1024px) {
+            //     grid-template-columns: repeat(2, 1fr);
+            //     // width: 100%;
+            // }
+
             @media (max-width: 768px) {
-                // grid-template-columns: 1fr 1fr;
-                display: flex;
-                flex-flow: row wrap;
-                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            @media (max-width: 525px) {
+                grid-template-columns: 1fr;
                 width: 100%;
             }
         }
 
         > #used {
             display: grid;
-            grid-template-columns:auto 1fr auto;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
             gap: 20px;
             justify-content: space-between;
             border-bottom: 1px solid rgb(16 24 40 / 10%);
             border-top: 1px solid rgb(16 24 40 / 10%);
+            padding: 10px 0;
 
             @media (max-width: 768px) {
                 grid-template-columns: 1fr;
-                padding-bottom: 10px;
                 gap: 10px;
 
-                > p{
+                > p {
                     display: none;
                 }
 
-                > #clear{
+                > #clear {
                     max-width: 140px;
                 }
             }
 
-            >p {
+            > p {
                 font-family: DMSans-Medium;
                 font-size: 18px;
                 line-height: 26px;
                 margin: 0;
-
             }
 
             > #items {
@@ -247,6 +254,11 @@ const Container = styled.div`
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 35px;
             width: 100%;
+
+            @media (min-width: 1200px) { 
+                margin: auto;
+            }
+
         }
     }
 `;

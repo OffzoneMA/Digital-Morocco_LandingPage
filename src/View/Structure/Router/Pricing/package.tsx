@@ -91,6 +91,10 @@ const Container = styled.div<{
     display: grid;
     grid-template-rows: auto auto auto 1fr;
     gap: 15px;
+    // min-width: 370px;
+    // max-width: 400px;
+
+
 
     > #data {
         display: grid;
@@ -237,4 +241,203 @@ const Container = styled.div<{
             color: #A7A6A8;          
         `}
     }
+    @media (max-width: 1200px) {
+        // max-width: 500px;
+        // min-width: 400px;
+
+        > #data {
+            padding-inline: 20px;
+
+            > #name {
+                font-size: 14px;
+            }
+
+            > #price {
+                align-items: center;
+
+                > #currency {
+                    font-size: 28px;
+                }
+
+                >#value {
+                    font-size: 54px;
+                }
+            }
+
+            > #desc {
+                font-size: 16px;
+                margin-block: 20px;
+            }
+        }
+
+        #featuresblur {
+            > #features {
+                padding-inline: 10px;
+
+                > p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        // min-width: 380px;
+
+        > #data {
+            padding-inline: 20px;
+
+            > #name {
+                font-size: 14px;
+            }
+
+            > #price {
+                align-items: center;
+
+                > #currency {
+                    font-size: 24px;
+                }
+
+                >#value {
+                    font-size: 50px;
+                }
+            }
+
+            > #desc {
+                font-size: 16px;
+                margin-block: 20px;
+            }
+        }
+
+        #featuresblur {
+            > #features {
+                padding-inline: 10px;
+
+                > p {
+                    font-size: 15px;
+                }
+            }
+            > #mask {
+                > #maskContent {
+                    padding-left: 20px; 
+                    padding-right: 20px;
+    
+                    > #disc {
+                        font-size: 18px;
+                        line-height: 26px;
+                        padding-left: 35px; 
+                        padding-right: 35px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 785px) {
+        max-width: 520px;
+
+        > #data {
+            padding-inline: 20px;
+
+            > #name {
+                font-size: 14px;
+            }
+
+            > #price {
+                align-items: center;
+
+                > #currency {
+                    font-size: 22px;
+                }
+
+                >#value {
+                    font-size: 46px;
+                }
+            }
+
+            > #desc {
+                font-size: 15px;
+                margin-block: 20px;
+            }
+        }
+
+        #featuresblur {
+            > #features {
+                padding-inline: 10px;
+
+                > p {
+                    font-size: 14px;
+                }
+            }
+            > #mask {
+                > #maskContent {
+                    padding-left: 20px; 
+                    padding-right: 20px;
+    
+                    > #disc {
+                        font-size: 17px;
+                        line-height: 22px;
+                        padding-left: 30px; 
+                        padding-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 468px) {
+
+        > #data {
+            padding-inline: 20px;
+            min-height: auto;
+            grid-template-rows: 80px auto auto;
+
+
+            > #name {
+                font-size: 13px;
+            }
+
+            > #price {
+                align-items: center;
+
+                > #currency {
+                    font-size: 22px;
+                }
+
+                >#value {
+                    font-size: 40px;
+                }
+            }
+
+            > #desc {
+                font-size: 14px;
+                margin-block: 20px;
+            }
+        }
+
+        #featuresblur {
+            > #features {
+                padding-inline: 10px;
+
+                > p {
+                    font-size: 14px;
+                }
+            }
+            > #mask {
+                > #maskContent {
+                    padding-left: 16px; 
+                    padding-right: 16px;
+    
+                    > #disc {
+                        font-size: 16px;
+                        line-height: 20px;
+                        padding-left: 20px; 
+                        padding-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+    
+
 `;

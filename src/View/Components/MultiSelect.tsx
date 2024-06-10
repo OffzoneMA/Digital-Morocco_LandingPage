@@ -95,7 +95,7 @@ export default MultiSelect
  * 
  */
 const Container = styled.div`
-    width: fit-content;
+    // width: fit-content;
     display: grid;
     position: relative;
     min-width: 215px;

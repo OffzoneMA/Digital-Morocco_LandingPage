@@ -113,4 +113,42 @@ const Container = styled.div`
             }
         }
     }
+
+    @media (max-width: 768px) {
+        padding: 10px;
+        
+        > .item {
+            > h1 {
+                font-size: 1.4rem;
+            }
+            > b {
+                font-size: 16px;
+            }
+
+            > p {
+                margin-top: 30px;
+                font-size: 15px;
+                line-height: 1.4;
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        padding: 5px;
+
+        > .item {
+            > h1 {
+                font-size: 1.2rem;
+            }
+            > b {
+                font-size: 15px;
+            }
+
+            > p {
+                margin-top: 20px;
+                font-size: 14px;
+                line-height: 1.2;
+            }
+        }
+    }
 `;

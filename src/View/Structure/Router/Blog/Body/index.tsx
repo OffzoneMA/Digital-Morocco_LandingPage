@@ -33,8 +33,23 @@ const Container = styled.div`
     grid-template-columns: 1fr 280px;
     gap: 50px;
 
-    // Media
-    @media (max-width: 900px) {
+    // Media queries
+    @media (max-width: 1200px) {
+        width: calc(100% - 30px);
+        gap: 40px;
+    }
+
+    @media (max-width: 992px) {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+        padding-block: 30px;
+    }
+
+    @media (max-width: 576px) {
+        padding-block: 20px;
+        width: calc(100% - 20px);
     }
 `;

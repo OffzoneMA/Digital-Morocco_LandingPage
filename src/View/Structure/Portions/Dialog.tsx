@@ -99,6 +99,7 @@ const Container = styled.div`
     top: 0;
     left: 0;
     z-index: 999;
+    padding-inline-start: 0 !important;
 
     > .item {
         position: absolute;

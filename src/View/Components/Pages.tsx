@@ -157,6 +157,16 @@ const Container = styled.div`
             // cursor: url(${curs2}), auto;
         }
     }
+
+    @media (max-width: 468px) {
+
+        > .move {
+            padding-inline: 20px;
+            >p {
+                display: none;
+            }
+        }
+    }
 `;
 
 

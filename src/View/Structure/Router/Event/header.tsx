@@ -67,13 +67,14 @@ const Container = styled.div`
     max-width: 100vw;
     padding: 20px;
     max-width: calc(var(--content-width) - 40px);
-    width: 100%;
+    // width: 100%;
     padding-block: 50px;
     margin: auto;
     margin-top: 100px;
     
     > img {
         height: 100%;
+        width: 100%;
         scale: 1.1;
         position: absolute;
         left: 0;

@@ -47,15 +47,36 @@ const Container = styled.div`
         font-weight: 500;
         line-height: 32px;
         color: #2575F0;
+
+        @media (max-width: 768px) {
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 18px;
+            line-height: 28px;
+        }
     }
 
     > p {
         font-size: 18px;
         font-weight: 500;
-        min-width: 974px;
         line-height: 28px;
         letter-spacing: -0.01em;
         color: #1D2939;
+        max-width: 100%;
+        margin-bottom: 20px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 14px;
+            line-height: 24px;
+        }
     }
 
     > #content {
@@ -68,28 +89,15 @@ const Container = styled.div`
         line-height: 27.2px;
         font-family: DMSans-Regular;
 
-        > div {
-            min-width: 457px;
-        }
-
-
-        // Media
         @media (max-width: 1050px) {
             grid-template-columns: 1fr;
             gap: 30px;
+        }
 
-            > div {
+        > div {
+            @media (max-width: 1050px) {
                 min-width: auto;
             }
         }
     }
-
-    // Media
-        @media (max-width: 1050px) {
-            > p {
-                width: auto;
-                min-width: auto;
-            }
-        }
-    
 `;

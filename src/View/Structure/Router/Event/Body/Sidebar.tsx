@@ -161,7 +161,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 280px;
+    // width: 280px;
 
     // Media
     @media (max-width: 768px) {

@@ -59,12 +59,15 @@ const Container = styled.div`
 
         > .item {
             display: grid;
-            grid-template-columns: 440px 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 50px;
     
             > img {
-                width: 440px;
-                height: 320px;
+                width: 100%;
+                height: auto;
+                max-width: 440px;
+                max-height: 320px;
+                border-radius: 10px;
             }
     
             > #content {
@@ -78,6 +81,26 @@ const Container = styled.div`
                     line-height: 32px;
                     margin: 0;
                     font-family: DMSans-Medium;
+
+                    @media (max-width: 1024px) {
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+        
+                    @media (max-width: 900px) {
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
+
+                    @media (max-width: 700px) {
+                        font-size: 20px;
+                        line-height: 28px;
+                    }
+
+                    @media (max-width: 480px) {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
                 }
     
                 > p {
@@ -85,6 +108,32 @@ const Container = styled.div`
                     font-weight: 400;
                     line-height: 26px;
                     color: rgba(21, 20, 57, 0.4);
+
+
+                    @media (max-width: 1024px) {
+                        font-size: 16px;
+                        line-height: 26px;
+                    }
+        
+                    @media (max-width: 900px) {
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
+
+                    @media (max-width: 800px) {
+                        font-size: 13px;
+                        line-height: 20px;
+                    }
+
+                    @media (max-width: 700px) {
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+
+                    @media (max-width: 480px) {
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
                 }
     
                 > a {
@@ -104,28 +153,60 @@ const Container = styled.div`
                         color: #00CDAE;
                         border-color: #00CDAE;
                     }
+                    
                 }
             }
 
-            &:nth-child(even) > img {
-                grid-row: 1;
+            &:nth-child(even){
+                > img {
+                    order: 1;
+                }
+
+                > #content {
+                    order: 2;
+                }
             }
 
             // Media
-            @media (max-width: 1050px) {
+            @media (max-width: 1024px) {
+                gap: 30px;
+                // padding-inline: 60px;
+            }
+
+            @media (max-width: 900px) {
+                gap: 25px;
+                // padding-inline: 40px;
+
+            }
+            @media (max-width: 700px) {
                 grid-template-columns: 1fr;
                 gap: 30px;
+                // padding-inline: 20px;
 
                 > img {
+                    width: 100%;
+                    height: auto;
                     grid-row: 1;
                 }
             }
 
             @media (max-width: 480px) {
+                gap: 20px;
+                // padding-inline: 0px;
 
                 > img {
                     width: 100%;
                     height: auto;
+                }
+
+                > #content {
+                    > h4 {
+                        font-size: 18px;
+                    }
+
+                    > p {
+                        font-size: 14px;
+                    }
                 }
             }
         }

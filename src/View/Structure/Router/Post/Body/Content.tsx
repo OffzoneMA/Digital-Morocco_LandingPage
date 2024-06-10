@@ -92,4 +92,33 @@ const Container = styled.div`
         height: 100%;
         width: 100%;
     }
+
+    @media (max-width: 768px) {
+
+        > p {
+            font-size: 14px;
+            line-height: 24px;
+            margin-bottom: 12px;
+        }
+
+        > img {
+            margin-top: 14px;
+            margin-bottom: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        padding: 5px;
+
+        > p {
+            font-size: 12px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+        > img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
 `;

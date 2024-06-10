@@ -211,4 +211,61 @@ const Container = styled.div`
             }
         }
     }
+
+    @media (max-width: 600px) {
+        padding-block: 30px;
+        width: calc(100% - 40px);
+        gap: 10px;
+
+        > div {
+            line-height: 22px;
+
+            > label {
+                font-size: 14px;
+            }
+            > p {
+                font-size: 14px;
+
+                > ul {
+                    padding-left: 20px;
+                    > li {
+                        > a {
+                            font-size: 14px;
+                        }
+                        > span {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 900px) {
+        padding-block: 30px;
+        gap: 15px;
+
+        > div {
+            line-height: 24px;
+
+            > label {
+                font-size: 15px;
+            }
+            > p {
+                font-size: 15px;
+
+                > ul {
+                    padding-left: 22px;
+                    > li {
+                        > a {
+                            font-size: 15px;
+                        }
+                        > span {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 `;

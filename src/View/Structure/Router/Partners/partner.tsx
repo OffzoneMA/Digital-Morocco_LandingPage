@@ -53,6 +53,10 @@ const Container = styled.div`
     padding: 20px;   
     min-height: 270px; 
 
+    @media (min-width: 768px) { 
+        max-width: 400px; 
+    }
+
 
     #logo {
         grid-area: logo;

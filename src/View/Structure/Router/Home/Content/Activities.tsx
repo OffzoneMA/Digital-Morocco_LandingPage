@@ -68,6 +68,21 @@ const Container = styled.div`
         letter-spacing: -0.4px;
         font-family: DMSans-Bold;
         text-align: center;
+
+        @media (max-width: 1200px) {
+            font-size: 36px;
+            line-height: 46px;
+        }
+
+        @media (max-width: 900px) {
+            font-size: 30px;
+            line-height: 40px;
+        }
+
+        @media (max-width: 600px) {
+            font-size: 26px;
+            line-height: 34px;
+        }
     }
 
     > p {
@@ -78,6 +93,26 @@ const Container = styled.div`
         margin: auto;
         color: rgb(21 20 57 / 40%);
         text-align: center;
+
+        @media (max-width: 1200px) {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        @media (max-width: 900px) {
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        @media (max-width: 600px) {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        @media (max-width: 468px) {
+            font-size: 14px;
+            line-height: 24px;
+        }
     }
 
     > #list {
@@ -85,6 +120,12 @@ const Container = styled.div`
         grid-template-columns: 1fr 1fr;
         gap: 50px;
         margin-top: 50px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 30px;
+        }
 
         > .item {
             border-radius: 10px;
@@ -96,6 +137,21 @@ const Container = styled.div`
                 line-height: 32px;
                 padding-inline: 30px;
                 font-family: DMSans-Medium;
+
+                @media (max-width: 1200px) {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+
+                @media (max-width: 900px) {
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 16px;
+                    line-height: 26px;
+                }
             }
 
             > p {
@@ -104,18 +160,26 @@ const Container = styled.div`
                 line-height: 26px;
                 color: rgb(21 20 57 / 40%);
                 padding-inline: 30px;
+
+                @media (max-width: 1200px) {
+                    font-size: 15px;
+                    line-height: 24px;
+                }
+
+                @media (max-width: 900px) {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
             }
 
             > img {
                 width: 100%;
             }
-        }
-
-        // Media
-        @media (max-width: 900px) {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 30px;
         }
     }
 `;

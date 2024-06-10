@@ -74,8 +74,16 @@ const Container = styled.div`
         }
     }
 
+    @media only screen and (min-width: 769px) and (max-width: 1024px) { 
+        margin-inline-start: 50px;
+    }
+
+    @media only screen and (min-width: 1025px) and (max-width: 1281px) { 
+        margin-inline-start: 100px;
+    }
+
     // Media
-    @media (max-width: 740px) {
+    @media (max-width: 768px) {
         margin-inline: auto;
         justify-items: center;
         left: 0;

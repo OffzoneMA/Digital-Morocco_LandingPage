@@ -52,6 +52,11 @@ const Container = styled.div`
         text-transform: uppercase;
         color: #15143966;
         margin-bottom: 40px;
+
+        @media (max-width: 468px) {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
     }
 
     > #items {
@@ -80,6 +85,12 @@ const Container = styled.div`
                 -webkit-line-clamp: 4; 
                 -webkit-box-orient: vertical;
                 word-wrap: break-word;
+
+
+                @media (max-width: 468px) {
+                    font-size: 13px;
+                    -webkit-line-clamp: 3;
+                }
             }
 
             &:hover {

@@ -142,6 +142,11 @@ const Container = styled.div`
             height: 100%;
             position: relative;
             z-index: 1;
+
+            @media only screen and (min-width: 769px) and (max-width: 1281px) { 
+                transform: translateX(50px); 
+                // height: 95%;
+            }
         }
     }
 `;

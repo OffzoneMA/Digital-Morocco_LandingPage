@@ -118,4 +118,51 @@ const Container = styled.div`
             }
         }
     }
+    @media (min-width: 601px) and (max-width: 900px) {
+        max-width: 100%;
+
+        > p {
+            font-size: 13px;
+        }
+
+        > #links {
+            gap: 18px;
+
+            > a {
+                font-size: 17px;
+            }
+        }
+
+        > #help {
+            margin-top: 80px;
+
+            > h3 {
+                font-size: 18px;
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        max-width: 100%;
+
+        > p {
+            font-size: 12px;
+        }
+
+        > #links {
+            gap: 15px;
+
+            > a {
+                font-size: 16px;
+            }
+        }
+
+        > #help {
+            margin-top: 60px;
+
+            > h3 {
+                font-size: 16px;
+            }
+        }
+    }
 `;
