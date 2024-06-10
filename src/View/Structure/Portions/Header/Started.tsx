@@ -35,7 +35,7 @@ const Started = () => {
     };
 
     const handleButtonClick = () => {
-        window.open('https://app.dimorocco.net/', '_blank');
+        window.open('https://app.digitalmorocco.net/', '_blank');
     }
 
     return (

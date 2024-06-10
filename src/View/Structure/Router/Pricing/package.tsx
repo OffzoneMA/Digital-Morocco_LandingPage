@@ -21,7 +21,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
 
     const handleButtonClick = () => {
         if (btnText === 'Start') {
-            window.open('https://app.dimorocco.net/SignUp', '_blank');
+            window.open('https://app.digitalmorocco.net//SignUp', '_blank');
         }
     }
 
