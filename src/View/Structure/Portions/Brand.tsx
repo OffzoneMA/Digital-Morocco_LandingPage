@@ -111,7 +111,7 @@ const Container = styled.div<{lang?: string}>`
     background-image: url(${Background});
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: left;
     height: auto;
     display: flex;
 
@@ -268,5 +268,9 @@ const Container = styled.div<{lang?: string}>`
                 max-width: 100%;
             }
         }
+    }
+
+    @media (max-width: 768px) { 
+       background-position: left;
     }
 `;

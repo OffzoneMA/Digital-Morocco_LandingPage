@@ -182,9 +182,12 @@ const Container = styled.div`
                 grid-template-columns: 1fr;
                 gap: 30px;
                 // padding-inline: 20px;
+                justify-items: center;
 
                 > img {
                     width: 100%;
+                    max-width: 100%;
+                    max-height: 100%;
                     height: auto;
                     grid-row: 1;
                 }
