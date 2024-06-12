@@ -97,7 +97,7 @@ const ContactForm = () => {
     
         if (!hasErrors) {
             try {
-                const response = await axios.post("https://digitalmorocco-dev.vercel.app/users/send-email", formData, {
+                const response = await axios.post(`${process.env.REACT_APP_baseURL}users/send-email`, formData, {
                     headers: {
                         "Content-Type": "application/json",
                         Accept: "application/json",
@@ -113,6 +113,9 @@ const ContactForm = () => {
                         phone: '',
                         message: ''
                     });
+                    setTimeout(() => {
+                        setIsSend(false);
+                    }, 5000); 
                 } else {
                     setIsSend(false);
                     console.log("Error submitting form:", response);

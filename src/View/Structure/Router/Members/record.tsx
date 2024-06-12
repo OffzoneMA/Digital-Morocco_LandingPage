@@ -3,9 +3,10 @@ import { Lang, useLang } from '../../../../Controller/Tools/Interface/Lang'
 import { MemberInterface } from '../../../../Application/Member'
 import Fetch from '../../../../Controller/Tools/Server/Fetch'
 import Loader from '../../../Components/Loader'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Member from './member'
+import axios from 'axios'
 
 /**
  * API_URL
@@ -31,6 +32,41 @@ const Record = () => {
      * 
      */
     const [page] = useState(1)
+
+    const [countries, setCountries] = useState([]);
+    const [stages, setStages] = useState([]);
+    const [sectors, setSectors] = useState([]);
+
+    useEffect(() => {
+        const fetchFilters = async () => {
+        try {
+            const [countriesRes, stagesRes, companyTypesRes] = await Promise.all([
+            axios.get(`${process.env.REACT_APP_baseURL}members/unique-countries`),
+            axios.get(`${process.env.REACT_APP_baseURL}members/unique-stages`),
+            axios.get(`${process.env.REACT_APP_baseURL}members/unique-companyTypes`),
+            ]);
+            const formattedCompanyTypes = companyTypesRes.data.map((type: string) => ({
+                label: type,
+                value: type
+              }));
+            setSectors(formattedCompanyTypes);
+            const formattedCountries = countriesRes.data.map((type: string) => ({
+                label: type,
+                value: type
+              }));
+            setCountries(formattedCountries);
+            const formattedStages = stagesRes.data.map((type: string) => ({
+                label: type,
+                value: type
+              }));
+            setStages(formattedStages);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des filtres:', error);
+        }
+        };
+
+        fetchFilters();
+    }, []);
 
     /**
      * Sector filter state
@@ -66,6 +102,8 @@ const Record = () => {
         stages: stageFilter.map(filter => filter.value).toString(),
         countries: countryFilter.map(filter => filter.value).toString()
     }
+
+    console.log(params)    
 
     return (
         <Container>
@@ -268,40 +306,40 @@ const Container = styled.div`
  * Sectors
  * 
  */
-const sectors = [
-    { label: 'Fintech', value: 'Fintech' },
-    { label: 'Healthtech', value: 'Healthtech' },
-    { label: 'ECommerce', value: 'ECommerce' },
-    { label: 'Edutech', value: 'Edutech' },
-    { label: 'Travel', value: 'Travel' },
-    { label: 'CRM', value: 'CRM' },
-    { label: 'HRM', value: 'HRM' }
-];
+// const sectors = [
+//     { label: 'Fintech', value: 'Fintech' },
+//     { label: 'Healthtech', value: 'Healthtech' },
+//     { label: 'ECommerce', value: 'ECommerce' },
+//     { label: 'Edutech', value: 'Edutech' },
+//     { label: 'Travel', value: 'Travel' },
+//     { label: 'CRM', value: 'CRM' },
+//     { label: 'HRM', value: 'HRM' }
+// ];
 
 /**
  * Stages
  * 
  */
-const stages = [
-    { label: 'Idea', value: 'Idea' },
-    { label: 'Pree-Seed', value: 'Pree-Seed' },
-    { label: 'Seed', value: 'Seed' },
-    { label: 'Serie A', value: 'Serie A' },
-    { label: 'Serie B', value: 'Serie B' },
-    { label: 'Serie C', value: 'Serie C' },
-    { label: 'Serie D', value: 'Serie D' },
-    { label: 'Serie E', value: 'Serie E' },
-    { label: 'IPO', value: 'ipo' }
-];
+// const stages = [
+//     { label: 'Idea', value: 'Idea' },
+//     { label: 'Pree-Seed', value: 'Pree-Seed' },
+//     { label: 'Seed', value: 'Seed' },
+//     { label: 'Serie A', value: 'Serie A' },
+//     { label: 'Serie B', value: 'Serie B' },
+//     { label: 'Serie C', value: 'Serie C' },
+//     { label: 'Serie D', value: 'Serie D' },
+//     { label: 'Serie E', value: 'Serie E' },
+//     { label: 'IPO', value: 'ipo' }
+// ];
 
 /**
  * Countries
  * 
  */
-const countries = [
-    { label: 'Morocco', value: 'Morocco' },
-    { label: 'France', value: 'France' }
-];
+// const countries = [
+//     { label: 'Morocco', value: 'Morocco' },
+//     { label: 'France', value: 'France' }
+// ];
 
 
 /**

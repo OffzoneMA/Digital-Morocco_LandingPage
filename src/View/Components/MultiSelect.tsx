@@ -64,6 +64,7 @@ const MultiSelect = ({
             {active && (
                 <div id="options">
                     <div id="list" className='animation'>
+                        <div id='items'>
                         {options.map(option => (
                             <label key={option.value}>
                                 <input type='checkbox' checked={selected.find(item => item.value === option.value) !== undefined} onChange={() => change(option)} />
@@ -79,6 +80,7 @@ const MultiSelect = ({
                                 <p id="label">{option.label}</p>
                             </label>
                         ))}
+                        </div>
                     </div>
                 </div>
             )}
@@ -119,6 +121,7 @@ const Container = styled.div`
 
     > #options {
         position: absolute;
+        border-radius: 20px;
         min-width: 100%;
         width: fit-content;
         z-index: 1;
@@ -134,20 +137,54 @@ const Container = styled.div`
             flex-direction: column;
             gap: 10px;
             box-shadow: 0px 12px 16px 5px rgb(16 24 40 / 10%);
-
-            > label {
+            
+            > #items {
                 display: flex;
-                align-items: center;
-                gap: 7px;
+                max-height: 280px;
+                overflow-y: auto;
+                flex-direction: column;
+                gap: 10px;
+                background: transparent;
 
-                > input {
-                    display: none;
+                > label {
+                    display: flex;
+                    align-items: center;
+                    gap: 7px;
+    
+                    > input {
+                        display: none;
+                    }
+    
+                    > #label {
+                        font-size: 16px;
+                        margin-block: 5px;
+                    }
                 }
+            }
 
-                > #label {
-                    font-size: 16px;
-                    margin-block: 5px;
-                }
+            #items::-webkit-scrollbar {
+                width: 6px; 
+                height: 6px;
+            }
+            
+            #items::-webkit-scrollbar-track {
+                background: transparent; 
+                border-radius: 20px;
+            }
+            
+            #items::-webkit-scrollbar-thumb {
+                background-color: #E4E7EC;
+                border: 3px solid #E4E7EC; 
+                border-radius: 20px;
+                height: 6px;
+            }
+            
+            #items::-webkit-scrollbar-thumb:hover {
+                background-color: #555; 
+            }
+            
+            #items::-webkit-scrollbar-corner {
+                background: transparent; 
             }
         }
     }
