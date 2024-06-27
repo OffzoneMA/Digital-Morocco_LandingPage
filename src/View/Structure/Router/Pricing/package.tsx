@@ -91,8 +91,7 @@ const Container = styled.div<{
     display: grid;
     grid-template-rows: auto auto auto 1fr;
     gap: 15px;
-    // min-width: 370px;
-    // max-width: 400px;
+    max-width: 550px;
 
 
 
@@ -241,10 +240,7 @@ const Container = styled.div<{
             color: #A7A6A8;          
         `}
     }
-    @media (max-width: 1200px) {
-        // max-width: 500px;
-        // min-width: 400px;
-
+    @media (max-width: 1500px) {
         > #data {
             padding-inline: 20px;
 
@@ -334,7 +330,6 @@ const Container = styled.div<{
     }
 
     @media (max-width: 785px) {
-        max-width: 520px;
 
         > #data {
             padding-inline: 20px;

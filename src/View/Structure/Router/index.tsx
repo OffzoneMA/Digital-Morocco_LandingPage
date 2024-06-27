@@ -32,6 +32,22 @@ const Unavailable = lazy(() => import('./404'))
  * @returns 
  */
 const Router = () => {
+    // Récupérer les informations d'utilisateur à partir des cookies
+const getUserFromCookie = () => {
+    const cookie = document.cookie.split('; ').find(row => row.startsWith('user='));
+    if (cookie) {
+        const startIndex = cookie.indexOf('=') + 1;
+        // Utiliser substring pour récupérer la partie restante
+        const userDataString = cookie.substring(startIndex);
+        console.log(userDataString);
+        // Parse JSON
+        return JSON.parse(userDataString);
+    }
+    return null;
+  };
+  
+  const user = getUserFromCookie();
+  sessionStorage.setItem('userData' , user);
 
     return (
         <Suspense fallback={<Loading />}>

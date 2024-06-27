@@ -286,7 +286,7 @@ const Container = styled.div`
         gap: 35px;
 
         > * {
-            flex: 1 1 350px;
+            flex: 1 1 300px;
         }
     }
 
