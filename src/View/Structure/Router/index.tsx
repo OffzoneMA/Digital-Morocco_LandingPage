@@ -33,21 +33,22 @@ const Unavailable = lazy(() => import('./404'))
  */
 const Router = () => {
     // Récupérer les informations d'utilisateur à partir des cookies
-const getUserFromCookie = () => {
-    const cookie = document.cookie.split('; ').find(row => row.startsWith('user='));
-    if (cookie) {
-        const startIndex = cookie.indexOf('=') + 1;
-        // Utiliser substring pour récupérer la partie restante
-        const userDataString = cookie.substring(startIndex);
-        console.log(userDataString);
-        // Parse JSON
-        return JSON.parse(userDataString);
-    }
-    return null;
-  };
+// const getUserFromCookie = () => {
+//     const cookie = document.cookie.split('; ').find(row => row.startsWith('user='));
+//     if (cookie) {
+//         const startIndex = cookie.indexOf('=') + 1;
+//         // Utiliser substring pour récupérer la partie restante
+//         const userDataString = cookie.substring(startIndex);
+//         console.log(userDataString);
+//         // Parse JSON
+//         // return JSON.parse(userDataString);
+//         return ""
+//     }
+//     return null;
+//   };
   
-  const user = getUserFromCookie();
-  sessionStorage.setItem('userData' , user);
+//   const user = getUserFromCookie();
+//   sessionStorage.setItem('userData' , user);
 
     return (
         <Suspense fallback={<Loading />}>
@@ -63,7 +64,7 @@ const getUserFromCookie = () => {
                 <Route path='blog' element={<Blog />} />
                 <Route path='post/:id' element={<Post />} />
                 <Route path='event/:id' element={<Event />} />
-                {/* <Route path='checkout/:id' element={<Checkout />} /> */}
+                <Route path='checkout/:id' element={<Checkout />} />
                 <Route path='billing' element={<Billing />} />
                 <Route path='thanks' element={<Thanks />} />
                 <Route path='faq' element={<Faq />} />

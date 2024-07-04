@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import styled from 'styled-components'
 import Button from '../../../../Components/Button'
 import { Lang } from '../../../../../Controller/Tools/Interface/Lang'
@@ -17,12 +17,40 @@ const Content = () => {
      */
     const navigate = useNavigate()
 
+    const [isLongPressed, setIsLongPressed] = useState(false);
+
+    let timer: NodeJS.Timeout | undefined;
+
+    const handleMouseDown = () => {
+      timer = setTimeout(() => {
+        setIsLongPressed(true);
+      }, 1000);
+    };
+
+    const handleMouseUp = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
     return (
-        <Container>
+        <Container islongpressed={isLongPressed.toString()}>
             <h1 className='animation'><Lang>Grow your business through networking and digital solutions!</Lang></h1>
             <p className='animation'><Lang>Expand your professional network, gain access to exclusive resources, and connect with individuals and organizations committed to advancing the digital landscape in Morocco.</Lang></p>
-            <Button className='animation' $background='var(--color-blue)' $hoverBackground='#235DBD' $padding={[13, 32]} $isFill 
-            onClick={() => navigate('/pricing')}><Lang>Get Started Now</Lang></Button>
+            <Button className='animation' $background={isLongPressed ? '#224A94' : 'var(--color-blue)'} $hoverBackground='#235DBD' $padding={[13, 32]} $isFill 
+            onClick={() => navigate('/pricing')} 
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            ><Lang>Get Started Now</Lang></Button>
         </Container>
     )
 }
@@ -34,7 +62,7 @@ export default Content
  * Container
  * 
  */
-const Container = styled.div`
+const Container = styled.div<{islongpressed?: string}>`
     position: absolute;
     z-index: 1;
     color: white;
@@ -68,8 +96,12 @@ const Container = styled.div`
         padding: 17px 35px;
 
         &:hover {
-            background-color: #235DBD;
-            border-color: #235DBD;
+            background-color: ${({islongpressed }) => {
+                return islongpressed === "true" ? '#224A94' : '#235DBD';
+                }};
+            border-color: ${({islongpressed }) => {
+                return islongpressed === "true" ? '#224A94' : '#235DBD';
+                }};
             filter: none;
         }
     }
