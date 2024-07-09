@@ -45,7 +45,7 @@ const Content = () => {
         <Container islongpressed={isLongPressed.toString()}>
             <h1 className='animation'><Lang>Grow your business through networking and digital solutions!</Lang></h1>
             <p className='animation'><Lang>Expand your professional network, gain access to exclusive resources, and connect with individuals and organizations committed to advancing the digital landscape in Morocco.</Lang></p>
-            <Button className='animation' $background={isLongPressed ? '#224A94' : 'var(--color-blue)'} $hoverBackground='#235DBD' $padding={[13, 32]} $isFill 
+            <Button className='animation' $background={isLongPressed ? '#224A94' : 'var(--color-blue)'} $hoverBackground={isLongPressed ? '#224A94':'#235DBD'} $padding={[13, 32]} $isFill 
             onClick={() => navigate('/pricing')} 
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
@@ -104,6 +104,10 @@ const Container = styled.div<{islongpressed?: string}>`
                 }};
             filter: none;
         }
+        // &:focus {
+        //     background-color: #224A94;
+        //     outline: none;
+        // }
     }
 
     @media only screen and (min-width: 769px) and (max-width: 1024px) { 

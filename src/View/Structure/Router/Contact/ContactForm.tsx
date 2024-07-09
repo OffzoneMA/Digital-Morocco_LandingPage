@@ -59,7 +59,8 @@ const ContactForm = () => {
         lastName: '',
         phone: '',
         email: '',
-        message: ''
+        message: '',
+        language: localStorage.getItem('language')
     });
     
     /**
@@ -137,7 +138,8 @@ const ContactForm = () => {
                         lastName: '',
                         email: '',
                         phone: '',
-                        message: ''
+                        message: '',
+                        language: localStorage.getItem('language')
                     });
                     setTimeout(() => {
                         setIsSend(false);

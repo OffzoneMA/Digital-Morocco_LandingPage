@@ -17,11 +17,11 @@ const Links = () => {
                 <a href='/#whoarewe'><span><Lang>Who Are We?</Lang></span></a>
                 <a href='/#whyjoinus'><span><Lang>Why Join Us?</Lang></span></a>
                 <a href='/#ourgoals'><span><Lang>Our Goals</Lang></span></a>
-                <a href='/#ouractivity'><span><Lang>Our Activity</Lang></span></a>
+                <a href='/#ouractivity'><span><Lang>Our Activities</Lang></span></a>
             </section>
             <section>
                 <h4><Lang>Solutions</Lang></h4>
-                <a href='https://digitalmorocco.net/SignIn' target='_blank'><span><Lang>Startup</Lang></span></a>
+                <a href='https://digitalmorocco.net/SignIn' target='_blank' rel="noreferrer"><span><Lang>Startup</Lang></span></a>
                 <a href='https://digitalmorocco.net/SignIn' target='_blank'><span><Lang>Investor</Lang></span></a>
                 <a href='https://digitalmorocco.net/SignIn' target='_blank'><span><Lang>Company</Lang></span></a>
                 {/* <a href='https://digitalmorocco.net/SignIn'><span><Lang>Startup</Lang></span></a>
