@@ -63,7 +63,12 @@ const Links = ({ onChange, withHome }: { onChange?: () => void, withHome?: boole
             {withHome && 
             <div className='started'>
                 <div className='dash' style={{width: '150px'}}/>
-                <Link onClick={() => handleLinkClick('signin')}  className={activeLink === 'sign_in' ? 'active' : ''} to={`https://app.digitalmorocco.net/?lang=${currentLanguage}`} target='_blank'><span><Lang>Sign in</Lang></span></Link>
+                {
+                    userData ?
+                    <Link  className={activeLink === 'sign_in' ? 'active' : ''} to={`#`}><span><Lang>Connected</Lang></span></Link>
+                    :
+                    <Link onClick={() => handleLinkClick('signin')}  className={activeLink === 'sign_in' ? 'active' : ''} to={`https://app.digitalmorocco.net/?lang=${currentLanguage}`} target='_blank'><span><Lang>Sign in</Lang></span></Link>
+                }
                 <Link onClick={() => handleLinkClick('pricing')}  className={thisRoute === 'pricing' && activeLink === 'pricing' ? 'active' : ''} to="/pricing"><span><Lang>Get Started</Lang></span></Link>
             </div>}
         </React.Fragment>
