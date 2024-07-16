@@ -17,7 +17,7 @@ const ContactData = () => {
                 {/* <p>Phone: +123-456-7890</p> */}
             </div>
             <div className="item">
-                <h5><Lang>Membership Support:</Lang></h5>
+                <h5><Lang>Membership Support</Lang></h5>
                 <p><Lang>Email:</Lang> support@digitalmorocco.net</p>
                 {/* <p>Phone: +123-456-7890</p> */}
             </div>

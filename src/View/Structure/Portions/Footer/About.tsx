@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Logo from '../../../Components/Logo'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
@@ -12,6 +12,53 @@ import { useNavigate , useLocation } from 'react-router-dom'
  * @returns 
  */
 const About = () => {
+    
+    /**
+     * Long press
+     */
+    const [isLongPressed, setIsLongPressed] = useState(false);
+
+    let timer: NodeJS.Timeout | undefined;
+
+    const handleMouseDown = () => {
+      timer = setTimeout(() => {
+        setIsLongPressed(true);
+      }, 1000);
+    };
+
+    const handleMouseUp = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const [isKeyboardUser, setIsKeyboardUser] = useState(false);
+
+    useEffect(() => {
+        const handleKeyDown = () => {
+            setIsKeyboardUser(true);
+        };
+
+        const handleMouseDown = () => {
+            setIsKeyboardUser(false);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('mousedown', handleMouseDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('mousedown', handleMouseDown);
+        };
+    }, []);
 
     /**
      * Navigate
@@ -31,7 +78,7 @@ const About = () => {
 
 
     return (
-        <Container>
+        <Container islongpressed={isLongPressed.toString()}>
             <section>
                 <Logo type='full' width={170} />
             </section>
@@ -42,7 +89,10 @@ const About = () => {
             <section>
                 <h4><Lang>Try Digital Morocco for free!</Lang></h4>
                 <p><Lang>Join the first 200 project leaders and enjoy 12 months of free access to our top-tier networking platform. Sign up now and connect with the best!</Lang></p>
-                <Button onClick={handleClick} $isFill $color='white' $background='var(--color-blue-dark)' $padding={[10, 65]}><Lang>Get Started</Lang></Button>
+                <Button className={isKeyboardUser ? 'button keyboardBlueF' : 'button mouse'} onClick={handleClick} $isFill $color='white' $background={isLongPressed ? '#251192' : 'var(--color-blue-dark)'} $padding={[10, 65]} 
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}><Lang>Get Started</Lang></Button>
             </section>
         </Container>
     )
@@ -55,7 +105,7 @@ export default About
  * Container
  * 
  */
-const Container = styled.div`
+const Container = styled.div<{islongpressed?: string}>`
     border-top: var(--border-section);
     padding-block: 30px;
     display: grid;
@@ -84,11 +134,17 @@ const Container = styled.div`
         
         > button {
             transition: 300ms;
-
             &:hover {
-                background-color: #3016C0;
-                border-color: #3016C0;
+                background-color: ${({islongpressed }) => {
+                    return islongpressed === "true" ? '#251192' : '#3016C0';
+                    }};
+                border-color: ${({islongpressed }) => {
+                    return islongpressed === "true" ? '#251192' : '#3016C0';
+                    }};
                 filter: none;
+            }
+            &:focus {
+                outline: none;
             }
         }
     }

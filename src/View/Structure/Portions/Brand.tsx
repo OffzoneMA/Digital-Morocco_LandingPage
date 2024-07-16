@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Input from '../../Components/Input';
 import { useLang , Lang } from '../../../Controller/Tools/Interface/Lang';
@@ -24,6 +24,53 @@ const Brand = () => {
      * Subscribe
      */
     const [subscribe , setSubscribe] = useState(false);
+
+    /**
+     * Long press
+     */
+    const [isLongPressed, setIsLongPressed] = useState(false);
+
+    let timer: NodeJS.Timeout | undefined;
+
+    const handleMouseDown = () => {
+      timer = setTimeout(() => {
+        setIsLongPressed(true);
+      }, 1000);
+    };
+
+    const handleMouseUp = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const [isKeyboardUser, setIsKeyboardUser] = useState(false);
+
+    useEffect(() => {
+        const handleKeyDown = () => {
+            setIsKeyboardUser(true);
+        };
+
+        const handleMouseDown = () => {
+            setIsKeyboardUser(false);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('mousedown', handleMouseDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('mousedown', handleMouseDown);
+        };
+    }, []);
 
     /**
      * User Email
@@ -82,14 +129,17 @@ const Brand = () => {
     };
 
     return (
-        <Container lang={language}>
+        <Container lang={language} islongpressed={isLongPressed.toString()}>
             <div id="content">
                 <div id="text">
                     <h3><Lang>Ready to unlock a world of endless possibilities?</Lang></h3>
                     <p><Lang>Join us at Digital Morocco and embark on a transformative journey. Dive into our vibrant community, where innovation thrives, connections flourish, and growth knows no bounds.</Lang></p>
                     <div id='textBox'>
                         <Input $hasError={hasemailError} value={email} onChange={(e) => onchangeEmail(e)} $size={14} $height={42} $fontFamily='DMSans-Regular' placeholder={lang('Enter your email to subscribe to our newsletter')} />
-                        <Button $size={18} $background='#00CDAE' $hoverBackground='#01A395' $isFill $color='white' $padding={[9,26]} onClick={subscribeUser}>{subscribe ? <Lang>Subscribed</Lang> : <Lang>Subscribe</Lang>}</Button>
+                        <Button className={isKeyboardUser ? 'button keyboard' : 'button mouse'} $size={18} $background={isLongPressed ? '#018080' : '#00CDAE'} $hoverBackground={isLongPressed ? '#018080' : '#01A395'} $isFill $color='white' $padding={[9,26]} onClick={subscribeUser} 
+                        onMouseDown={handleMouseDown}
+                        onMouseUp={handleMouseUp}
+                        onMouseLeave={handleMouseLeave}>{subscribe ? <Lang>Subscribed</Lang> : <Lang>Subscribe</Lang>}</Button>
                     </div>
                 </div>
                 <div id="box">
@@ -107,7 +157,7 @@ export default Brand
  * Container
  * 
  */
-const Container = styled.div<{lang?: string}>`
+const Container = styled.div<{lang?: string , islongpressed?: string}>`
     background-image: url(${Background});
     background-repeat: no-repeat;
     background-size: cover;
@@ -188,6 +238,9 @@ const Container = styled.div<{lang?: string}>`
                 }
 
                 > button {
+                    &:focus {
+                        outline: none;
+                    }
                     // Media
                     @media (max-width: 600px) {
                         padding: 8px 16px;

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import Button from '../../../Components/Button'
+import { language } from '../../../Language'
 
 /**
  * Packages
@@ -19,14 +20,67 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
     // isStartup?: boolean
 } & React.HTMLAttributes<HTMLDivElement>) => {
 
+    /**
+     * Language
+     */
+    const currentLanguage = language.split('-')[0] || 'en'; 
+
+
     const handleButtonClick = () => {
         if (btnText === 'Start') {
-            window.open('https://app.digitalmorocco.net/SignUp', '_blank');
+            window.open(`https://app.digitalmorocco.net/SignUp/?lang=${currentLanguage}`, '_blank');
         }
     }
 
+    /**
+     * Long press
+     */
+    const [isLongPressed, setIsLongPressed] = useState(false);
+
+    let timer: NodeJS.Timeout | undefined;
+
+    const handleMouseDown = () => {
+      timer = setTimeout(() => {
+        setIsLongPressed(true);
+      }, 1000);
+    };
+
+    const handleMouseUp = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        clearTimeout(timer);
+        if (isLongPressed) {
+        setIsLongPressed(false);
+        }
+    };
+
+    const [isKeyboardUser, setIsKeyboardUser] = useState(false);
+
+    useEffect(() => {
+        const handleKeyDown = () => {
+            setIsKeyboardUser(true);
+        };
+
+        const handleMouseDown = () => {
+            setIsKeyboardUser(false);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('mousedown', handleMouseDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('mousedown', handleMouseDown);
+        };
+    }, []);
+
     return (
-        <Container {...restProps} $recommended={recommended} $mask={mask}>
+        <Container {...restProps} $recommended={recommended} $mask={mask} islongpressed={isLongPressed}>
             <div id="data">
                 <p id="name">{name}</p>
                 <div id="price">
@@ -62,6 +116,9 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
             </div>
             <Button
             onClick={handleButtonClick}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
                 $size={18}
                 $background={recommended ? 'var(--color-green)' : '#EBEAED'}
                 $color={recommended ? 'white' : undefined}
@@ -86,7 +143,8 @@ export default Package
  */
 const Container = styled.div<{
     $recommended?: boolean
-    $mask?: boolean
+    $mask?: boolean , 
+    islongpressed?: boolean
 }>`
     display: grid;
     grid-template-rows: auto auto auto 1fr;
@@ -229,9 +287,15 @@ const Container = styled.div<{
 
         &:hover {
             filter: none;
-            color: ${p => p.$recommended ? 'white' : '#25DAC5'};
-            border-color: ${p => p.$recommended ? '#01A395' : '#25DAC5'};
-            background-color: ${p => p.$recommended ? '#01A395' : 'transparent'};
+            color: ${p => (p.$recommended ? 'white' : '#25DAC5')};
+            border-color: ${p => (p.$recommended ? '#01A395' : '#25DAC5')};
+            background-color: ${p => (p.$recommended ? '#01A395' : 'transparent')};
+    
+            ${p => p.$recommended && p.islongpressed && `
+                background-color: #018080; 
+                border-color: #018080;
+                color: white; 
+            `}
         }
 
         ${p => p.$mask && `

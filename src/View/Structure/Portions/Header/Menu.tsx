@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components'
 import { useHeader } from './headers'
 import Links from './Links'
 import { useLocation } from 'react-router-dom'
-import Language from './Language'
+import Language from './Language';
+import Started from './Started'
 
 const Menu = () => {
 
@@ -44,6 +45,7 @@ const Menu = () => {
                 <div id="list" className='animation'>
                     <div id="content">
                         <Links withHome />
+                        {/* <Started/> */}
                         <Language />
                     </div>
                 </div>
@@ -111,6 +113,33 @@ const Container = styled.div<{
             
                 &.active {
                     color: var(--color-green);
+                }
+            }
+            > .started {
+                margin-top: 20px;
+                display: grid;
+                gap: 10px;
+
+                >.dash {
+                    border-top: 3px dotted;
+                    border-color: ${p => p.$color};
+                }
+
+                > a {
+                    text-decoration: none;
+                    color: ${p => p.$color};
+                    display: flex;
+                    align-items: center;
+                    gap: 7px;
+                    width: fit-content;
+                        
+                    &:hover {
+                        color: var(--color-green);
+                    }
+                
+                    &.active {
+                        color: var(--color-green);
+                    }
                 }
             }
         }

@@ -4,6 +4,7 @@ import Button from '../../../Components/Button'
 import { Lang } from '../../../../Controller/Tools/Interface/Lang'
 import { HeaderType, useHeader } from './headers'
 import { useNavigate , useLocation} from 'react-router-dom'
+import { language } from '../../../Language'
 
 /**
  * Started
@@ -12,6 +13,12 @@ import { useNavigate , useLocation} from 'react-router-dom'
  */
 const Started = () => {
 
+    /**
+     * User Data
+     */
+    const userDataString = sessionStorage.getItem("userData");
+    const userData = userDataString ? JSON.parse(userDataString) : null;
+    
     /**
      * Header
      * 
@@ -24,6 +31,11 @@ const Started = () => {
      */
     const navigate = useNavigate()
 
+    /**
+     * Langauge
+    */
+    const currentLanguage = language.split('-')[0] || 'en'; 
+
     const location = useLocation();
 
     const handleClick = () => {
@@ -35,12 +47,16 @@ const Started = () => {
     };
 
     const handleButtonClick = () => {
-        window.open('https://app.digitalmorocco.net/', '_blank');
+        window.open(`https://app.digitalmorocco.net/?lang=${currentLanguage}`, '_blank');
     }
 
     return (
         <Container className='animation' $name={header.name}>
+            {userData ? 
+            <Button $background={header.stroke} $color={header.color} style={{ borderColor: header.signStrok }}><Lang>Connected</Lang></Button>
+            :
             <Button onClick={handleButtonClick} $background={header.stroke} $color={header.color} style={{ borderColor: header.signStrok }}><Lang>Sign in</Lang></Button>
+            }
             <Button $background='var(--color-green)' $color='var(--color-dark)' $isFill onClick={handleClick}><Lang>Get Started</Lang></Button>
         </Container>
     )

@@ -64,6 +64,10 @@ const Container = styled.div`
     border-start-start-radius: 4px;
     box-shadow: var(--shadow);
     height: 25px;
+    transition: all 200ms ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
     animation: 300ms ${keyframes`
         0% { opacity: 0; }
         100% { opacity: 1; }
