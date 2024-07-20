@@ -12,7 +12,7 @@ const WhoAreWe = () => {
         <Container id='whoarewe'>
             <div className='title onscroll'></div>
             <div id='header' className='onscroll'>
-                <p id='subtitle'><Lang>Who are we?</Lang></p>
+                <p id='subtitle'><Lang>Who Are We?</Lang></p>
                 <p><Lang>Digital Morocco is a community of businesses, institutions, investors, and local and international experts in the digital field, working to develop skills and technologies and to qualify startups and digital projects to meet the challenges of the market and changes in the business environment in Morocco and around the world.</Lang></p>
             </div>
             <div className='title onscroll'><Lang>Our Mission</Lang></div>

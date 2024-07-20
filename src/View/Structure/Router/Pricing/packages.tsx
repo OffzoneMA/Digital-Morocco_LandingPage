@@ -211,6 +211,7 @@ const Packages = () => {
                 ]}
                 recommended
                 btnText='Start'
+                isForInvestor
             />
             <Package
                 className='animation'
@@ -230,6 +231,7 @@ const Packages = () => {
                 ]}
                 btnText='Coming soon'
                 mask
+                isForInvestor
             />
             </div>}
             
@@ -285,9 +287,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 35px;
 
-        > * {
-            flex: 1 1 300px;
-        }
+        
     }
 
     > #startUpText {

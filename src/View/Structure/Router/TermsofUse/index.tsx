@@ -25,7 +25,7 @@ const TermOfUse = () => {
 
     return (
         <Container>
-            <div id='titleHeader'><PageTitle title={lang('Term Of Use')} /></div>
+            <div id='titleHeader'><PageTitle title={lang('Terms Of Use')} /></div>
             <Terms/>
             <Brand />
         </Container>

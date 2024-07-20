@@ -9,7 +9,7 @@ import { language } from '../../../Language'
  * 
  * @returns 
  */
-const Package = ({ name, price, desc, features, recommended, btnText, mask, ...restProps }: {
+const Package = ({ name, price, desc, features, recommended, btnText, mask ,isForInvestor, ...restProps }: {
     name: string
     price: number
     desc: string
@@ -17,7 +17,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
     recommended?: boolean
     btnText?: string
     mask?: boolean
-    // isStartup?: boolean
+    isForInvestor?: boolean
 } & React.HTMLAttributes<HTMLDivElement>) => {
 
     /**
@@ -80,7 +80,7 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask, ...r
     }, []);
 
     return (
-        <Container {...restProps} $recommended={recommended} $mask={mask} islongpressed={isLongPressed}>
+        <Container {...restProps} $recommended={recommended} $mask={mask} islongpressed={isLongPressed.toString()} $isForInvestor={isForInvestor}>
             <div id="data">
                 <p id="name">{name}</p>
                 <div id="price">
@@ -144,14 +144,13 @@ export default Package
 const Container = styled.div<{
     $recommended?: boolean
     $mask?: boolean , 
-    islongpressed?: boolean
+    islongpressed?: string ,
+    $isForInvestor?: boolean
 }>`
     display: grid;
     grid-template-rows: auto auto auto 1fr;
     gap: 15px;
-    max-width: 550px;
-
-
+    max-width: ${p => (p.$isForInvestor ? '500px' : '350px')};
 
     > #data {
         display: grid;
@@ -291,7 +290,7 @@ const Container = styled.div<{
             border-color: ${p => (p.$recommended ? '#01A395' : '#25DAC5')};
             background-color: ${p => (p.$recommended ? '#01A395' : 'transparent')};
     
-            ${p => p.$recommended && p.islongpressed && `
+            ${p => p.$recommended && p.islongpressed === "true" && `
                 background-color: #018080; 
                 border-color: #018080;
                 color: white; 
@@ -342,7 +341,6 @@ const Container = styled.div<{
     }
 
     @media (max-width: 992px) {
-        // min-width: 380px;
 
         > #data {
             padding-inline: 20px;

@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import Loader from '../../Components/Loader'
 import ViewTicket from '../../Components/ViewTicket'
 import ViewTicketPDF from '../../Components/ViewTicketPDF'
+import { changeLang } from '../../Language'
+import storage from '../../../Store/storage'
+import { language } from '../../Language'
+
 // Sections
 const Home = lazy(() => import('./Home'))
 const About = lazy(() => import('./About'))
@@ -49,6 +53,24 @@ const getUserFromCookie = () => {
   
   const user = getUserFromCookie();
   sessionStorage.setItem('userData' , JSON.stringify(user));
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const lang = queryParams.get('lang');
+    if (lang) {
+      const languageMap: { [key: string]: string } = {
+        fr: 'fr-FR',
+        en: 'en-US'
+      };
+
+      const selectedLang = languageMap[lang];
+      const currentLang = language;
+
+      if (selectedLang && selectedLang !== currentLang) {
+        changeLang(selectedLang);
+      }
+    }
+  }, []);
 
     return (
         <Suspense fallback={<Loading />}>
