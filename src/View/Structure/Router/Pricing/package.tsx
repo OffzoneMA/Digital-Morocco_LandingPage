@@ -9,9 +9,10 @@ import { language } from '../../../Language'
  * 
  * @returns 
  */
-const Package = ({ name, price, desc, features, recommended, btnText, mask ,isForInvestor, ...restProps }: {
+const Package = ({ name, price , nbMonth, desc, features, recommended, btnText, mask ,isForInvestor, ...restProps }: {
     name: string
     price: number
+    nbMonth?: number
     desc: string
     features: string[]
     recommended?: boolean
@@ -28,7 +29,8 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask ,isFo
 
     const handleButtonClick = () => {
         if (btnText === 'Start') {
-            window.open(`https://app.digitalmorocco.net/SignUp/?lang=${currentLanguage}`, '_blank');
+            window.location.href = `https://app.digitalmorocco.net/SignUp/?lang=${currentLanguage}`
+            // window.open(`https://app.digitalmorocco.net/SignUp/?lang=${currentLanguage}`);
         }
     }
 
@@ -83,12 +85,26 @@ const Package = ({ name, price, desc, features, recommended, btnText, mask ,isFo
         <Container {...restProps} $recommended={recommended} $mask={mask} islongpressed={isLongPressed.toString()} $isForInvestor={isForInvestor}>
             <div id="data">
                 <p id="name">{name}</p>
+                {!isForInvestor ? 
                 <div id="price">
-                    <b id="currency">{price==0? '':'$'}</b>
+                    {/* <b id="currency">{price==0? '':'$'}</b> */}
                     {/* <b id="value">{price==0? <Lang>Free</Lang>:price}</b> */}
-                    <b id="value"><Lang>{price==0? 'Free':'Upcoming'}</Lang></b>
-                    {/* <p id="duration"><Lang>{price==0? '':'per month'}</Lang></p> */}
+                        <b id="value"><Lang>Free</Lang></b>
+                        {/* <p id="duration"><Lang>{price==0? '':'per month'}</Lang></p> */}
+                        <p id="duration1"><Lang>For</Lang> {nbMonth} <Lang>months</Lang></p>
+                        <div id='priceval' >
+                            <span id="currency">$</span>
+                            <span id='value'>{price?.toFixed(2)}</span>
+                        </div>
                 </div>
+                :
+                <div id="priceInv">
+                    {/* <b id="currency">{price==0? '':'$'}</b> */}
+                    {/* <b id="value">{price==0? <Lang>Free</Lang>:price}</b> */} 
+                        <b id="currency">{price==0? '':'$'}</b>
+                        <b id="value"><Lang>{price==0? 'Free':'Upcoming'}</Lang></b>
+                </div>
+                }
                 <p id="desc">{desc}</p>
             </div>
             <div id="featuresblur">
@@ -147,8 +163,9 @@ const Container = styled.div<{
     islongpressed?: string ,
     $isForInvestor?: boolean
 }>`
-    display: grid;
-    grid-template-rows: auto auto auto 1fr;
+    display: flex;
+    flex-direction: column;
+    // grid-template-rows: auto auto auto 1fr;
     gap: 15px;
     max-width: ${p => (p.$isForInvestor ? '500px' : '350px')};
 
@@ -175,8 +192,9 @@ const Container = styled.div<{
             color: ${p => p.$recommended ? 'white' : '#1E0E62'};
         }
 
-        > #price {
+        > #priceInv {
             display: flex;
+            align-items: center;
             gap: 5px;
             height: fit-content;
             color: ${p => p.$recommended ? 'white' : '#1E0E62'};
@@ -191,8 +209,9 @@ const Container = styled.div<{
 
             > #value {
                 line-height: 1;
-                font-size: 58px;
+                font-size: 60px;
                 align-self: end;
+                letter-spacing: -1px;
                 font-family: DMSans-Bold;
             }
 
@@ -204,8 +223,75 @@ const Container = styled.div<{
             }
         }
 
+        > #price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            height: fit-content;
+            color: ${p => p.$recommended ? 'white' : '#1E0E62'};
+
+            > #priceval {
+                display: flex;
+                gap: 5px;
+                height: fit-content;
+                flex-shrink: 0;
+                margin-top: 15px;
+                color: ${p => p.$recommended ? 'rgba(255, 255, 255, 0.60)' : 'rgba(30, 14, 98, 0.60)'};
+
+                > #currency{
+                    margin: 0;
+                    font-family: DMSans-Regular;
+                    font-size: 16px;
+                    align-self: start;
+                    line-height: 18px;
+                 }
+
+                > #value{
+                    margin: 0;
+                    font-family: DMSans-Regular;
+                    font-size: 28px;
+                    line-height: 28px;
+                    letter-spacing: -1px;
+                    text-decoration: line-through;
+                    text-decoration-thickness: 2px;
+                    text-decoration-offset: 6px;
+                }
+            }
+
+            > #currency {
+                line-height: 1;
+                font-size: 31px;
+                align-self: start;
+                margin-top: 5px;
+                font-family: DMSans-Bold;
+            }
+
+            > #value {
+                line-height: 1;
+                font-size: 60px;
+                align-self: end;
+                letter-spacing: -1px;
+                font-family: DMSans-Bold;
+            }
+
+            > #duration {
+                margin: 0;
+                line-height: 1;
+                align-self: end;
+                font-size: 16px;
+            }
+            > #duration1 {
+                margin: 0;
+                font-size: 15px;
+                color: ${p => p.$recommended ? 'white' : '#2575F0'};
+                font-family: DMSans-Regular;
+                line-height: 16px;
+            }
+        }
+
         > #desc {
-            color: ${p => p.$recommended ? 'white' : 'rgb(21 20 57 / 40%)'};
+            color: ${p => p.$recommended ? 'white' : '#151439CC'};
             margin-block: 30px;
             line-height: 26px;
             max-width: 250px;
@@ -215,15 +301,17 @@ const Container = styled.div<{
     #featuresblur {
         position: relative;
         min-height: ${p => p.$mask ? '281px' : ''};
+        flex: 1;
         
         > #features {
             padding-inline: 15px;
+            flex: 1;
     
             > p {
                 display: flex;
                 align-items: flex-start;
                 gap: 10px;
-                color: rgb(21 20 57 / 40%);
+                color: #151439CC;
     
                 > svg {
                     position: relative;
@@ -283,6 +371,7 @@ const Container = styled.div<{
     > button {
         transition: 300ms;
         margin: auto;
+        align-self: flex-end;
 
         &:hover {
             filter: none;
@@ -312,7 +401,6 @@ const Container = styled.div<{
             }
 
             > #price {
-                align-items: center;
 
                 > #currency {
                     font-size: 28px;

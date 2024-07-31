@@ -122,7 +122,8 @@ const Packages = () => {
             <Package
                 className='animation'
                 name={lang('Basic')}
-                price={19.9}
+                price={29.90}
+                nbMonth={12}
                 desc={lang('Connect, join exclusive events, and access essential resources for your project.')}
                 features={[
                     lang('3200 Credits'),
@@ -142,7 +143,8 @@ const Packages = () => {
             <Package
                 className='animation'
                 name={lang('Standard')}
-                price={49.9}
+                price={49.90}
+                nbMonth={8}
                 desc={lang('Unleash unlimited potential with premium events, reports, and priority connections.')}
                 features={[
                     lang('6400 Credits'),
@@ -164,7 +166,8 @@ const Packages = () => {
             <Package
                 className='animation'
                 name={lang('premium')}
-                price={99.99}
+                price={69.90}
+                nbMonth={6}
                 desc={lang('Experience VIP networking, comprehensive event access, and personalized support.')}
                 features={[
                     lang('9600 Credits'),
@@ -293,7 +296,7 @@ const Container = styled.div`
     > #startUpText {
         margin: 0;
         margin-top: 30px;
-        color:  rgba(21, 20, 57, 0.40);
+        color:  #151439B2;
         font-family: "DMSans-Regular";
         font-size: 10px;
         line-height: 26px; 

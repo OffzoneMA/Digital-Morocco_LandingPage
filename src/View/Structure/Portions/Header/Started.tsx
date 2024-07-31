@@ -47,7 +47,8 @@ const Started = () => {
     };
 
     const handleButtonClick = () => {
-        window.open(`https://app.digitalmorocco.net/?lang=${currentLanguage}`, '_blank');
+        window.location.href = `https://app.digitalmorocco.net/?lang=${currentLanguage}`
+        // window.open(`https://app.digitalmorocco.net/?lang=${currentLanguage}`);
     }
 
     return (
