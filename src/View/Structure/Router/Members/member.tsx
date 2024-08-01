@@ -51,7 +51,7 @@ const Container = styled.div`
     border-radius: 14px;
     border: 2px solid #EBEAED;
     padding: 20px;   
-    min-height: 270px; 
+    min-height: 265px; 
 
     @media (min-width: 768px) { 
         max-width: 400px; 
