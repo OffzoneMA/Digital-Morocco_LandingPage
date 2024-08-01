@@ -103,6 +103,12 @@ const Container = styled.div`
         font-weight: 400;
         line-height: 24px;
         color: rgb(21 20 57 / 60%);
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     #website {
