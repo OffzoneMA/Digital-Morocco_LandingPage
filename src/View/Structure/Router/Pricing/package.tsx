@@ -242,9 +242,9 @@ const Container = styled.div<{
                 > #currency{
                     margin: 0;
                     font-family: DMSans-Regular;
-                    font-size: 16px;
+                    font-size: 14px;
                     align-self: start;
-                    line-height: 18px;
+                    line-height: 16px;
                  }
 
                 > #value{

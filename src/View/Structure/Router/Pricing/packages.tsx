@@ -144,7 +144,7 @@ const Packages = () => {
                 className='animation'
                 name={lang('Standard')}
                 price={49.90}
-                nbMonth={8}
+                nbMonth={12}
                 desc={lang('Unleash unlimited potential with premium events, reports, and priority connections.')}
                 features={[
                     lang('6400 Credits'),
@@ -167,7 +167,7 @@ const Packages = () => {
                 className='animation'
                 name={lang('premium')}
                 price={69.90}
-                nbMonth={6}
+                nbMonth={12}
                 desc={lang('Experience VIP networking, comprehensive event access, and personalized support.')}
                 features={[
                     lang('9600 Credits'),
