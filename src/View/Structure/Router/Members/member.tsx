@@ -64,11 +64,12 @@ const Container = styled.div`
         align-items: center;
         margin: auto;
         height: 85px;
+        // width: 100%;
 
         > img {
             max-height: 100%;
             max-width: 100%;
-            width: auto;
+            width: 100%;
             height: auto;
         }
     }
@@ -103,6 +104,7 @@ const Container = styled.div`
         font-weight: 400;
         line-height: 24px;
         color: rgb(21 20 57 / 60%);
+        max-height: 77px;
 
         display: -webkit-box;
         -webkit-line-clamp: 3;
