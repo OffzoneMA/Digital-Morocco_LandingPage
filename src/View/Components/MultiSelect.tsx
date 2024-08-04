@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { Lang } from '../../Controller/Tools/Interface/Lang'
 
 /**
  * Multi select
@@ -77,7 +78,7 @@ const MultiSelect = ({
                                         <rect width="20" height="20" rx="6" fill="#EBEAED" />
                                     </svg>
                                 }
-                                <p id="label">{option.label}</p>
+                                <p id="label"><Lang>{option.label}</Lang></p>
                             </label>
                         ))}
                         </div>
